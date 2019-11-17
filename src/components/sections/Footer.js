@@ -1,8 +1,13 @@
 import React from 'react';
 
+// STYLES
 import styled from 'styled-components';
 
+// COMPONENTS
 import Container from '../interface/Container';
+
+// ASSETS
+import slider_bg2 from '../../assets/img/slider_bg2.jpg';
 
 const StyledContainer = styled(Container)`
   font-family: 'Merriweather', serif;
@@ -17,7 +22,7 @@ const StyledContainer2 = styled(Container)`
 `;
 
 const StyledSlider = styled.div`
-  background-image: url('http://be.beantownthemes.com/html/content/recipes2/images/home_recipes2_sectionbg2.jpg');
+  background-image: url(${slider_bg2});
   background-position: right top;
   background-repeat: no-repeat;
   background-size: auto;
