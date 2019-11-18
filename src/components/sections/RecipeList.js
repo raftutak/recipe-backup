@@ -6,7 +6,6 @@ import ReactJson from 'react-json-view';
 import styled from 'styled-components';
 
 // COMPONENTS
-import Paragraph from '../interface/Paragraph';
 import Container from '../interface/Container';
 
 const StyledWrapper = styled.div`
@@ -19,24 +18,12 @@ const RecipeList = () => (
       <>
         <StyledWrapper>
           <Container>
-            <code>
-              <strong>
-                https://recipe-search.projektstudencki.pl/dish/dishMainCategories
-              </strong>
-            </code>
             <br />
             <br />
             <code>
-              {(context.source = context.recipes.JSON)}
+              {(context.source = context.search_result)}
               <ReactJson src={context.json} />
             </code>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
           </Container>
         </StyledWrapper>
       </>
