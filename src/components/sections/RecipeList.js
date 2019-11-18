@@ -30,6 +30,13 @@ const RecipeList = () => (
               {(context.source = context.recipes.JSON)}
               <ReactJson src={context.json} />
             </code>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
           </Container>
         </StyledWrapper>
       </>

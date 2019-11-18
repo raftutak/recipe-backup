@@ -1,18 +1,18 @@
 import React from 'react';
-import AppContext from '../context';
+import AppContext from './context';
 import axios from 'axios';
 
 // REACT-ROUTER
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { routes } from '../routes';
+import { routes } from './routes';
 
 // VIEWS
-import Contact from './Contact';
-import Home from './Home';
-import Recipes from './Recipes';
+import Contact from './views/Contact';
+import Home from './views/Home';
+import Recipes from './views/Recipes';
 
 // TEMPLATES
-import MainTemplate from '../templates/MainTemplate';
+import MainTemplate from './templates/MainTemplate';
 
 class Root extends React.Component {
   state = {
