@@ -106,7 +106,7 @@ const Header = () => (
           </StyledList>
         </StyledInnerWrapper>
         <StyledUserbox>
-          <StyledLink exact to="#" activeClassName={false}>
+          <StyledLink exact to="#" activeClassName="#">
             Logowanie / Rejestracja
           </StyledLink>
         </StyledUserbox>

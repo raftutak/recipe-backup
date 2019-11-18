@@ -1,116 +1,116 @@
 export const categories = [
   {
-    id: 1,
+    id: 0,
     name: 'Napoje',
     subcategories: [
       {
-        id: 1,
+        id: 0,
         name: 'Koktajle bezmleczne'
       },
       {
-        id: 2,
+        id: 1,
         name: 'Różne'
       },
       {
-        id: 3,
+        id: 2,
         name: 'Napoje alkoholowe'
       },
       {
-        id: 4,
+        id: 3,
         name: 'Soki'
       },
       {
-        id: 5,
+        id: 4,
         name: 'Napoje kawowe'
       },
       {
-        id: 6,
+        id: 5,
         name: 'Kompoty'
       },
       {
-        id: 7,
+        id: 6,
         name: 'Koktajle mleczne'
       }
     ]
   },
   {
-    id: 2,
+    id: 1,
     name: 'Desery',
     subcategories: [
       {
-        id: 1,
+        id: 0,
         name: 'Desery lodowe'
       },
       {
-        id: 2,
+        id: 1,
         name: 'Ciastka'
       },
       {
-        id: 3,
+        id: 2,
         name: 'Słodkie sosy'
       },
       {
-        id: 4,
+        id: 3,
         name: 'Ciasta'
       },
       {
-        id: 5,
+        id: 4,
         name: 'Różne'
       },
       {
-        id: 6,
+        id: 5,
         name: 'Desery świąteczne'
       },
       {
-        id: 7,
+        id: 6,
         name: 'Kisiele'
       },
       {
-        id: 8,
+        id: 7,
         name: 'Kremy i musy'
       },
       {
-        id: 9,
+        id: 8,
         name: 'Desery z kaszy'
       },
       {
-        id: 10,
+        id: 9,
         name: 'Desery z ryżu'
       },
       {
-        id: 11,
+        id: 10,
         name: 'Desery mleczne'
       }
     ]
-  },
-  {
-    id: 3,
-    name: 'Zupy',
-    subcategories: []
-  },
-  {
-    id: 4,
-    name: 'Dania',
-    subcategories: []
-  },
-  {
-    id: 5,
-    name: 'Dodatki',
-    subcategories: []
-  },
-  {
-    id: 6,
-    name: 'Przekąski',
-    subcategories: []
-  },
-  {
-    id: 7,
-    name: 'Przetwory',
-    subcategories: []
-  },
-  {
-    id: 8,
-    name: 'Pieczywo',
-    subcategories: []
   }
+  // {
+  //   id: 3,
+  //   name: 'Zupy',
+  //   subcategories: []
+  // },
+  // {
+  //   id: 4,
+  //   name: 'Dania',
+  //   subcategories: []
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Dodatki',
+  //   subcategories: []
+  // },
+  // {
+  //   id: 6,
+  //   name: 'Przekąski',
+  //   subcategories: []
+  // },
+  // {
+  //   id: 7,
+  //   name: 'Przetwory',
+  //   subcategories: []
+  // },
+  // {
+  //   id: 8,
+  //   name: 'Pieczywo',
+  //   subcategories: []
+  // }
 ];

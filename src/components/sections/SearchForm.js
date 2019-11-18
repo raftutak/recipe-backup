@@ -9,6 +9,9 @@ import Container from '../interface/Container';
 import Button from '../interface/Button';
 import Heading from '../interface/Heading';
 
+// ASSETS
+import search_bg1 from '../../assets/img/search_bg1.jpg';
+
 import { categories } from '../../data/categories';
 
 const StyledWrapper = styled.div`
@@ -19,7 +22,7 @@ const StyledWrapper = styled.div`
 
   ::after {
     content: '';
-    background-image: url('https://demos.boxystudio.com/basil/wp-content/uploads/2018/10/cooked_bg_2018-1400x700.jpg');
+    background-image: url(${search_bg1});
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -161,25 +164,14 @@ const SearchForm = () => (
                 }
               >
                 <option value="#">Wybierz podkategorię</option>
-                {categories.map((item, id) => {
-                  id = id + 1;
-                  console.log(id);
-                  console.log(id === item.id && item.name);
-                  console.log(id === item.id && item.subcategories);
-
-                  let current = item.subcategories;
-
-                  return (
-                    <>
-                      {current.map((item, id) => {
-                        id = id + 1;
-                        console.log(item);
-
-                        return <option>{id === item.id && item.name}</option>;
-                      })}
-                    </>
-                  );
-                })}
+                {context.search_mainCategory !== undefined &&
+                context.search_mainCategory !== '#'
+                  ? categories[
+                      parseInt(context.search_mainCategory)
+                    ].subcategories.map(item => {
+                      return <option value={item.id}>{item.name}</option>;
+                    })
+                  : null}
               </StyledSelectCategory>
             </StyledForm>
           </Container>
