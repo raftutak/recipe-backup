@@ -15,9 +15,7 @@ import Recipes from './views/Recipes';
 import MainTemplate from './templates/MainTemplate';
 
 class Root extends React.Component {
-  state = {
-    search_result: []
-  };
+  state = {};
 
   handleInputChange = event => {
     this.setState({
@@ -26,60 +24,32 @@ class Root extends React.Component {
   };
 
   handleSubmitSearch = async event => {
+    event.preventDefault();
+
     this.setState({
-      search_isLoading: true
+      search_isLoading: true,
+      search_result: undefined
     });
 
     const query = this.state.search_input;
-    const response = await axios
-      .get(
-        `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${query}&count=100`
-      )
-      .then(res => {
-        const search_result = response.data;
-        this.setState({ search_result, search_isLoading: false });
-      });
+
+    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${query}&count=10`;
+
+    if (
+      this.state.search_mainCategory !== undefined &&
+      this.state.search_mainCategory !== '#'
+    ) {
+      url = url.concat(
+        `&dishMainCategoryIds=${this.state.search_mainCategory}`
+      );
+    }
+
+    const response = await axios(url);
+
+    const search_result = await response.data.recipes;
+
+    this.setState({ search_result, search_isLoading: false });
   };
-
-  // handleSubmitSearch = async e => {
-  //   const recipeName = this.state.search_input;
-  //   e.preventDefault();
-  //   // const api_call = await fetch(`https://www.food2fork.com/api/search?key=${API_KEY}&q=${recipeName}`);
-  //   const api_call = await fetch(
-  //     `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${recipeName}&count=100`
-  //   );
-  //   console.log(recipeName);
-
-  //   const data = await api_call.json();
-
-  //   this.setState({ recipes: data.recipes, json: data });
-  //   console.log(this.state.recipes);
-
-  //   // event.preventDefault();
-  //   // this.setState({
-  //   //   search_isLoading: true,
-  //   //   search_inputDisabled: true
-  //   // });
-
-  //   // axios
-  //   //   .get('https://recipe-search.projektstudencki.pl/recipe/searchRecipes/', {
-  //   //     params: {
-  //   //       search: this.state.search_input,
-  //   //       dishMainCategoryIds: this.state.search_mainCategory
-  //   //     }
-  //   //   })
-  //   //   .then(async result => {
-  //   //     console.log(result);
-
-  //   //     const data = result.json;
-
-  //   //     this.setState({
-  //   //       ...this.state,
-  //   //       recipes: data
-  //   //     });
-  //   //   })
-  //   //   .catch(error => console.log(error));
-  // };
 
   handleShowCategory = event => {
     event.preventDefault();

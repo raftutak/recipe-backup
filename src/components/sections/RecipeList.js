@@ -18,11 +18,8 @@ const RecipeList = () => (
       <>
         <StyledWrapper>
           <Container>
-            <br />
-            <br />
             <code>
-              {(context.source = context.search_result)}
-              <ReactJson src={context.json} />
+              <ReactJson src={context.search_result} />
             </code>
           </Container>
         </StyledWrapper>
