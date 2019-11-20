@@ -91,7 +91,7 @@ const Header = () => (
             <StyledLink to={routes.recipes} activeClassName="active">
               Przepisy
             </StyledLink>
-            <StyledLink to={routes.meals} activeClassName="active">
+            {/* <StyledLink to={routes.meals} activeClassName="active">
               Posiłki
             </StyledLink>
             <StyledLink to={routes.ingredients} activeClassName="active">
@@ -99,7 +99,7 @@ const Header = () => (
             </StyledLink>
             <StyledLink to={routes.events} activeClassName="active">
               Okazje
-            </StyledLink>
+            </StyledLink> */}
             <StyledLink to={routes.contact} activeClassName="active">
               Kontakt
             </StyledLink>

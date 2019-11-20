@@ -12,6 +12,7 @@ import Heading from '../interface/Heading';
 // ASSETS
 import search_bg1 from '../../assets/img/search_bg1.jpg';
 
+// DATA
 import { categories } from '../../data/categories';
 
 const StyledWrapper = styled.div`
@@ -167,7 +168,7 @@ const SearchForm = () => (
                 {context.search_mainCategory !== undefined &&
                 context.search_mainCategory !== '#'
                   ? categories[
-                      parseInt(context.search_mainCategory)
+                      parseInt(context.search_mainCategory) - 1
                     ].subcategories.map(item => {
                       return <option value={item.id}>{item.name}</option>;
                     })

@@ -44,6 +44,13 @@ class Root extends React.Component {
       );
     }
 
+    if (
+      this.state.search_subCategory !== undefined &&
+      this.state.search_subCategory !== '#'
+    ) {
+      url = url.concat(`&dishSubCategoryIds=${this.state.search_subCategory}`);
+    }
+
     const response = await axios(url);
 
     const search_result = await response.data.recipes;
