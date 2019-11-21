@@ -31,7 +31,7 @@ const StyledWrapper = styled.div`
     bottom: 0;
     right: 0;
     position: absolute;
-    opacity: 0.15;
+    opacity: 0.25;
     filter: contrast(0.5) grayscale(1);
     z-index: -15;
   }
@@ -68,7 +68,7 @@ const StyledButton = styled(Button)`
   border-radius: 25px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  background-color: #ddd;
+  background-color: #c2c0c0;
   padding: 10px 20px;
   border: none;
   transition: 0.2s;
