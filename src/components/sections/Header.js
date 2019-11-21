@@ -66,7 +66,7 @@ const StyledLink = styled(NavLink)`
   &.active {
     color: hsla(0, 100%, 100%, 1);
     padding-bottom: 20px;
-    border-bottom: 6px solid white;
+    border-bottom: 6px solid #86c931;
   }
 `;
 
@@ -74,6 +74,13 @@ const StyledUserbox = styled.div`
   padding-left: 20px;
   background-color: #27374f;
   font-size: 2.9rem;
+
+  :hover {
+    background-color: #86c931;
+    transition: 0.5s;
+    color: hsla(215, 38%, 19%, 1);
+    height: 
+  }
 `;
 
 const Header = () => (

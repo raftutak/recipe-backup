@@ -76,7 +76,7 @@ const StyledButton = styled(Button)`
 
   :hover {
     color: white;
-    background-color: #1e2d42;
+    background-color: #86c931;
   }
 `;
 

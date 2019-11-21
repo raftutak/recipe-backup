@@ -42,14 +42,15 @@ const Sidebar = () => (
     <StyledWrapper>
       <StyledHeading>Kategorie główne</StyledHeading>
       <StyledList>
-        <StyledListItem>Napoje</StyledListItem>
-        <StyledListItem>Desery</StyledListItem>
-        <StyledListItem>Zupy</StyledListItem>
         <StyledListItem>Dania</StyledListItem>
-        <StyledListItem>Dodatki</StyledListItem>
+        <StyledListItem>Zupy</StyledListItem>
+        <StyledListItem>Desery</StyledListItem>
         <StyledListItem>Przekąski</StyledListItem>
+        <StyledListItem>Dodatki</StyledListItem>
+        <StyledListItem>Napoje</StyledListItem>
         <StyledListItem>Przetwory</StyledListItem>
         <StyledListItem>Pieczywo</StyledListItem>
+        <StyledListItem>Różne</StyledListItem>
       </StyledList>
     </StyledWrapper>
   </>
