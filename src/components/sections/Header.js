@@ -10,18 +10,18 @@ import styled from 'styled-components';
 // COMPONENTS
 import Container from '../interface/Container';
 
-const StyledWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  padding: 0 20px;
-  text-align: left;
-  height: 81px;
-  background-color: #1e2d42;
-  color: white;
-  width: 100%;
-  box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
-  z-index: 9999;
-`;
+// const StyledWrapper = styled.div`
+//   position: fixed;
+//   top: 0;
+//   padding: 0 20px;
+//   text-align: left;
+//   height: 81px;
+//   background-color: #1e2d42;
+//   color: white;
+//   width: 100%;
+//   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
+//   z-index: 9999;
+// `;
 
 const StyledInnerWrapper = styled.div`
   text-align: left;
@@ -38,11 +38,11 @@ const StyledLogo = styled.h1`
   text-decoration: none;
 `;
 
-const StyledContainer = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  line-height: 75px;
-`;
+// const StyledContainer = styled(Container)`
+//   display: flex;
+//   justify-content: space-between;
+//   line-height: 75px;
+// `;
 
 const StyledList = styled.ul`
   display: inline-block;
@@ -70,17 +70,44 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const StyledUserbox = styled.div`
-  padding-left: 20px;
-  background-color: #27374f;
-  font-size: 2.9rem;
+const StyledContainer = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+`;
+
+const StyledNav = styled.nav`
+  background-color: #1e2d42;
+  height: 80px;
+
+  ul {
+  }
+
+  li {
+  }
+
+  @media (min-width: 700px) {
+    text-align: left;
+  }
+`;
+
+const StyledHamburger = styled.i`
+  position: absolute;
+  left: 20px;
+  font-size: 1.8rem;
+  line-height: 80px;
+  color: #fff;
+
+  @media (min-width: 700px) {
+    display: none;
+  }
 `;
 
 const Header = () => (
   <>
-    <StyledWrapper>
+    <StyledNav>
       <StyledContainer>
         <StyledInnerWrapper>
+          <StyledHamburger className="fas fa-bars" />
           <StyledLogo exact as={NavLink} to="/">
             recipe-search
           </StyledLogo>
@@ -105,13 +132,8 @@ const Header = () => (
             </StyledLink>
           </StyledList>
         </StyledInnerWrapper>
-        <StyledUserbox>
-          <StyledLink exact to="#" activeClassName="#">
-            Logowanie / Rejestracja
-          </StyledLink>
-        </StyledUserbox>
       </StyledContainer>
-    </StyledWrapper>
+    </StyledNav>
   </>
 );
 
