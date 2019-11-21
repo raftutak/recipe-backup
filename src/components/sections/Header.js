@@ -66,7 +66,7 @@ const StyledLink = styled(NavLink)`
   &.active {
     color: hsla(0, 100%, 100%, 1);
     padding-bottom: 20px;
-    border-bottom: 6px solid #86c931;
+    border-bottom: 6px solid #31c95f;
   }
 `;
 
@@ -76,7 +76,7 @@ const StyledUserbox = styled.div`
   font-size: 2.9rem;
 
   :hover {
-    background-color: #86c931;
+    background-color: #31c95f;
     transition: 0.5s;
     color: hsla(215, 38%, 19%, 1);
     height: 
