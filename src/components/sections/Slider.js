@@ -12,25 +12,30 @@ import Button from '../interface/Button';
 // ASSETS
 import slider_bg1 from '../../assets/img/slider_bg1.jpg';
 
-const StyledWrapper = styled.div`
-  padding: 0 20px;
-  background-color: white;
+const StyledSlider = styled.header`
+  padding-top: 80px;
+  min-height: 360px;
   background-image: url(${slider_bg1});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 `;
 
-const StyledInnerWrapper = styled.div`
+const StyledWrapper = styled.div`
+  padding: 20px;
+  width: 72%;
   text-align: left;
-  width: 62%;
+
+  @media (min-width: 700px) {
+    width: 62%;
+  }
 `;
 
 const Slider = () => (
   <>
-    <StyledWrapper>
+    <StyledSlider>
       <Container>
-        <StyledInnerWrapper>
+        <StyledWrapper>
           <Heading big>Łatwe przepisy na każdą okazję!</Heading>
           <Paragraph big>
             Witaj na recipe-search! Jest to ogromna baza przepisów zawierająca
@@ -40,9 +45,9 @@ const Slider = () => (
             Przekonaj się sam korzystając z wyszukiwarki poniżej!
           </Paragraph>
           <Button>Przepisy</Button>
-        </StyledInnerWrapper>
+        </StyledWrapper>
       </Container>
-    </StyledWrapper>
+    </StyledSlider>
   </>
 );
 

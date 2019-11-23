@@ -4,7 +4,7 @@ import React from 'react';
 import GlobalStyle from '../theme/GlobalStyle';
 
 // COMPONENTS
-import Header from '../components/sections/Header';
+import Nav from '../components/sections/Nav';
 import Slider from '../components/sections/Slider';
 import Footer from '../components/sections/Footer';
 
@@ -12,10 +12,10 @@ const MainTemplate = ({ children, location }) => (
   <>
     <GlobalStyle />
     {console.log(location.pathname)}
-    <Header />
+    <Nav />
     {location.pathname !== '/recipes' ? <Slider /> : null}
-    {children}
-    <Footer />
+    {/* {children}
+    <Footer /> */}
   </>
 );
 
