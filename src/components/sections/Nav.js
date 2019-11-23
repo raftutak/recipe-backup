@@ -72,19 +72,19 @@ const StyledNav = styled.nav`
   background-color: hsl(215, 37%, 19%);
   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
 
-  @media (min-width: 700px) {
-    text-align: left;
-    box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
-  }
-
   i.fas.fa-bars {
     position: absolute;
     left: 20px;
     line-height: 80px;
     font-size: 2.8rem;
     color: hsl(0, 100%, 100%);
+  }
 
-    @media (min-width: 700px) {
+  @media (min-width: 700px) {
+    text-align: left;
+    box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
+
+    i.fas.fa-bars {
       display: none;
     }
   }
@@ -98,7 +98,7 @@ const StyledLogo = styled.span`
   color: hsl(0, 100%, 100%);
 
   @media (min-width: 700px) {
-    padding: 0 20px;
+    padding: 0 40px 0 20px;
   }
 `;
 
@@ -114,6 +114,7 @@ const StyledList = styled.ul`
 const StyledLink = styled.li`
   display: inline-block;
   margin-right: 20px;
+  font-weight: 500;
   text-decoration: none;
   color: hsla(0, 100%, 100%, 0.6);
   transition: 0.2s;
@@ -148,19 +149,6 @@ const Nav = () => (
           </StyledLink>
           <StyledLink as={NavLink} to={routes.recipes} activeClassName="active">
             Przepisy
-          </StyledLink>
-          <StyledLink as={NavLink} to={routes.meals} activeClassName="active">
-            Posiłki
-          </StyledLink>
-          <StyledLink
-            as={NavLink}
-            to={routes.ingredients}
-            activeClassName="active"
-          >
-            Składniki
-          </StyledLink>
-          <StyledLink as={NavLink} to={routes.events} activeClassName="active">
-            Okazje
           </StyledLink>
           <StyledLink as={NavLink} to={routes.contact} activeClassName="active">
             Kontakt

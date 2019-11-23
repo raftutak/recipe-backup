@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Paragraph = styled.p`
-  padding-bottom: 40px;
+  margin: 20px 0;
   font-size: 1.6rem;
 
   ${({ big }) =>
@@ -9,6 +9,18 @@ const Paragraph = styled.p`
     css`
       font-size: 1.8rem;
     `};
+
+  ${({ medium }) =>
+    medium &&
+    css`
+      font-size: 1.6rem;
+    `}
+
+  ${({ small }) =>
+    small &&
+    css`
+      font-size: 1.4rem;
+    `}
 `;
 
 export default Paragraph;

@@ -12,8 +12,10 @@ import Button from '../interface/Button';
 // ASSETS
 import slider_bg1 from '../../assets/img/slider_bg1.jpg';
 
+// DATA
+import { sliderContent } from '../../data/sliderContent';
+
 const StyledSlider = styled.header`
-  padding-top: 80px;
   min-height: 360px;
   background-image: url(${slider_bg1});
   background-position: center;
@@ -23,11 +25,19 @@ const StyledSlider = styled.header`
 
 const StyledWrapper = styled.div`
   padding: 20px;
-  width: 72%;
+  width: 80%;
   text-align: left;
 
   @media (min-width: 700px) {
-    width: 62%;
+    width: 65%;
+
+    ${Heading} {
+      font-size: 4rem;
+    }
+
+    ${Paragraph} {
+      font-size: 1.8rem;
+    }
   }
 `;
 
@@ -36,14 +46,8 @@ const Slider = () => (
     <StyledSlider>
       <Container>
         <StyledWrapper>
-          <Heading big>Łatwe przepisy na każdą okazję!</Heading>
-          <Paragraph big>
-            Witaj na recipe-search! Jest to ogromna baza przepisów zawierająca
-            treści z najlepszych polskich blogów kulinarnych. Od dziś nie musisz
-            przeglądać wielu stron w poszukiwaniu najlepszego lub najprostszego
-            przepisu - wszystko znajdziesz w jednym miejscu, właśnie tutaj.
-            Przekonaj się sam korzystając z wyszukiwarki poniżej!
-          </Paragraph>
+          <Heading medium>{sliderContent[0].heading}</Heading>
+          <Paragraph medium>{sliderContent[0].paragraph}</Paragraph>
           <Button>Przepisy</Button>
         </StyledWrapper>
       </Container>
