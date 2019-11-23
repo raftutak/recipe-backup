@@ -6,7 +6,7 @@ import GlobalStyle from '../theme/GlobalStyle';
 
 // COMPONENTS
 import Nav from '../components/sections/Nav';
-import Slider from '../components/sections/Slider';
+import Header from '../components/sections/Header';
 import Footer from '../components/sections/Footer';
 
 const StyledPadding = styled.div`
@@ -19,7 +19,7 @@ const MainTemplate = ({ children, location }) => (
     {console.log(location.pathname)}
     <Nav />
     <StyledPadding />
-    {location.pathname !== '/recipes' ? <Slider /> : null}
+    {location.pathname !== '/recipes' ? <Header /> : null}
     {children}
     {/* <Footer /> */}
   </>

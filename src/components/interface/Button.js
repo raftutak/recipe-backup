@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Button = styled.button`
   margin: 20px 0;
   height: 45px;
   width: 170px;
-  background-color: white;
+  background-color: transparent;
   font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
@@ -19,6 +19,18 @@ const Button = styled.button`
     background-color: #1e2d42;
     color: white;
   }
+
+  ${({ light }) =>
+    light &&
+    css`
+      border: 1px solid hsl(0, 100%, 100%);
+      color: hsl(0, 100%, 100%);
+
+      :hover {
+        background-color: hsl(0, 100%, 100%);
+        color: hsl(0, 0%, 0%);
+      }
+    `}
 `;
 
 export default Button;
