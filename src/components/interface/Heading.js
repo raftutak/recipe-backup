@@ -4,6 +4,7 @@ const Heading = styled.h1`
   padding: 20px 0;
   font-family: 'Merriweather', sans-serif;
   font-size: 3rem;
+  color: ${props => props.color};
 
   ${({ big }) =>
     big &&

@@ -19,7 +19,6 @@ const StyledWrapper = styled.div`
   padding: 0 20px;
   text-align: center;
   position: relative;
-  z-index: 0;
 
   ::after {
     content: '';

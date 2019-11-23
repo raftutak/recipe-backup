@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 
 const Paragraph = styled.p`
-  margin: 20px 0;
+  padding: 20px 0;
   font-size: 1.6rem;
+  color: ${props => props.color};
 
   ${({ big }) =>
     big &&

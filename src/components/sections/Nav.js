@@ -71,6 +71,7 @@ const StyledNav = styled.nav`
   width: 100%;
   background-color: hsl(215, 37%, 19%);
   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
+  z-index: 99;
 
   i.fas.fa-bars {
     position: absolute;
