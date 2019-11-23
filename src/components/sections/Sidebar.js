@@ -31,8 +31,9 @@ const StyledListItem = styled.li`
   cursor: pointer;
 
   :hover {
-    border-left: 10px solid #ddd;
+    border-left: 10px solid #31c95f;
     padding-left: 30px;
+    font-weight: 600;
     z-index: 999;
   }
 `;
