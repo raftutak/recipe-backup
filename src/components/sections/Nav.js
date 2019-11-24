@@ -10,62 +10,6 @@ import styled from 'styled-components';
 // COMPONENTS
 import Container from '../interface/Container';
 
-// const StyledWrapper = styled.div`
-//   position: fixed;
-//   top: 0;
-//   padding: 0 20px;
-//   text-align: left;
-//   height: 81px;
-//   background-color: #1e2d42;
-//   color: white;
-//   width: 100%;
-//   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
-//   z-index: 9999;
-// `;
-
-// const StyledLogo = styled.h1`
-//   display: inline;
-//   line-height: 75px;
-//   padding-right: 40px;
-//   font-family: 'Pacifico';
-//   font-size: 2.8rem;
-//   font-weight: normal;
-//   color: white;
-//   text-decoration: none;
-// `;
-
-// const StyledContainer = styled(Container)`
-//   display: flex;
-//   justify-content: space-between;
-//   line-height: 75px;
-// `;
-
-// const StyledList = styled.ul`
-//   display: inline-block;
-//   list-style: none;
-// `;
-
-// const StyledLink = styled(NavLink)`
-//   position: relative;
-//   margin-right: 20px;
-//   text-decoration: none;
-//   color: hsla(0, 100%, 100%, 0.6);
-//   top: 0;
-//   transition: 0.2s;
-//   font-size: 1.6rem;
-//   font-weight: 500;
-
-//   :hover {
-//     color: hsla(0, 100%, 100%, 1);
-//   }
-
-//   &.active {
-//     color: hsla(0, 100%, 100%, 1);
-//     padding-bottom: 20px;
-//     border-bottom: 6px solid white;
-//   }
-// `;
-
 const StyledNav = styled.nav`
   position: fixed;
   width: 100%;
@@ -75,7 +19,7 @@ const StyledNav = styled.nav`
 
   i.fas.fa-bars {
     position: absolute;
-    left: 20px;
+    left: 30px;
     line-height: 80px;
     font-size: 2.8rem;
     color: hsl(0, 100%, 100%);

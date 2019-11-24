@@ -14,7 +14,7 @@ const Home = () => (
         {context.search_isLoading && context.search_result === undefined && (
           <LoaderSpinner type="ThreeDots" color="#ddd" height={50} width={50} />
         )}
-        {context.search_result !== undefined && <RecipeList />}
+        {context.search_result !== undefined && <RecipeList id="recipeList" />}
       </>
     )}
   </AppContext.Consumer>

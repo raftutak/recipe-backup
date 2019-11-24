@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 
 // STYLES
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -20,27 +20,31 @@ import { sliderContent } from '../../data/sliderContent';
 
 const StyledHeader = styled.header`
   width: 100%;
-  min-height: 360px;
-  background-image: url(${props => props.bg});
+  background-image: url(${props => props.background});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+
+  @media (min-width: 700px) {
+    background-size: cover;
+  }
 `;
 
 const StyledWrapper = styled.div`
-  padding: 20px 0 20px 20px;
-  width: 80%;
+  padding: 0 30px;
+  width: 95%;
   text-align: left;
 
-  ${({ right }) =>
-    right &&
-    css`
-      text-align: right;
-      text-shadow: 0px 0px 10px #000000;
-    `}
+  ${Paragraph} {
+    padding-top: 0;
+  }
+
+  ${Button} {
+    margin-top: 0;
+  }
 
   @media (min-width: 700px) {
-    width: 60%;
+    padding: 20px 0 20px 20px;
+    width: 65%;
 
     ${Heading} {
       font-size: 4rem;
@@ -54,9 +58,10 @@ const StyledWrapper = styled.div`
 
 const StyledCarouselElement = styled.div`
   width: 100%;
+  height: 440px;
 
-  :focus {
-    outline: none;
+  @media (min-width: 700px) {
+    height: auto;
   }
 `;
 
@@ -66,13 +71,12 @@ const SliderSettings = {
   autoplay: true,
   autoplaySpeed: 10000,
   vertical: true,
-  pauseOnHover: true,
-  focusOnSelect: false
+  pauseOnHover: true
 };
 
 const Header = () => (
   <>
-    <StyledHeader bg={slider_bg1}>
+    <StyledHeader background={slider_bg1}>
       <Container>
         <StyledWrapper>
           <Slider {...SliderSettings}>
@@ -84,6 +88,11 @@ const Header = () => (
             <StyledCarouselElement>
               <Heading medium>{sliderContent[1].heading}</Heading>
               <Paragraph medium>{sliderContent[1].paragraph}</Paragraph>
+              <Button>Przepisy</Button>
+            </StyledCarouselElement>
+            <StyledCarouselElement>
+              <Heading medium>{sliderContent[2].heading}</Heading>
+              <Paragraph medium>{sliderContent[2].paragraph}</Paragraph>
               <Button>Przepisy</Button>
             </StyledCarouselElement>
           </Slider>

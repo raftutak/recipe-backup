@@ -10,22 +10,33 @@ import Container from '../interface/Container';
 
 const StyledWrapper = styled.div`
   padding: 40px;
+  text-align: left;
 `;
 
-const RecipeList = () => (
-  <AppContext.Consumer>
-    {context => (
-      <>
-        <StyledWrapper>
-          <Container>
-            <code>
-              <ReactJson src={context.search_result} />
-            </code>
-          </Container>
-        </StyledWrapper>
-      </>
-    )}
-  </AppContext.Consumer>
-);
+class RecipeList extends React.Component {
+  componentDidMount() {
+    document
+      .getElementById('search_submitButton')
+      .scrollIntoView({ behavior: 'smooth' });
+  }
+
+  render() {
+    return (
+      <AppContext.Consumer>
+        {context => (
+          <>
+            <StyledWrapper id="recipeList">
+              <Container>
+                <code>
+                  <ReactJson src={context.search_result} />
+                </code>
+              </Container>
+            </StyledWrapper>
+          </>
+        )}
+      </AppContext.Consumer>
+    );
+  }
+}
 
 export default RecipeList;
