@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 // COMPONENTS
 import Container from '../interface/Container';
+import Card from '../interface/Card';
 
 const StyledWrapper = styled.div`
   padding: 40px;
@@ -27,9 +28,12 @@ class RecipeList extends React.Component {
           <>
             <StyledWrapper id="recipeList">
               <Container>
-                <code>
+                {/* <code>
                   <ReactJson src={context.search_result} />
-                </code>
+                </code> */}
+                {context.search_result.map(recipe => {
+                  return <Card recipe={recipe} />;
+                })}
               </Container>
             </StyledWrapper>
           </>
