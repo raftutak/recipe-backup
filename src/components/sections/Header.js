@@ -65,13 +65,14 @@ const StyledCarouselElement = styled.div`
   }
 `;
 
-const SliderSettings = {
+const sliderSettings = {
   infinite: true,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 10000,
+  autoplaySpeed: 5000,
   vertical: true,
-  pauseOnHover: true
+  pauseOnHover: true,
+  arrows: false
 };
 
 const Header = () => (
@@ -79,7 +80,7 @@ const Header = () => (
     <StyledHeader background={slider_bg1}>
       <Container>
         <StyledWrapper>
-          <Slider {...SliderSettings}>
+          <Slider {...sliderSettings}>
             <StyledCarouselElement>
               <Heading medium>{sliderContent[0].heading}</Heading>
               <Paragraph medium>{sliderContent[0].paragraph}</Paragraph>
