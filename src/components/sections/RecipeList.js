@@ -9,9 +9,19 @@ import styled from 'styled-components';
 import Container from '../interface/Container';
 import Card from '../interface/Card';
 
-const StyledWrapper = styled.div`
-  padding: 40px;
+// const StyledWrapper = styled.div`
+//   padding: 40px;
+//   text-align: left;
+// `;
+
+const StyledRecipeList = styled.section`
+  width: 100%;
   text-align: left;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 30px;
+  justify-content: center;
 `;
 
 class RecipeList extends React.Component {
@@ -26,16 +36,16 @@ class RecipeList extends React.Component {
       <AppContext.Consumer>
         {context => (
           <>
-            <StyledWrapper id="recipeList">
+            <StyledRecipeList id="recipeList">
               <Container>
                 {/* <code>
                   <ReactJson src={context.search_result} />
                 </code> */}
                 {context.search_result.map(recipe => {
-                  return <Card recipe={recipe} />;
+                  return <Card key={recipe.title} recipe={recipe} />;
                 })}
               </Container>
-            </StyledWrapper>
+            </StyledRecipeList>
           </>
         )}
       </AppContext.Consumer>
