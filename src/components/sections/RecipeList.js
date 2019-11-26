@@ -16,7 +16,6 @@ import Card from '../interface/Card';
 
 const StyledRecipeList = styled.section`
   width: 100%;
-  text-align: left;
   padding: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -36,16 +35,16 @@ class RecipeList extends React.Component {
       <AppContext.Consumer>
         {context => (
           <>
-            <StyledRecipeList id="recipeList">
-              <Container>
+            <Container>
+              <StyledRecipeList id="recipeList">
                 {/* <code>
                   <ReactJson src={context.search_result} />
                 </code> */}
                 {context.search_result.map(recipe => {
                   return <Card key={recipe.title} recipe={recipe} />;
                 })}
-              </Container>
-            </StyledRecipeList>
+              </StyledRecipeList>
+            </Container>
           </>
         )}
       </AppContext.Consumer>
