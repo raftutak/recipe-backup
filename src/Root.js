@@ -6,6 +6,9 @@ import axios from 'axios';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { routes } from './routes';
 
+// BOOTSTRAP
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // VIEWS
 import Contact from './views/Contact';
 import Home from './views/Home';
