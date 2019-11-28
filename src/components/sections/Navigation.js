@@ -84,24 +84,49 @@ import { Button } from 'react-bootstrap';
 // `;
 
 const StyledNavbar = styled(Navbar)`
-  height: 70px;
+  height: 80px;
   background-color: hsl(215, 37%, 19%);
-  box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
+  /* box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3); */
+
+  .navbar-brand {
+    padding-right: 20px;
+    font-family: 'Pacifico', sans-serif;
+    font-size: 1.6rem;
+  }
+
+  .navbar-nav {
+  }
+
+  .navbar-nav .nav-link {
+    padding-right: 15px;
+  }
+
+  .container {
+    align-items: flex-end;
+  }
 `;
 
 const Navigation = () => (
   <>
     <StyledNavbar fixed="top" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">recipe-search</Navbar.Brand>
+        <Navbar.Brand exact as={NavLink} to={routes.home}>
+          recipe-search
+        </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Strona główna</Nav.Link>
-          <Nav.Link href="#features">Przepisy</Nav.Link>
-          <Nav.Link href="#pricing">Kontakt</Nav.Link>
+          <Nav.Link exact as={NavLink} to={routes.home}>
+            Strona główna
+          </Nav.Link>
+          <Nav.Link as={NavLink} to={routes.recipes}>
+            Przepisy
+          </Nav.Link>
+          <Nav.Link as={NavLink} to={routes.contact}>
+            Kontakt
+          </Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="#home">Logowanie</Nav.Link>
-          <Nav.Link href="#features">Rejestracja</Nav.Link>
+          <Nav.Link href="#">Logowanie</Nav.Link>
+          <Nav.Link href="#">Rejestracja</Nav.Link>
         </Nav>
       </Container>
     </StyledNavbar>

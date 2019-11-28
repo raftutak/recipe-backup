@@ -18,8 +18,8 @@ import { Jumbotron, Container, Carousel, Button } from 'react-bootstrap';
 // ASSETS
 import slider_bg1 from '../../assets/img/slider_bg1.jpg';
 
-// // DATA
-// import { sliderContent } from '../../data/sliderContent';
+// DATA
+import { sliderContent } from '../../data/sliderContent';
 
 // const StyledHeader = styled.header`
 //   width: 100%;
@@ -80,7 +80,7 @@ import slider_bg1 from '../../assets/img/slider_bg1.jpg';
 
 const StyledJumbotron = styled(Jumbotron)`
   margin: 0;
-  background-image: url(${slider_bg1});
+  /* background-image: url(${slider_bg1}); */
   background-position: center;
   background-repeat: no-repeat;
 `;
@@ -89,84 +89,55 @@ const StyledContainer = styled(Container)``;
 
 const InnerWrapper = styled(Container)`
   margin: 0;
-  width: 65%;
+  width: 70%;
 `;
+
+const StyledCarousel = styled(Carousel)`
+  margin: 0;
+  padding: 0 7%;
+
+  .carousel-control-prev {
+    justify-content: left;
+    width: auto;
+  }
+
+  .carousel-control-prev-icon {
+    filter: brightness(70%);
+  }
+
+  .carousel-control-next {
+    justify-content: right;
+    width: auto;
+  }
+
+  .carousel-control-next-icon {
+    filter: brightness(70%);
+  }
+`;
+
+const StyledCarouselItem = styled(Carousel.Item)``;
 
 const Header = () => (
   <>
     <StyledJumbotron fluid>
       <StyledContainer>
         <InnerWrapper>
-          <Carousel indicators={false} variant="dark">
-            <Carousel.Item>
-              <>
-                <h1>Łatwe przepisy na każdą okazję</h1>
-                <p>
-                  Witaj na recipe-search! Jest to ogromna baza przepisów
-                  zawierająca treści z najlepszych polskich blogów kulinarnych.
-                  Od dziś nie musisz przeglądać wielu stron w poszukiwaniu
-                  najlepszego lub najprostszego przepisu - wszystko znajdziesz w
-                  jednym miejscu, właśnie tutaj. Przekonaj się sam korzystając z
-                  wyszukiwarki poniżej!
-                </p>
-                <Button>Przejdź do przepisów</Button>
-              </>
-            </Carousel.Item>
-            <Carousel.Item>
-              <>
-                <h1>Łatwe przepisy na każdą okazję</h1>
-                <p>
-                  Witaj na recipe-search! Jest to ogromna baza przepisów
-                  zawierająca treści z najlepszych polskich blogów kulinarnych.
-                  Od dziś nie musisz przeglądać wielu stron w poszukiwaniu
-                  najlepszego lub najprostszego przepisu - wszystko znajdziesz w
-                  jednym miejscu, właśnie tutaj. Przekonaj się sam korzystając z
-                  wyszukiwarki poniżej!
-                </p>
-                <Button>Przejdź do przepisów</Button>
-              </>
-            </Carousel.Item>
-            <Carousel.Item>
-              <>
-                <h1>Łatwe przepisy na każdą okazję</h1>
-                <p>
-                  Witaj na recipe-search! Jest to ogromna baza przepisów
-                  zawierająca treści z najlepszych polskich blogów kulinarnych.
-                  Od dziś nie musisz przeglądać wielu stron w poszukiwaniu
-                  najlepszego lub najprostszego przepisu - wszystko znajdziesz w
-                  jednym miejscu, właśnie tutaj. Przekonaj się sam korzystając z
-                  wyszukiwarki poniżej!
-                </p>
-                <Button>Przejdź do przepisów</Button>
-              </>
-            </Carousel.Item>
-          </Carousel>
+          <StyledCarousel indicators={false} variant="dark">
+            {sliderContent.map(item => {
+              return (
+                <StyledCarouselItem>
+                  <>
+                    <h1>{item.heading}</h1>
+                    <p>{item.paragraph}</p>
+                    <Button>Przejdź do przepisów</Button>
+                  </>
+                </StyledCarouselItem>
+              );
+            })}
+          </StyledCarousel>
         </InnerWrapper>
       </StyledContainer>
     </StyledJumbotron>
-    {/* <StyledHeader background={slider_bg1}>
-      <Container>
-        <StyledWrapper>
-          <Slider {...sliderSettings}>
-            <StyledCarouselElement>
-              <Heading medium>{sliderContent[0].heading}</Heading>
-              <Paragraph medium>{sliderContent[0].paragraph}</Paragraph>
-              <Button>Przepisy</Button>
-            </StyledCarouselElement>
-            <StyledCarouselElement>
-              <Heading medium>{sliderContent[1].heading}</Heading>
-              <Paragraph medium>{sliderContent[1].paragraph}</Paragraph>
-              <Button>Przepisy</Button>
-            </StyledCarouselElement>
-            <StyledCarouselElement>
-              <Heading medium>{sliderContent[2].heading}</Heading>
-              <Paragraph medium>{sliderContent[2].paragraph}</Paragraph>
-              <Button>Przepisy</Button>
-            </StyledCarouselElement>
-          </Slider>
-        </StyledWrapper>
-      </Container>
-    </StyledHeader> */}
   </>
 );
 

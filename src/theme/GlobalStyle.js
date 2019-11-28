@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Merriweather:400,500,600,700|Pacifico|Poppins:400,500,600,700&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Merriweather:400,500,600,700|Pacifico|Montserrat|Poppins:400,500,600,700&display=swap');
 
     *, *::before, *::after {
         margin: 0;
@@ -12,7 +12,12 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        padding-top: 70px;
+        padding-top: 80px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-family: 'Merriweather', sans-serif;
     }
     /* *, *::before, *::after {
         margin: 0;

@@ -11,7 +11,7 @@ import styled from 'styled-components';
 
 // BOOTSTRAP
 
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Col, Form, Button } from 'react-bootstrap';
 
 // ASSETS
 import search_bg1 from '../../assets/img/search_bg1.jpg';
@@ -163,62 +163,87 @@ import { categories } from '../../data/categories';
 
 const StyledContainer = styled(Container)`
   padding: 30px 0;
-  background-image: url(${search_bg1});
+  background-color: #ddd;
+  /* background-image: url(${search_bg1});
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   opacity: 0.2;
-  filter: contrast(0.6) grayscale(1);
+  filter: contrast(0.6) grayscale(1); */
 `;
 
-const InnerWrapper = styled(Container)``;
+// const InnerWrapper = styled(Container)``;
 
-const StyledFormGroup = styled(Form.Group)`
-  position: relative;
-`;
+// const StyledFormGroup = styled(Form.Group)`
+//   position: relative;
+// `;
 
-const StyledFormControl = styled(Form.Control)`
-  display: block;
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  height: 45px;
-  color: #222;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 3px;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-`;
+// const StyledFormControl = styled(Form.Control)`
+//   display: block;
+//   width: 100%;
+//   height: 45px;
+//   padding: 0 0.75rem;
+//   line-height: 1.5;
+//   background-clip: padding-box;
+//   /* border: 1px solid #ced4da; */
+//   border: none;
+//   border-radius: 15px;
+// `;
 
-const StyledButton = styled(Button)`
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 45px;
-  color: #fff;
-  padding: 10px 25px;
-  border-radius: 0 3px 3px 0;
-  background-color: #e13b2b;
-`;
+// const StyledButton = styled(Button)`
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   padding: 0 25px;
+//   height: 45px;
+//   border: none;
+//   border-radius: 0 15px 15px 0;
+// `;
 
 const SearchForm = () => (
   <AppContext.Consumer>
     {context => (
       <>
         <StyledContainer fluid>
-          <InnerWrapper>
+          <Container>
             <Form>
-              <StyledFormGroup>
-                <StyledFormControl
-                  as="input"
-                  placeholder="Wpisz szukaną frazę ..."
-                />
-                <StyledButton type="submit">Szukaj</StyledButton>
-              </StyledFormGroup>
+              <Form.Row>
+                <Col>
+                  <Form.Group>
+                    <Form.Control
+                      as="select"
+                      placeholder="Wpisz szukaną frazę ..."
+                    >
+                      <option>Kategoria 1</option>
+                      <option>Kategoria 2</option>
+                    </Form.Control>
+                  </Form.Group>
+                </Col>
+                <Col>
+                  <Form.Group>
+                    <Form.Control
+                      as="select"
+                      placeholder="Wpisz szukaną frazę ..."
+                    >
+                      <option>Kategoria 1</option>
+                      <option>Kategoria 2</option>
+                    </Form.Control>
+                  </Form.Group>
+                </Col>
+              </Form.Row>
+              <Form.Row>
+                <Col>
+                  <Form.Group>
+                    <Form.Control
+                      as="input"
+                      placeholder="Wpisz szukaną frazę ..."
+                    />
+                    <Button type="submit">Szukaj</Button>
+                  </Form.Group>
+                </Col>
+              </Form.Row>
             </Form>
-          </InnerWrapper>
+          </Container>
         </StyledContainer>
         {/* <StyledSearchForm>
           <Container>

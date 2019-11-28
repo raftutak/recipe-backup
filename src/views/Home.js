@@ -5,6 +5,7 @@ import AppContext from '../context';
 import RecipeList from '../components/sections/RecipeList';
 import SearchForm from '../components/sections/SearchForm';
 import LoaderSpinner from '../components/interface/LoaderSpinner';
+import Recommendations from '../components/sections/Recommendations';
 
 const Home = () => (
   <AppContext.Consumer>
@@ -15,6 +16,7 @@ const Home = () => (
           <LoaderSpinner type="ThreeDots" color="#ddd" height={50} width={50} />
         )}
         {context.search_result !== undefined && <RecipeList id="recipeList" />}
+        <Recommendations />
       </>
     )}
   </AppContext.Consumer>
