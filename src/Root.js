@@ -26,6 +26,15 @@ class Root extends React.Component {
     });
   };
 
+  handleCheckboxChange = event => {
+    const checkboxValue =
+      event.target.type === 'checkbox' ? event.target.checked : null;
+
+    this.setState({
+      [event.target.name]: checkboxValue
+    });
+  };
+
   handleSubmitSearch = async event => {
     event.preventDefault();
 

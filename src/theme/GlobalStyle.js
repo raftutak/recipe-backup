@@ -11,6 +11,17 @@ const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
     }
 
+    body {
+        padding-top: 70px;
+    }
+    /* *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
     html {
         font-size: 62.5%;
     }
@@ -21,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.6rem;
         color: #222223;
         text-align: center;
-    }
+    } */
 `;
 
 export default GlobalStyle;
