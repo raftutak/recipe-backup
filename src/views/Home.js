@@ -4,7 +4,7 @@ import AppContext from '../context';
 // COMPONENTS
 import RecipeList from '../components/sections/RecipeList';
 import SearchForm from '../components/sections/SearchForm';
-import LoaderSpinner from '../components/interface/LoaderSpinner';
+import LoadingDots from '../components/interface/LoadingDots';
 import Recommendations from '../components/sections/Recommendations';
 
 const Home = () => (
@@ -13,7 +13,7 @@ const Home = () => (
       <>
         <SearchForm />
         {context.search_isLoading && context.search_result === undefined && (
-          <LoaderSpinner type="ThreeDots" color="#ddd" height={50} width={50} />
+          <LoadingDots />
         )}
         {context.search_result !== undefined && <RecipeList id="recipeList" />}
         <Recommendations />

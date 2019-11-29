@@ -1,11 +1,11 @@
 import React from 'react';
 
 // COMPONENTS
-import LoaderSpinner from '../components/interface/LoaderSpinner';
+import LoadingDots from '../components/interface/LoadingDots';
 
 const Contact = () => (
   <>
-    <LoaderSpinner type="ThreeDots" color="#ddd" height={50} width={50} />
+    <LoadingDots />
   </>
 );
 

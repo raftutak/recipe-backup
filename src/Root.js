@@ -51,7 +51,7 @@ class Root extends React.Component {
 
     if (
       this.state.search_mainCategory !== undefined &&
-      this.state.search_mainCategory !== '#'
+      this.state.search_mainCategory !== ''
     ) {
       url = url.concat(
         `&dishMainCategoryIds=${this.state.search_mainCategory}`
@@ -60,7 +60,7 @@ class Root extends React.Component {
 
     if (
       this.state.search_subCategory !== undefined &&
-      this.state.search_subCategory !== '#'
+      this.state.search_subCategory !== ''
     ) {
       url = url.concat(`&dishSubCategoryIds=${this.state.search_subCategory}`);
     }

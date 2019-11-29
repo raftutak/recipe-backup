@@ -5,7 +5,6 @@ import AppContext from '../context';
 import styled from 'styled-components';
 
 // COMPONENTS
-import Container from '../components/interface/Container';
 import SearchForm from '../components/sections/SearchForm';
 import Sidebar from '../components/sections/Sidebar';
 import RecipeList from '../components/sections/RecipeList';
@@ -15,7 +14,7 @@ const StyledWrapper = styled.div`
   text-align: center;
 `;
 
-const StyledContainer = styled(Container)`
+const StyledContainer = styled.div`
   display: flex;
   flex-direction: rows;
 `;

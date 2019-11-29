@@ -3,20 +3,17 @@ import React from 'react';
 // STYLES
 import styled from 'styled-components';
 
-// COMPONENTS
-import Container from '../interface/Container';
-
 // ASSETS
 import slider_bg2 from '../../assets/img/slider_bg2.jpg';
 
-const StyledContainer = styled(Container)`
+const StyledContainer = styled.div`
   font-family: 'Merriweather', serif;
   display: flex;
   margin: 0 auto;
   text-align: center;
 `;
 
-const StyledContainer2 = styled(Container)`
+const StyledContainer2 = styled.div`
   margin: 0 auto;
   text-align: center;
 `;

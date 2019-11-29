@@ -4,31 +4,31 @@ export const categories = [
     name: 'Napoje',
     subcategories: [
       {
-        id: 0,
+        id: 10,
         name: 'Koktajle bezmleczne'
       },
       {
-        id: 1,
+        id: 17,
         name: 'Różne'
       },
       {
-        id: 2,
+        id: 15,
         name: 'Napoje alkoholowe'
       },
       {
-        id: 3,
+        id: 14,
         name: 'Soki'
       },
       {
-        id: 4,
+        id: 12,
         name: 'Napoje kawowe'
       },
       {
-        id: 5,
+        id: 11,
         name: 'Kompoty'
       },
       {
-        id: 6,
+        id: 9,
         name: 'Koktajle mleczne'
       }
     ]
@@ -38,47 +38,47 @@ export const categories = [
     name: 'Desery',
     subcategories: [
       {
-        id: 1,
+        id: 20,
         name: 'Desery lodowe'
       },
       {
-        id: 2,
+        id: 28,
         name: 'Ciastka'
       },
       {
-        id: 3,
+        id: 27,
         name: 'Słodkie sosy'
       },
       {
-        id: 4,
+        id: 26,
         name: 'Ciasta'
       },
       {
-        id: 5,
+        id: 25,
         name: 'Różne'
       },
       {
-        id: 6,
+        id: 24,
         name: 'Desery świąteczne'
       },
       {
-        id: 7,
+        id: 23,
         name: 'Kisiele'
       },
       {
-        id: 8,
+        id: 22,
         name: 'Kremy i musy'
       },
       {
-        id: 9,
+        id: 19,
         name: 'Desery z kaszy'
       },
       {
-        id: 10,
+        id: 18,
         name: 'Desery z ryżu'
       },
       {
-        id: 11,
+        id: 16,
         name: 'Desery mleczne'
       }
     ]
@@ -88,23 +88,23 @@ export const categories = [
     name: 'Zupy',
     subcategories: [
       {
-        id: 1,
+        id: 31,
         name: 'Zupy klasyczne'
       },
       {
-        id: 2,
+        id: 35,
         name: 'Zupy owocowe'
       },
       {
-        id: 3,
+        id: 34,
         name: 'Chłodniki'
       },
       {
-        id: 4,
+        id: 32,
         name: 'Różne'
       },
       {
-        id: 5,
+        id: 30,
         name: 'Zupy kremy'
       }
     ]
@@ -114,67 +114,67 @@ export const categories = [
     name: 'Dania',
     subcategories: [
       {
-        id: 1,
+        id: 65,
         name: 'Dania wegetariańskie'
       },
       {
-        id: 2,
+        id: 50,
         name: 'Dania śniadaniowe'
       },
       {
-        id: 3,
+        id: 38,
         name: 'Dania z wołowiny i wieprzowiny'
       },
       {
-        id: 4,
+        id: 40,
         name: 'Dania z mięsa mielonego'
       },
       {
-        id: 5,
+        id: 41,
         name: 'Dania z ryżu'
       },
       {
-        id: 6,
+        id: 42,
         name: 'Dania z kaszy'
       },
       {
-        id: 7,
+        id: 46,
         name: 'Dania makaronowe'
       },
       {
-        id: 8,
+        id: 51,
         name: 'Dania z jaj'
       },
       {
-        id: 9,
+        id: 47,
         name: 'Zapiekanki'
       },
       {
-        id: 10,
+        id: 45,
         name: 'Różne'
       },
       {
-        id: 11,
+        id: 44,
         name: 'Sałatki'
       },
       {
-        id: 12,
+        id: 43,
         name: 'Dania z grzybów'
       },
       {
-        id: 13,
+        id: 39,
         name: 'Dania z dziczyzny'
       },
       {
-        id: 14,
+        id: 37,
         name: 'Dania mączne i ziemniaczane'
       },
       {
-        id: 15,
+        id: 36,
         name: 'Dania z ryb i owoców morza'
       },
       {
-        id: 16,
+        id: 33,
         name: 'Dania z drobiu'
       }
     ]
@@ -184,43 +184,43 @@ export const categories = [
     name: 'Dodatki',
     subcategories: [
       {
-        id: 1,
+        id: 21,
         name: 'Dodatki z ziemniaków, kaszy i ryżu'
       },
       {
-        id: 2,
+        id: 13,
         name: 'Pesto'
       },
       {
-        id: 3,
+        id: 29,
         name: 'Puree'
       },
       {
-        id: 4,
+        id: 49,
         name: 'Sosy na gorąco'
       },
       {
-        id: 5,
+        id: 48,
         name: 'Sosy na zimno'
       },
       {
-        id: 6,
+        id: 59,
         name: 'Różne'
       },
       {
-        id: 7,
+        id: 55,
         name: 'Surówki'
       },
       {
-        id: 8,
+        id: 54,
         name: 'Pasty'
       },
       {
-        id: 9,
+        id: 53,
         name: 'Wędliny'
       },
       {
-        id: 10,
+        id: 52,
         name: 'Pasztety'
       }
     ]
@@ -230,11 +230,11 @@ export const categories = [
     name: 'Przekąski',
     subcategories: [
       {
-        id: 1,
+        id: 58,
         name: 'Na zimno'
       },
       {
-        id: 2,
+        id: 57,
         name: 'Na ciepło'
       }
     ]
@@ -244,27 +244,27 @@ export const categories = [
     name: 'Przetwory',
     subcategories: [
       {
-        id: 1,
+        id: 67,
         name: 'Różne'
       },
       {
-        id: 2,
+        id: 63,
         name: 'Dżemy'
       },
       {
-        id: 3,
+        id: 62,
         name: 'Powidła'
       },
       {
-        id: 4,
+        id: 61,
         name: 'Marmolady'
       },
       {
-        id: 5,
+        id: 60,
         name: 'Przetwory marynowane'
       },
       {
-        id: 6,
+        id: 56,
         name: 'Konfitury'
       }
     ]
@@ -274,19 +274,19 @@ export const categories = [
     name: 'Pieczywo',
     subcategories: [
       {
-        id: 1,
+        id: 64,
         name: 'Pieczywo inne'
       },
       {
-        id: 2,
+        id: 70,
         name: 'Pieczywo pszenne'
       },
       {
-        id: 3,
+        id: 69,
         name: 'Pieczywo mieszane'
       },
       {
-        id: 4,
+        id: 68,
         name: 'Pieczywo żytnie'
       }
     ]

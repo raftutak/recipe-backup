@@ -43,7 +43,7 @@ const RecipeCard = ({ recipe }) => (
         <ListGroupItem>
           <strong>ingredientIds:</strong>{' '}
           {recipe.ingredientIds.map(ingredientID => (
-            <>{ingredientID}, </>
+            <span key={ingredientID}>{ingredientID}, </span>
           ))}
         </ListGroupItem>
       </ListGroup>
