@@ -77,14 +77,24 @@ import { categories } from '../../data/categories';
 // `;
 
 const StyledContainer = styled(Container)`
+  position: relative;
   padding: 30px 0;
-  background-color: #ddd;
-  /* background-image: url(${search_bg1});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  opacity: 0.2;
-  filter: contrast(0.6) grayscale(1); */
+  width: 100%;
+
+  ::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(${search_bg1});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: opacity(0.3) contrast(0.6) grayscale(1);
+    z-index: -1;
+  }
 `;
 
 // const InnerWrapper = styled(Container)``;
@@ -159,7 +169,11 @@ const SearchForm = () => (
                     <Form.Control as="select">
                       <option value="#">Wybierz kategorię</option>
                       {categories.map(item => {
-                        return <option value={item.id}>{item.name}</option>;
+                        return (
+                          <option key={item.name} value={item.id}>
+                            {item.name}
+                          </option>
+                        );
                       })}
                     </Form.Control>
                   </Form.Group>
@@ -173,7 +187,11 @@ const SearchForm = () => (
                         ? categories[
                             parseInt(context.search_mainCategory) - 1
                           ].subcategories.map(item => {
-                            return <option value={item.id}>{item.name}</option>;
+                            return (
+                              <option key={item.name} value={item.id}>
+                                {item.name}
+                              </option>
+                            );
                           })
                         : null}
                     </Form.Control>

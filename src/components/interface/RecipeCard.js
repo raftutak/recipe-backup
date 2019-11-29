@@ -5,10 +5,15 @@ import styled from 'styled-components';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const StyledCard = styled(Card)`
+  border-radius: 15px;
+
   .card-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 `;
 

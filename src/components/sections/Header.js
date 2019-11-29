@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { NavLink } from 'react-router-dom';
+import { routes } from '../../routes';
+
 // STYLES
 import styled from 'styled-components';
 
@@ -78,7 +81,9 @@ const Header = () => (
                   <>
                     <h1 className="mb-4">{item.heading}</h1>
                     <p className="mb-4">{item.paragraph}</p>
-                    <StyledButton>Przejdź do przepisów</StyledButton>
+                    <NavLink to={routes.recipes}>
+                      <StyledButton>Przejdź do przepisów</StyledButton>
+                    </NavLink>
                   </>
                 </StyledCarouselItem>
               );

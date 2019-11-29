@@ -12,8 +12,8 @@ import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import { Navbar } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+// import { Form } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 
 // // COMPONENTS
 // import Container from '../interface/Container';
@@ -89,7 +89,7 @@ const StyledNavbar = styled(Navbar)`
   /* box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3); */
 
   .navbar-brand {
-    padding-right: 20px;
+    padding-right: 25px;
     font-family: 'Pacifico', sans-serif;
     font-size: 1.6rem;
   }
@@ -98,7 +98,19 @@ const StyledNavbar = styled(Navbar)`
   }
 
   .navbar-nav .nav-link {
-    padding-right: 15px;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 25px;
+    transition: 0.2s ease-in;
+
+    :hover {
+      color: hsla(0, 100%, 100%, 1);
+    }
+
+    &.active {
+      border-bottom: 3px solid white;
+      color: hsla(0, 100%, 100%, 1);
+    }
   }
 
   .container {

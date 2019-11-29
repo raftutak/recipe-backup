@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
 const Heading = styled.h1`
-  padding: 20px 0;
+  padding-top: 20px;
   font-family: 'Merriweather', sans-serif;
-  font-size: 3rem;
+  font-size: 1.6rem;
   color: ${props => props.color};
 
   ${({ big }) =>
