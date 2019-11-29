@@ -7,12 +7,16 @@ import styled from 'styled-components';
 
 // COMPONENTS
 import Container from '../interface/Container';
-import Card from '../interface/Card';
+import RecipeCard from '../interface/RecipeCard';
 
 // const StyledWrapper = styled.div`
 //   padding: 40px;
 //   text-align: left;
 // `;
+
+const InnerWrapper = styled(Container)`
+  margin: 0 auto;
+`;
 
 const StyledRecipeList = styled.section`
   width: 100%;
@@ -24,29 +28,33 @@ const StyledRecipeList = styled.section`
 `;
 
 class RecipeList extends React.Component {
-  componentDidMount() {
-    document
-      .getElementById('search_submitButton')
-      .scrollIntoView({ behavior: 'smooth' });
-  }
+  // componentDidMount() {
+  //   document
+  //     .getElementById('search_submitButton')
+  //     .scrollIntoView({ behavior: 'smooth' });
+  // }
 
   render() {
     return (
       <AppContext.Consumer>
-        {context => (
-          <>
-            <Container>
-              <StyledRecipeList id="recipeList">
-                {/* <code>
+        {context =>
+          context.search_result ? (
+            <>
+              <Container fluid>
+                <InnerWrapper>
+                  <StyledRecipeList id="recipeList">
+                    {/* <code>
                   <ReactJson src={context.search_result} />
                 </code> */}
-                {context.search_result.map(recipe => {
-                  return <Card key={recipe.title} recipe={recipe} />;
-                })}
-              </StyledRecipeList>
-            </Container>
-          </>
-        )}
+                    {context.search_result.map(recipe => {
+                      return <RecipeCard key={recipe.title} recipe={recipe} />;
+                    })}
+                  </StyledRecipeList>
+                </InnerWrapper>
+              </Container>
+            </>
+          ) : null
+        }
       </AppContext.Consumer>
     );
   }

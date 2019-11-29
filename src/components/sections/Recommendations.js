@@ -11,7 +11,7 @@ import slider_bg2 from '../../assets/img/slider_bg2.jpg';
 
 const containerContent = (
   <>
-    <h4>Test</h4>
+    <h4 className="mb-3">Polecany blog</h4>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim
       lorem vel dignissim imperdiet. Quisque et lacus venenatis, mollis lorem
@@ -29,8 +29,8 @@ const StyledContainerBackground = styled(Container)`
   padding: 0;
   background-color: white;
 
-  ${({ backgroundImage }) =>
-    backgroundImage &&
+  ${({ backgroundimage }) =>
+    backgroundimage &&
     css`
       background-image: url(${slider_bg2});
       background-position: right top;
@@ -40,15 +40,16 @@ const StyledContainerBackground = styled(Container)`
 `;
 
 const StyledContainer = styled(Container)`
-  padding: 20px;
+  padding: 30px 50px;
   text-align: center;
 
   p {
     margin: 0;
+    font-size: 0.9rem;
   }
 
-  ${({ grayOverlay }) =>
-    grayOverlay &&
+  ${({ grayoverlay }) =>
+    grayoverlay &&
     css`
       color: white;
       background-color: rgba(30, 45, 66, 0.7);
@@ -61,8 +62,10 @@ const Recommendations = () => (
       <Container>
         <Row>
           <StyledCol>
-            <StyledContainerBackground backgroundImage>
-              <StyledContainer grayOverlay>{containerContent}</StyledContainer>
+            <StyledContainerBackground backgroundimage={1}>
+              <StyledContainer grayoverlay={1}>
+                {containerContent}
+              </StyledContainer>
             </StyledContainerBackground>
           </StyledCol>
           <StyledCol>

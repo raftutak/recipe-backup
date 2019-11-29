@@ -18,7 +18,9 @@ import Recipes from './views/Recipes';
 import MainTemplate from './templates/MainTemplate';
 
 class Root extends React.Component {
-  state = {};
+  state = {
+    search_input: ''
+  };
 
   handleInputChange = event => {
     this.setState({
