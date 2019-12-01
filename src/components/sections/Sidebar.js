@@ -37,13 +37,26 @@ const StyledListItem = styled.li`
     z-index: 999;
   }
 `;
+// poprawic, zeby dzialalo!
+// const StyledListItemSub = styled.li`
+//   box-sizing: border-box;
+//   display: none;
+
+//   :hover {
+//     display: inline-block;
+//   }
+// `;
 
 const Sidebar = () => (
   <>
     <StyledWrapper>
       <StyledHeading>Kategorie główne</StyledHeading>
       <StyledList>
-        <StyledListItem>Dania</StyledListItem>
+        <StyledListItem>Dania
+          {/* <StyledListItemSub>Śniadania</StyledListItemSub>
+          <StyledListItemSub>Obiady</StyledListItemSub>
+          <StyledListItemSub>Kolacje</StyledListItemSub> */}
+        </StyledListItem>
         <StyledListItem>Zupy</StyledListItem>
         <StyledListItem>Desery</StyledListItem>
         <StyledListItem>Przekąski</StyledListItem>
