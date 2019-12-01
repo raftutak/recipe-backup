@@ -2,12 +2,13 @@ import React from 'react';
 import AppContext from '../context';
 
 // COMPONENTS
-import RecipeList from '../components/sections/RecipeList';
-import SearchForm from '../components/sections/SearchForm';
-import LoadingDots from '../components/interface/LoadingDots';
-import Recommendations from '../components/sections/Recommendations';
+import RecipeList from '../components/RecipeList';
+import SearchForm from '../components/SearchForm';
+import LoadingDots from '../components/LoadingDots';
+import Recommendations from '../components/Recommendations';
+import Footer from '../components/Footer';
 
-const Home = () => (
+const HomeView = () => (
   <AppContext.Consumer>
     {context => (
       <>
@@ -17,9 +18,10 @@ const Home = () => (
         )}
         {context.search_result !== undefined && <RecipeList id="recipeList" />}
         <Recommendations />
+        <Footer />
       </>
     )}
   </AppContext.Consumer>
 );
 
-export default Home;
+export default HomeView;

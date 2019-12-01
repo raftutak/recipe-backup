@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { NavLink } from 'react-router-dom';
-import { routes } from '../../routes';
+import { routes } from '../routes';
 
 // STYLES
 import styled from 'styled-components';
@@ -10,10 +10,10 @@ import styled from 'styled-components';
 import { Jumbotron, Container, Carousel, Button } from 'react-bootstrap';
 
 // ASSETS
-import slider_bg1 from '../../assets/img/slider_bg1.jpg';
+import slider_bg1 from '../assets/img/slider_bg1.jpg';
 
 // DATA
-import { sliderContent } from '../../data/sliderContent';
+import { sliderContent } from '../data/sliderContent';
 
 const StyledJumbotron = styled(Jumbotron)`
   margin: 0;
@@ -58,14 +58,15 @@ const StyledCarouselItem = styled(Carousel.Item)``;
 
 const StyledButton = styled(Button)`
   padding: 10px 20px;
-  background-color: hsl(215, 37%, 19%);
+  background-color: white;
   border: 1px solid hsl(215, 37%, 19%);
   border-radius: 15px;
+  font-weight: 600;
+  color: hsl(215, 37%, 19%);
 
   :hover {
-    background-color: white;
     border: 1px solid hsl(215, 37%, 19%);
-    color: hsl(215, 37%, 19%);
+    background-color: hsl(215, 37%, 19%);
   }
 `;
 
@@ -81,7 +82,7 @@ const Header = () => (
                   <>
                     <h1 className="mb-4">{item.heading}</h1>
                     <p className="mb-4">{item.paragraph}</p>
-                    <NavLink to={routes.recipes}>
+                    <NavLink to={routes.categories}>
                       <StyledButton>Przejdź do przepisów</StyledButton>
                     </NavLink>
                   </>

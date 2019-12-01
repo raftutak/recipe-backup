@@ -4,14 +4,17 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 // BOOTSTRAP
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Carousel } from 'react-bootstrap';
 
 // ASSETS
-import slider_bg2 from '../../assets/img/slider_bg2.jpg';
+import slider_bg2 from '../assets/img/slider_bg2.jpg';
+
+// DATA
+import { recommendationsContent } from '../data/recommendationsContent';
 
 const containerContent = (
   <>
-    <h4 className="mb-3">Polecany blog</h4>
+    <h4 className="mb-3">Kulinarna porada</h4>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim
       lorem vel dignissim imperdiet. Quisque et lacus venenatis, mollis lorem
@@ -40,7 +43,7 @@ const StyledContainerBackground = styled(Container)`
 `;
 
 const StyledContainer = styled(Container)`
-  padding: 30px 50px;
+  padding: 30px 30px;
   text-align: center;
 
   p {
@@ -70,7 +73,24 @@ const Recommendations = () => (
           </StyledCol>
           <StyledCol>
             <StyledContainerBackground>
-              <StyledContainer>{containerContent}</StyledContainer>
+              <StyledContainer>
+                <h4 className="mb-4">Polecane blogi</h4>
+                <Carousel indicators={false} variant="dark">
+                  {recommendationsContent.map((item, id) => {
+                    return (
+                      <Carousel.Item key={id}>
+                        <>
+                          <img
+                            style={{ width: '350px' }}
+                            src={item.src}
+                            alt={id}
+                          />
+                        </>
+                      </Carousel.Item>
+                    );
+                  })}
+                </Carousel>
+              </StyledContainer>
             </StyledContainerBackground>
           </StyledCol>
         </Row>

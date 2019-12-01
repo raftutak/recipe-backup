@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from '../../context';
+import AppContext from '../context';
 
 // STYLES
 import styled from 'styled-components';
@@ -8,15 +8,14 @@ import styled from 'styled-components';
 import { Container, Col, Form, InputGroup, Button } from 'react-bootstrap';
 
 // ASSETS
-import search_bg1 from '../../assets/img/search_bg1.jpg';
+import search_bg1 from '../assets/img/search_bg1.jpg';
 
 // DATA
-import { categories } from '../../data/categories';
+import { categories } from '../data/categories';
 
 const StyledContainer = styled(Container)`
   position: relative;
   padding: 30px 0;
-  width: 100%;
 
   ::after {
     content: '';

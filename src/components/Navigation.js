@@ -2,16 +2,14 @@ import React from 'react';
 
 // ROUTER
 import { NavLink } from 'react-router-dom';
-import { routes } from '../../routes';
+import { routes } from '../routes';
 
 // STYLES
 import styled from 'styled-components';
 
 // BOOTSTRAP
 
-import Container from 'react-bootstrap/Container';
-import { Navbar } from 'react-bootstrap';
-import { Nav } from 'react-bootstrap';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 // import { Form } from 'react-bootstrap';
 // import { Button } from 'react-bootstrap';
 
@@ -129,14 +127,20 @@ const Navigation = () => (
           <Nav.Link exact as={NavLink} to={routes.home}>
             Strona główna
           </Nav.Link>
-          <Nav.Link as={NavLink} to={routes.recipes}>
+          <Nav.Link as={NavLink} to={routes.categories}>
             Przepisy
+          </Nav.Link>
+          <Nav.Link as={NavLink} to={routes.contact}>
+            Przelicznik kuchenny
+          </Nav.Link>
+          <Nav.Link as={NavLink} to={routes.contact}>
+            Kalkulator BMI
           </Nav.Link>
           <Nav.Link as={NavLink} to={routes.contact}>
             Kontakt
           </Nav.Link>
         </Nav>
-        <Nav>
+        <Nav style={{ 'padding-bottom': '3px' }}>
           <Nav.Link href="#">Logowanie</Nav.Link>
           <Nav.Link href="#">Rejestracja</Nav.Link>
         </Nav>

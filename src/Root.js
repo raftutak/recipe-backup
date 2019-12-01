@@ -10,9 +10,10 @@ import { routes } from './routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // VIEWS
-import Contact from './views/Contact';
-import Home from './views/Home';
-import Recipes from './views/Recipes';
+import HomeView from './views/HomeView';
+import CategoriesView from './views/CategoriesView';
+import RecipeView from './views/RecipeView';
+import ContactView from './views/ContactView';
 
 // TEMPLATES
 import MainTemplate from './templates/MainTemplate';
@@ -47,7 +48,7 @@ class Root extends React.Component {
 
     const query = this.state.search_input;
 
-    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${query}&count=10`;
+    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${query}&count=4`;
 
     if (
       this.state.search_mainCategory !== undefined &&
@@ -66,21 +67,35 @@ class Root extends React.Component {
     }
 
     const response = await axios(url);
-
     const search_result = await response.data.recipes;
 
     this.setState({ search_result, search_isLoading: false });
   };
 
-  handleShowCategory = event => {
+  handleShowCategory = async event => {
     event.preventDefault();
+
+    this.setState({
+      search_isLoading: true,
+      search_result: undefined
+    });
+
+    const id = event.target.value;
+
+    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=4&dishMainCategoryIds=${id}`;
+
+    const response = await axios(url);
+    const search_result = await response.data.recipes;
+
+    this.setState({ search_result, search_isLoading: false });
   };
 
   render() {
     const contextElements = {
       ...this.state,
       handleInputChange: this.handleInputChange,
-      handleSubmitSearch: this.handleSubmitSearch
+      handleSubmitSearch: this.handleSubmitSearch,
+      handleShowCategory: this.handleShowCategory
     };
 
     return (
@@ -89,9 +104,10 @@ class Root extends React.Component {
           <AppContext.Provider value={contextElements}>
             <Switch>
               <MainTemplate>
-                <Route exact={true} path={routes.home} component={Home} />
-                <Route path={routes.recipes} component={Recipes} />
-                <Route path={routes.contact} component={Contact} />
+                <Route exact path={routes.home} component={HomeView} />
+                <Route path={routes.categories} component={CategoriesView} />
+                <Route path={routes.recipe} component={RecipeView} />
+                <Route path={routes.contact} component={ContactView} />
               </MainTemplate>
             </Switch>
           </AppContext.Provider>

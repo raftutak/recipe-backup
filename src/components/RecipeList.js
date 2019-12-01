@@ -1,11 +1,12 @@
 import React from 'react';
-import AppContext from '../../context';
+import AppContext from '../context';
 
 // STYLES
 import styled from 'styled-components';
 
 // COMPONENTS
-import RecipeCard from '../interface/RecipeCard';
+import RecipeCard from './RecipeCard';
+import LoadingDots from './LoadingDots';
 
 import { Container, CardDeck } from 'react-bootstrap';
 
@@ -31,17 +32,23 @@ class RecipeList extends React.Component {
       <AppContext.Consumer>
         {context =>
           context.search_result ? (
-            <>
-              <Container fluid>
-                <InnerWrapper>
-                  <CardDeck id="recipeList">
-                    {context.search_result.map(recipe => {
-                      return <RecipeCard key={recipe.title} recipe={recipe} />;
-                    })}
-                  </CardDeck>
-                </InnerWrapper>
-              </Container>
-            </>
+            !context.search_isLoading ? (
+              <>
+                <Container fluid>
+                  <InnerWrapper>
+                    <CardDeck id="recipeList">
+                      {context.search_result.map(recipe => {
+                        return (
+                          <RecipeCard key={recipe.title} recipe={recipe} />
+                        );
+                      })}
+                    </CardDeck>
+                  </InnerWrapper>
+                </Container>
+              </>
+            ) : (
+              <LoadingDots />
+            )
           ) : null
         }
       </AppContext.Consumer>

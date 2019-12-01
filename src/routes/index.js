@@ -1,6 +1,7 @@
 export const routes = {
   home: '/',
-  recipes: '/recipes',
+  categories: '/categories',
+  recipe: '/recipe/:id',
   meals: 'meals',
   ingredients: 'ingredients',
   events: 'events',
