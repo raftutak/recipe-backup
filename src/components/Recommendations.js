@@ -14,8 +14,10 @@ import { recommendationsContent } from '../data/recommendationsContent';
 
 const containerContent = (
   <>
-    <h4 className="mb-3">Kulinarna porada</h4>
-    <p>
+    <h5 className="mb-3" style={{ color: 'white' }}>
+      <strong>Kulinarna porada</strong>
+    </h5>
+    <p style={{ color: 'white' }}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim
       lorem vel dignissim imperdiet. Quisque et lacus venenatis, mollis lorem
       sed, scelerisque tortor. Quisque rutrum urna vitae leo sagittis, id
@@ -74,7 +76,9 @@ const Recommendations = () => (
           <StyledCol>
             <StyledContainerBackground>
               <StyledContainer>
-                <h4 className="mb-4">Polecane blogi</h4>
+                <h5 className="mb-4">
+                  <strong>Sprawdź również</strong>
+                </h5>
                 <Carousel indicators={false} variant="dark">
                   {recommendationsContent.map((item, id) => {
                     return (

@@ -9,6 +9,7 @@ import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const StyledCard = styled(Card)`
   border-radius: 15px;
+  transition: 0.2s;
 
   .card-img {
     width: 100%;
@@ -17,6 +18,22 @@ const StyledCard = styled(Card)`
     border-radius: 15px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  .goto {
+    a {
+      color: hsl(215, 37%, 19%);
+      text-decoration: none;
+      transition: 0.2s;
+
+      :hover {
+        color: white;
+      }
+    }
+
+    :hover {
+      background-color: hsl(215, 37%, 19%);
+    }
   }
 `;
 
@@ -52,7 +69,7 @@ const RecipeCard = ({ recipe }) => (
               ))}
             </ListGroupItem>
           </ListGroup>
-          <Card.Body>
+          <Card.Body className="goto">
             <Card.Text>
               <Link
                 to={{

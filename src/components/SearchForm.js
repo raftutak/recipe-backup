@@ -16,6 +16,7 @@ import { categories } from '../data/categories';
 const StyledContainer = styled(Container)`
   position: relative;
   padding: 30px 0;
+  text-align: center;
 
   ::after {
     content: '';
@@ -68,6 +69,11 @@ const StyledForm = styled(Form)`
   .form-control {
     border-radius: 15px;
   }
+
+  .btn-secondary {
+    padding: 0 20px;
+    border-radius: 0 15px 15px 0;
+  }
 `;
 
 const SearchForm = () => (
@@ -76,6 +82,9 @@ const SearchForm = () => (
       <>
         <StyledContainer fluid>
           <Container>
+            <h5 className="mb-4">
+              <strong>Wyszukaj przepis na dziś</strong>
+            </h5>
             <StyledForm
               autoComplete="off"
               onSubmit={context.handleSubmitSearch}
@@ -90,6 +99,7 @@ const SearchForm = () => (
                       onChange={context.handleInputChange}
                       as="input"
                       placeholder="Wpisz szukaną frazę ..."
+                      required
                     />
                     <InputGroup.Append>
                       <Button type="submit" variant="secondary">
@@ -108,10 +118,10 @@ const SearchForm = () => (
                       onChange={context.handleInputChange}
                       as="select"
                     >
-                      <option value="">Wybierz kategorię</option>
+                      <option value="">Wybierz kategorię główną</option>
                       {categories.map(item => {
                         return (
-                          <option key={item.name} value={item.id}>
+                          <option key={item.id} value={item.id}>
                             {item.name}
                           </option>
                         );
@@ -126,6 +136,7 @@ const SearchForm = () => (
                       value={context.search_subCategory}
                       onChange={context.handleInputChange}
                       as="select"
+                      disabled={context.search_mainCategory ? false : true}
                     >
                       <option value="">Wybierz podkategorię</option>
                       {context.search_mainCategory
@@ -133,7 +144,7 @@ const SearchForm = () => (
                             parseInt(context.search_mainCategory) - 1
                           ].subcategories.map(item => {
                             return (
-                              <option key={item.name} value={item.id}>
+                              <option key={item.id} value={item.id}>
                                 {item.name}
                               </option>
                             );

@@ -80,7 +80,9 @@ const Header = () => (
               return (
                 <StyledCarouselItem key={id}>
                   <>
-                    <h1 className="mb-4">{item.heading}</h1>
+                    <h1 className="mb-4">
+                      <strong>{item.heading}</strong>
+                    </h1>
                     <p className="mb-4">{item.paragraph}</p>
                     <NavLink to={routes.categories}>
                       <StyledButton>Przejdź do przepisów</StyledButton>
