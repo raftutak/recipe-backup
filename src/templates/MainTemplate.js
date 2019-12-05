@@ -4,18 +4,16 @@ import React from 'react';
 import GlobalStyle from '../theme/GlobalStyle';
 
 // COMPONENTS
-import Header from '../components/sections/Header';
-import Slider from '../components/sections/Slider';
-import Footer from '../components/sections/Footer';
+import Navigation from '../components/Navigation';
+import Header from '../components/Header';
 
 const MainTemplate = ({ children, location }) => (
   <>
     <GlobalStyle />
     {console.log(location.pathname)}
-    <Header />
-    {location.pathname !== '/recipes' ? <Slider /> : null}
+    <Navigation />
+    {location.pathname !== '/categories' ? <Header /> : null}
     {children}
-    <Footer />
   </>
 );
 
