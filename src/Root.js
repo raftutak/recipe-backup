@@ -69,6 +69,8 @@ class Root extends React.Component {
     const response = await axios(url);
     const search_result = await response.data.recipes;
 
+    console.log(search_result);
+
     this.setState({ search_result, search_isLoading: false });
   };
 

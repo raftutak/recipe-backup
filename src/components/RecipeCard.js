@@ -1,13 +1,20 @@
 import React from 'react';
 import AppContext from '../context';
 
+// REACT-ROUTER
 import { Link } from 'react-router-dom';
 
+// STYLES
 import styled from 'styled-components';
 
+// BOOTSTRAP
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
+// DATA
+import { categories } from '../data/categories';
+
 const StyledCard = styled(Card)`
+  width: 15rem;
   border-radius: 15px;
   transition: 0.2s;
 
@@ -43,10 +50,10 @@ const RecipeCard = ({ recipe }) => (
       <>
         <StyledCard>
           <Card.Img src={recipe.image_Url} />
-          <Card.Body>
-            <Card.Title>{recipe.title}</Card.Title>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
+          <Card.Header>
+            <strong>{recipe.title}</strong>
+          </Card.Header>
+          <ListGroup variant="flush">
             <ListGroupItem>
               <strong>id:</strong> {recipe.id}
             </ListGroupItem>
@@ -58,9 +65,27 @@ const RecipeCard = ({ recipe }) => (
             </ListGroupItem>
             <ListGroupItem>
               <strong>dishMainCategoryId</strong>: {recipe.dishMainCategoryId}
+              <br />
+              {recipe.dishMainCategoryId !== 0 ? (
+                categories[recipe.dishMainCategoryId - 1].name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak kategorii</strong>
+              )}
             </ListGroupItem>
             <ListGroupItem>
               <strong>dishSubCategoryId</strong>: {recipe.dishSubCategoryId}
+              <br />
+              {recipe.dishMainCategoryId !== 0 ? (
+                categories[recipe.dishMainCategoryId - 1].subcategories[
+                  categories[
+                    recipe.dishMainCategoryId - 1
+                  ].subcategories.findIndex(
+                    index => index.id === recipe.dishSubCategoryId
+                  )
+                ].name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak podkategorii</strong>
+              )}
             </ListGroupItem>
             <ListGroupItem>
               <strong>ingredientIds:</strong>{' '}
@@ -68,9 +93,7 @@ const RecipeCard = ({ recipe }) => (
                 <span key={ingredientID}>{ingredientID}, </span>
               ))}
             </ListGroupItem>
-          </ListGroup>
-          <Card.Body className="goto">
-            <Card.Text>
+            <ListGroupItem>
               <Link
                 to={{
                   pathname: `/recipe/${recipe.id}`
@@ -78,8 +101,8 @@ const RecipeCard = ({ recipe }) => (
               >
                 <strong>Przejdź do przepisu</strong>
               </Link>
-            </Card.Text>
-          </Card.Body>
+            </ListGroupItem>
+          </ListGroup>
         </StyledCard>
       </>
     )}
