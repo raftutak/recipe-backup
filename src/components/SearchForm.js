@@ -18,7 +18,7 @@ const StyledContainer = styled(Container)`
   overflow: hidden;
   padding: 30px 0;
   text-align: center;
-  background-color: hsl(215, 40%, 12%);
+  background-color: hsl(215, 37%, 19%);
   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
   z-index: 1;
 

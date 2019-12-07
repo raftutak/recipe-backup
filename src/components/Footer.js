@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Container, Row, Col, Badge, Form, Button } from 'react-bootstrap';
 
 const StyledContainer = styled(Container)`
-  background-color: hsl(215, 40%, 12%);
+  background-color: hsl(215, 37%, 19%);
   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
 `;
 

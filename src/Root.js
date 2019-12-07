@@ -6,6 +6,9 @@ import axios from 'axios';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { routes } from './routes';
 
+// AUTH0
+import { useAuth0 } from './react-auth0-spa';
+
 // BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
 
