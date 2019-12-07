@@ -13,6 +13,10 @@ import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 // DATA
 import { categories } from '../data/categories';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as starChecked } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
+
 const StyledCard = styled(Card)`
   width: 15rem;
   border-radius: 15px;
@@ -61,6 +65,14 @@ const RecipeCard = ({ recipe }) => (
             <strong>{recipe.title}</strong>
           </Card.Header>
           <ListGroup variant="flush">
+            <ListGroupItem>
+              <strong>Ocena: </strong>
+              <FontAwesomeIcon icon={starChecked} />
+              <FontAwesomeIcon icon={starChecked} />
+              <FontAwesomeIcon icon={starChecked} />
+              <FontAwesomeIcon icon={starChecked} />
+              <FontAwesomeIcon icon={faStar} />
+            </ListGroupItem>
             <ListGroupItem>
               <strong>Źródło:</strong> {recipe.blog}
             </ListGroupItem>

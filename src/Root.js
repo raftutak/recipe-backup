@@ -38,6 +38,17 @@ class Root extends React.Component {
     });
   };
 
+  handleInitialSearch = async () => {
+    this.setState({ search_isLoading: true, search_result: undefined });
+
+    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=makaron&count=8`;
+
+    const response = await axios(url);
+    const search_result = await response.data.recipes;
+
+    this.setState({ search_result, search_isLoading: false });
+  };
+
   handleSubmitSearch = async event => {
     event.preventDefault();
 
@@ -84,7 +95,7 @@ class Root extends React.Component {
 
     const id = event.target.value;
 
-    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=10&dishMainCategoryIds=${id}`;
+    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=20&dishMainCategoryIds=${id}`;
 
     const response = await axios(url);
     const search_result = await response.data.recipes;
@@ -92,7 +103,9 @@ class Root extends React.Component {
     this.setState({ search_result, search_isLoading: false });
   };
 
-  componentWillMount() {}
+  componentDidMount() {
+    // this.handleInitialSearch();
+  }
 
   render() {
     const contextElements = {

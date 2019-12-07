@@ -3,6 +3,13 @@ import React from 'react';
 // STYLES
 import styled from 'styled-components';
 import { Container } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import {
+  faFacebookSquare,
+  faInstagram,
+  faTwitterSquare
+} from '@fortawesome/free-brands-svg-icons';
 
 // ASSETS
 
@@ -36,6 +43,19 @@ const StyledFooter = styled.footer`
     transition: 0.2s;
 
     :hover {
+      cursor: pointer;
+      color: #222223;
+    }
+  }
+`;
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  padding: 0 10px 15px 10px;
+  font-size: 3rem;
+  color: #cccccc;
+  transition: 0.2s;
+
+  :hover {
     cursor: pointer;
     color: #222223;
   }
@@ -57,9 +77,9 @@ const Footer = () => (
 
     <StyledFooter>
       <Container style={{ 'text-align': 'center' }}>
-        <i className="fab fa-facebook-square"></i>
-        <i className="fab fa-instagram"></i>
-        <i className="fab fa-twitter-square"></i>
+        <StyledFontAwesomeIcon icon={faFacebookSquare} />
+        <StyledFontAwesomeIcon icon={faInstagram} />
+        <StyledFontAwesomeIcon icon={faTwitterSquare} />
         <p>Copyright &copy; recipe-search</p>
       </Container>
     </StyledFooter>
