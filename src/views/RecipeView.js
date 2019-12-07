@@ -2,7 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import AppContext from '../context';
 import styled from 'styled-components';
-import { Container, ListGroup, Card } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import { Container, ListGroup, Card, Nav } from 'react-bootstrap';
+import { routes } from '../routes';
 
 const StyledPath = styled.div`
     margin: 0 0 0 20px;
@@ -164,6 +166,9 @@ class RecipeView extends React.Component {
                 <StyledIngredientsListGroupItem>
                   odrobina soli
                 </StyledIngredientsListGroupItem>
+                <Nav.Link as={NavLink} to={routes.contact}>
+                Skorzystaj z przelicznika miar kuchennych!
+                </Nav.Link>
               </StyledIngridients>
               </StyledContainer> 
             <StyledDescription>

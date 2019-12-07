@@ -30,8 +30,11 @@ const StyledNavbar = styled(Navbar)`
     margin-right: 25px;
     transition: 0.2s ease-in;
 
-    :hover {
+    :hover,
+    :after {
       color: hsla(0, 100%, 100%, 1);
+      border-bottom: 6px solid hsla(138, 61%, 49%, 1);
+      padding: 0;
     }
 
     &.active {

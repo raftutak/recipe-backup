@@ -76,6 +76,7 @@ const StyledForm = styled(Form)`
   }
 `;
 
+
 const SearchForm = () => (
   <AppContext.Consumer>
     {context => (
