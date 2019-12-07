@@ -1,6 +1,31 @@
 import React from 'react';
 import axios from 'axios';
 import AppContext from '../context';
+import styled from 'styled-components';
+import { Container, ListGroup } from 'react-bootstrap';
+
+const StyledContainer = styled(Container)`
+    margin: 0 auto;
+    padding: 30px 0;
+`;
+
+const StyledIngridients = styled(ListGroup)`
+    margin: 0 auto;
+    padding: 0;
+    width: 500px;
+    float: left;
+`;
+
+const StyledIngredientsListGroupItem = styled(ListGroup.Item)`
+    :hover {
+      background-color: hsla(215, 37%, 19%, 0.1);
+    }
+`;
+
+const StyledRecipeName = styled.h3`
+    text-align: right;
+    padding: 0;
+`;
 
 class RecipeView extends React.Component {
   componentDidMount = async event => {
@@ -25,7 +50,26 @@ class RecipeView extends React.Component {
       <AppContext.Consumer>
         {context => (
           <>
-            <h3>test</h3>
+          <Container>
+            <StyledContainer fluid>
+              <StyledRecipeName>
+                <p>Pierogi orkiszowe z twarożkiem</p>
+              </StyledRecipeName>
+
+              <StyledIngridients>
+                <StyledIngredientsListGroupItem>
+                  ASD
+                </StyledIngredientsListGroupItem>
+                <StyledIngredientsListGroupItem>
+                  ASD
+                </StyledIngredientsListGroupItem>
+                <StyledIngredientsListGroupItem>
+                  ASD
+                </StyledIngredientsListGroupItem>
+
+              </StyledIngridients>
+            </StyledContainer> 
+          </Container>
           </>
         )}
       </AppContext.Consumer>
