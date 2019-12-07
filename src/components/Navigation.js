@@ -12,7 +12,7 @@ import styled from 'styled-components';
 
 const StyledNavbar = styled(Navbar)`
   height: 80px;
-  background-color: hsl(215, 37%, 19%);
+  background-color: hsl(215, 40%, 12%);
   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
 
   .navbar-brand {

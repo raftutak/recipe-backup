@@ -13,10 +13,8 @@ const HomeView = () => (
     {context => (
       <>
         <SearchForm />
-        {context.search_isLoading && context.search_result === undefined && (
-          <LoadingDots />
-        )}
-        {context.search_result !== undefined && <RecipeList id="recipeList" />}
+        {context.search_isLoading && !context.search_result && <LoadingDots />}
+        {context.search_result && <RecipeList id="recipeList" />}
         <Recommendations />
         <Footer />
       </>

@@ -36,32 +36,6 @@ const StyledContainer = styled(Container)`
 
 // const InnerWrapper = styled(Container)``;
 
-// const StyledFormGroup = styled(Form.Group)`
-//   position: relative;
-// `;
-
-// const StyledFormControl = styled(Form.Control)`
-//   display: block;
-//   width: 100%;
-//   height: 45px;
-//   padding: 0 0.75rem;
-//   line-height: 1.5;
-//   background-clip: padding-box;
-//   /* border: 1px solid #ced4da; */
-//   border: none;
-//   border-radius: 15px;
-// `;
-
-// const StyledButton = styled(Button)`
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   padding: 0 25px;
-//   height: 45px;
-//   border: none;
-//   border-radius: 0 15px 15px 0;
-// `;
-
 const StyledForm = styled(Form)`
   margin: 0 auto;
   width: 80%;

@@ -18,11 +18,11 @@ const GlobalStyle = createGlobalStyle`
 
     h1, h2, h3, h4, h5 {
         font-family: 'Merriweather', sans-serif;
-        color: hsl(215, 37%, 19%);
+        color: hsl(215, 40%, 12%);
     }
 
     p {
-        color: hsl(215, 37%, 19%);
+        color: hsl(215, 40%, 12%);
     }
     /* *, *::before, *::after {
         margin: 0;

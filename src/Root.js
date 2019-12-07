@@ -48,7 +48,7 @@ class Root extends React.Component {
 
     const query = this.state.search_input;
 
-    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${query}&count=4`;
+    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${query}&count=10`;
 
     if (
       this.state.search_mainCategory !== undefined &&
@@ -84,13 +84,15 @@ class Root extends React.Component {
 
     const id = event.target.value;
 
-    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=4&dishMainCategoryIds=${id}`;
+    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=10&dishMainCategoryIds=${id}`;
 
     const response = await axios(url);
     const search_result = await response.data.recipes;
 
     this.setState({ search_result, search_isLoading: false });
   };
+
+  componentWillMount() {}
 
   render() {
     const contextElements = {

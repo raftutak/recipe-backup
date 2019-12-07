@@ -49,16 +49,44 @@ const RecipeCard = ({ recipe }) => (
     {context => (
       <>
         <StyledCard>
-          <Card.Img src={recipe.image_Url} />
+          <Card.Img
+            src={recipe.image_Url}
+            onError={e => {
+              e.target.onerror = null;
+              e.target.src =
+                'http://www.nexuscctv.pl/media/catalog/product/cache/14/image/378x380/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_placeholder_6.png';
+            }}
+          />
           <Card.Header>
             <strong>{recipe.title}</strong>
           </Card.Header>
           <ListGroup variant="flush">
             <ListGroupItem>
-              <strong>id:</strong> {recipe.id}
+              <strong>Źródło:</strong> {recipe.blog}
             </ListGroupItem>
             <ListGroupItem>
-              <strong>blog:</strong> {recipe.blog}
+              <strong>Kategoria:</strong>{' '}
+              {recipe.dishMainCategoryId !== 0 ? (
+                categories[recipe.dishMainCategoryId - 1].name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak kategorii</strong>
+              )}
+              <br />
+              <strong>Podkategoria:</strong>{' '}
+              {recipe.dishMainCategoryId !== 0 ? (
+                categories[recipe.dishMainCategoryId - 1].subcategories[
+                  categories[
+                    recipe.dishMainCategoryId - 1
+                  ].subcategories.findIndex(
+                    index => index.id === recipe.dishSubCategoryId
+                  )
+                ].name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak podkategorii</strong>
+              )}
+            </ListGroupItem>
+            {/* <ListGroupItem>
+              <strong>id:</strong> {recipe.id}
             </ListGroupItem>
             <ListGroupItem>
               <strong>dishId</strong>: {recipe.dishId}
@@ -92,7 +120,7 @@ const RecipeCard = ({ recipe }) => (
               {recipe.ingredientIds.map(ingredientID => (
                 <span key={ingredientID}>{ingredientID}, </span>
               ))}
-            </ListGroupItem>
+            </ListGroupItem> */}
             <ListGroupItem>
               <Link
                 to={{
