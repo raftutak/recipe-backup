@@ -5,7 +5,7 @@ import AppContext from '../context';
 import { Link } from 'react-router-dom';
 
 // STYLES
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // BOOTSTRAP
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
@@ -48,6 +48,10 @@ const StyledCard = styled(Card)`
   }
 `;
 
+const StyledStar = styled(FontAwesomeIcon)`
+  color: hsl(44, 47%, 47%);
+`;
+
 const RecipeCard = ({ recipe }) => (
   <AppContext.Consumer>
     {context => (
@@ -67,11 +71,11 @@ const RecipeCard = ({ recipe }) => (
           <ListGroup variant="flush">
             <ListGroupItem>
               <strong>Ocena: </strong>
-              <FontAwesomeIcon icon={starChecked} />
-              <FontAwesomeIcon icon={starChecked} />
-              <FontAwesomeIcon icon={starChecked} />
-              <FontAwesomeIcon icon={starChecked} />
-              <FontAwesomeIcon icon={faStar} />
+              <StyledStar icon={starChecked} />
+              <StyledStar icon={starChecked} />
+              <StyledStar icon={starChecked} />
+              <StyledStar icon={starChecked} />
+              <StyledStar icon={faStar} />
             </ListGroupItem>
             <ListGroupItem>
               <strong>Źródło:</strong> {recipe.blog}

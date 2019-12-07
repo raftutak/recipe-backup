@@ -5,10 +5,11 @@ import { NavLink } from 'react-router-dom';
 import { routes } from '../routes';
 
 // BOOTSTRAP
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar, Nav, Button, Col } from 'react-bootstrap';
 
 // STYLES
 import styled from 'styled-components';
+import AppContext from '../context';
 
 const StyledNavbar = styled(Navbar)`
   height: 80px;
@@ -18,7 +19,7 @@ const StyledNavbar = styled(Navbar)`
   .navbar-brand {
     padding-right: 25px;
     font-family: 'Pacifico', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .navbar-nav {
@@ -44,37 +45,65 @@ const StyledNavbar = styled(Navbar)`
   }
 `;
 
+const UserButton = styled(Button)`
+  margin: 3px 0 4px 10px;
+  font-size: 0.9rem;
+  border: none;
+
+  :hover {
+    background-color: hsl(44, 47%, 33%);
+  }
+`;
+
 const Navigation = () => (
-  <>
-    <StyledNavbar fixed="top" variant="dark">
-      <Container>
-        <Navbar.Brand exact as={NavLink} to={routes.home}>
-          recipe-search
-        </Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link exact as={NavLink} to={routes.home}>
-            Strona główna
-          </Nav.Link>
-          <Nav.Link as={NavLink} to={routes.categories}>
-            Przepisy
-          </Nav.Link>
-          <Nav.Link as={NavLink} to={routes.contact}>
-            Przelicznik kuchenny
-          </Nav.Link>
-          <Nav.Link as={NavLink} to={routes.contact}>
-            Kalkulator BMI
-          </Nav.Link>
-          <Nav.Link as={NavLink} to={routes.contact}>
-            Kontakt
-          </Nav.Link>
-        </Nav>
-        <Nav>
-          <Nav.Link href="#">Logowanie</Nav.Link>
-          <Nav.Link href="#">Rejestracja</Nav.Link>
-        </Nav>
-      </Container>
-    </StyledNavbar>
-  </>
+  <AppContext.Consumer>
+    {context => (
+      <>
+        <StyledNavbar fixed="top" variant="dark">
+          <Container>
+            <Col md="auto" style={{ display: 'flex', alignItems: 'flex-end' }}>
+              <Navbar.Brand exact as={NavLink} to={routes.home}>
+                recipe-search
+              </Navbar.Brand>
+              <Nav className="mr-auto">
+                <Nav.Link exact as={NavLink} to={routes.home}>
+                  Strona główna
+                </Nav.Link>
+                <Nav.Link as={NavLink} to={routes.categories}>
+                  Przepisy
+                </Nav.Link>
+                <Nav.Link as={NavLink} to={routes.converter}>
+                  Przelicznik kuchenny
+                </Nav.Link>
+                <Nav.Link as={NavLink} to={routes.calculatorBMI}>
+                  Kalkulator BMI
+                </Nav.Link>
+                <Nav.Link as={NavLink} to={routes.contact}>
+                  Kontakt
+                </Nav.Link>
+              </Nav>
+            </Col>
+            <Col md="auto" style={{ display: 'flex', alignItems: 'flex-end' }}>
+              <Nav>
+                <UserButton
+                  onClick={context.handleShowLoginModal}
+                  variant="secondary"
+                >
+                  Logowanie
+                </UserButton>
+                <UserButton
+                  onClick={context.handleShowRegistrationModal}
+                  variant="secondary"
+                >
+                  Rejestracja
+                </UserButton>
+              </Nav>
+            </Col>
+          </Container>
+        </StyledNavbar>
+      </>
+    )}
+  </AppContext.Consumer>
 );
 
 export default Navigation;

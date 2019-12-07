@@ -8,17 +8,22 @@ import styled from 'styled-components';
 import { Container, Col, Form, InputGroup, Button } from 'react-bootstrap';
 
 // ASSETS
-import search_bg1 from '../assets/img/search_bg1.jpg';
+import search_bg1 from '../assets/img/search_bg1s.jpg';
 
 // DATA
 import { categories } from '../data/categories';
 
 const StyledContainer = styled(Container)`
   position: relative;
+  overflow: hidden;
   padding: 30px 0;
   text-align: center;
+  background-color: hsl(215, 40%, 12%);
+  box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
+  z-index: 1;
 
-  ::after {
+
+  /* ::after {
     content: '';
     position: absolute;
     top: 0;
@@ -30,8 +35,23 @@ const StyledContainer = styled(Container)`
     background-size: cover;
     background-attachment: fixed;
     filter: opacity(0.3) contrast(0.6) grayscale(1);
+    background-color: hsl(215, 40%, 12%);
     z-index: -1;
-  }
+  } */
+`;
+
+const StyledBackground = styled(Container)`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url(${search_bg1}); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position-y: -150px;
+  opacity: 0.2;
+  filter: grayscale(1);
 `;
 
 // const InnerWrapper = styled(Container)``;
@@ -41,12 +61,18 @@ const StyledForm = styled(Form)`
   width: 80%;
 
   .form-control {
+    border: none;
     border-radius: 15px;
   }
 
   .btn-secondary {
     padding: 0 20px;
+    border: none;
     border-radius: 0 15px 15px 0;
+
+    :hover {
+      background-color: hsl(44, 47%, 33%);
+    }
   }
 `;
 
@@ -55,8 +81,15 @@ const SearchForm = () => (
     {context => (
       <>
         <StyledContainer fluid>
-          <Container>
-            <h5 className="mb-4">
+          <StyledBackground fluid />
+          <Container style={{ position: 'relative' }}>
+            <h5
+              className="mb-4"
+              style={{
+                color: 'white',
+                textShadow: '0 0 5px hsla(0, 0%, 0%, 1)'
+              }}
+            >
               <strong>Wyszukaj przepis na dziś</strong>
             </h5>
             <StyledForm

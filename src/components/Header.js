@@ -23,7 +23,9 @@ const StyledJumbotron = styled(Jumbotron)`
   background-repeat: no-repeat;
 `;
 
-const StyledContainer = styled(Container)``;
+const StyledContainer = styled(Container)`
+  padding: 0;
+`;
 
 const InnerWrapper = styled(Container)`
   margin: 0;
@@ -75,7 +77,7 @@ const Header = () => (
     <StyledJumbotron fluid>
       <StyledContainer>
         <InnerWrapper>
-          <StyledCarousel indicators={false} variant="dark">
+          <StyledCarousel indicators={false} interval={15000}>
             {sliderContent.map((item, id) => {
               return (
                 <StyledCarouselItem key={id}>
@@ -83,9 +85,11 @@ const Header = () => (
                     <h1 className="mb-4">
                       <strong>{item.heading}</strong>
                     </h1>
-                    <p className="mb-4">{item.paragraph}</p>
+                    <p style={{ fontSize: '1.1rem' }} className="mb-4">
+                      {item.paragraph}
+                    </p>
                     <NavLink to={routes.categories}>
-                      <StyledButton>Przejdź do przepisów</StyledButton>
+                      <StyledButton>{item.button}</StyledButton>
                     </NavLink>
                   </>
                 </StyledCarouselItem>
