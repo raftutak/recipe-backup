@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { Container, ListGroup, Card, Nav } from 'react-bootstrap';
 import { routes } from '../routes';
 
+// PATH OF CURRENT RECIPE
 const StyledPath = styled.div`
     margin: 0 0 0 20px;
     padding: 5px;
@@ -20,6 +21,7 @@ const StyledContainer = styled(Container)`
     padding: 30px 0;
 `;
 
+// LIST OF INGREDIENTS
 const StyledIngridients = styled(ListGroup)`
     margin: 0 auto;
     padding: 0;
@@ -28,6 +30,7 @@ const StyledIngridients = styled(ListGroup)`
     float: left;
 `;
 
+// INGREDIENTS LISTGROUP.ITEM
 const StyledIngredientsListGroupItem = styled(ListGroup.Item)`
     border: none;
     border-bottom: 1px solid hsla(215, 37%, 19%, 0.2);
@@ -42,12 +45,14 @@ const StyledIngredientsListGroupItem = styled(ListGroup.Item)`
     }
 `;
 
+// RECIPE NAME
 const StyledRecipeName = styled.h4`
     float: left;
     padding: 0;
     font-weight: 600;
 `;
 
+// RECIPE IMAGE
 const StyledImage = styled(Card)`
     clear: both;
     float: right;
@@ -63,6 +68,7 @@ const StyledImage = styled(Card)`
     }
 `;
 
+// RECIPE DESCRIPTION
 const StyledDescription = styled.div`
     margin-top: 20px;
     margin-left: 5px;
