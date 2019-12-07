@@ -7,6 +7,8 @@ import styled from 'styled-components';
 // COMPONENTS
 import SearchForm from '../components/SearchForm';
 import Sidebar from '../components/Sidebar';
+import Recommendations from '../components/Recommendations';
+import Footer from '../components/Footer';
 import RecipeList from '../components/RecipeList';
 import LoadingDots from '../components/LoadingDots';
 import { Container } from 'react-bootstrap';
@@ -38,6 +40,8 @@ const CategoriesView = () => (
             </StyledRecipeList>
           </StyledContainer>
         </Container>
+        <Recommendations />
+        <Footer />
       </>
     )}
   </AppContext.Consumer>
