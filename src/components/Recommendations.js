@@ -14,10 +14,13 @@ import { recommendationsContent } from '../data/recommendationsContent';
 
 const containerContent = (
   <>
-    <h5 className="mb-3" style={{ color: 'white' }}>
+    <h5
+      className="mb-3"
+      style={{ color: 'white', textShadow: '0 0 5px hsla(0, 0%, 0%, 1)' }}
+    >
       <strong>Kulinarna porada</strong>
     </h5>
-    <p style={{ color: 'white' }}>
+    <p style={{ color: 'white', textShadow: '0 0 5px hsla(0, 0%, 0%, 1)' }}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim
       lorem vel dignissim imperdiet. Quisque et lacus venenatis, mollis lorem
       sed, scelerisque tortor. Quisque rutrum urna vitae leo sagittis, id
@@ -61,10 +64,35 @@ const StyledContainer = styled(Container)`
     `}
 `;
 
+const StyledCarousel = styled(Carousel)`
+  margin: 0;
+  padding: 0 7%;
+
+  .carousel-control-prev {
+    justify-content: left;
+    width: auto;
+  }
+
+  .carousel-control-prev-icon {
+    filter: brightness(70%);
+  }
+
+  .carousel-control-next {
+    justify-content: right;
+    width: auto;
+  }
+
+  .carousel-control-next-icon {
+    filter: brightness(70%);
+  }
+`;
+
 const Recommendations = () => (
   <>
     <Container fluid>
-      <Container>
+      <Container
+      // style={{ boxShadow: '0 0 15px 0 hsla(0, 0%, 0%, 0.3)' }}
+      >
         <Row>
           <StyledCol>
             <StyledContainerBackground backgroundimage={1}>
@@ -77,9 +105,9 @@ const Recommendations = () => (
             <StyledContainerBackground>
               <StyledContainer>
                 <h5 className="mb-4">
-                  <strong>Sprawdź również</strong>
+                  <strong>Sprawdź nasze źródła</strong>
                 </h5>
-                <Carousel indicators={false} variant="dark">
+                <StyledCarousel indicators={false} variant="dark">
                   {recommendationsContent.map((item, id) => {
                     return (
                       <Carousel.Item key={id}>
@@ -93,7 +121,7 @@ const Recommendations = () => (
                       </Carousel.Item>
                     );
                   })}
-                </Carousel>
+                </StyledCarousel>
               </StyledContainer>
             </StyledContainerBackground>
           </StyledCol>
