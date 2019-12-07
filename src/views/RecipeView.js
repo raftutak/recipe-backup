@@ -10,6 +10,7 @@ const StyledPath = styled.div`
     font-size: 10pt;
     font-style: italic;
     opacity: 0.7;
+    float: right;
 `;
 
 const StyledContainer = styled(Container)`
@@ -39,25 +40,34 @@ const StyledIngredientsListGroupItem = styled(ListGroup.Item)`
     }
 `;
 
-const StyledRecipeName = styled.h3`
-    text-align: right;
+const StyledRecipeName = styled.h4`
+    float: left;
     padding: 0;
     font-weight: 600;
 `;
 
 const StyledImage = styled(Card)`
+    clear: both;
     float: right;
-    width: 1 rem;
+    width: auto;
     transition: 0.2s;
 
-    .card-img {
-      width: 20%;
-      height: 10px;
-      object-fit: cover;
-      border-radius: 15px;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+    .border-bottom {
+      padding: 10px;
+      height: auto;
+      background-color: #31c95f;
+      color: #fff;
+      font-size: 12pt;
     }
+`;
+
+const StyledDescription = styled.div`
+    margin-top: 20px;
+    margin-left: 5px;
+    padding: 10px;
+    font-size: 10pt;
+    float: none;
+    clear: both;
 `;
 
 class RecipeView extends React.Component {
@@ -84,15 +94,19 @@ class RecipeView extends React.Component {
         {context => (
           <>
           <Container>
-            <StyledContainer fluid>
+            <StyledContainer>
               <StyledPath>
                 Jesteś w: recipe-search/przepisy/id_przepisu
               </StyledPath>
               <StyledRecipeName>
-                <p>Pierogi orkiszowe z twarożkiem</p>
+                <p>Pierogi orkiszowe z twarożkiem</p><br></br>
               </StyledRecipeName>
               <StyledImage>
                 <img src="http://3.bp.blogspot.com/-dD-p9c29nek/UYPuyiJOl0I/AAAAAAAAE20/nmFDVbExdaQ/s640/1.jpg" />
+                <div className="border-bottom">
+                  Czas przygotowania: 60 minut<br></br>
+                  Poziom trudności: średni  
+                </div>
               </StyledImage>              
               <StyledIngridients>
                 <h4>Lista składników</h4>
@@ -151,8 +165,20 @@ class RecipeView extends React.Component {
                   odrobina soli
                 </StyledIngredientsListGroupItem>
               </StyledIngridients>
+              </StyledContainer> 
+            <StyledDescription>
+              <p></p>
+              <h4>Rozpoczynamy od przygotowania farszu.</h4>
+              Obydwa rodzaje twarogu wkładamy do sporej miski i dodajemy jogurt.<br></br>
+              Do naczynia wrzucamy również posiekane drobno suszone pomidory, szczypiorek, wciskamy czosnek oraz dodajemy przyprawy (na końcu pieprz, próbując czy serek jest odpowiednio pikantny).<br></br>
+              Całość dokładnie mieszamy.<br></br><br></br>
+              <h4>Następnie przygotowujemy ciasto.</h4>
+              Na stolnicę wysypujemy mąkę, czosnek, stopniowo dodajemy bardzo ciepłą wodę, a na końcu odrobinę oliwy i zagniatamy ciasto, które powinno być raczej luźne i miękkie.<br></br><br></br>
+              <h4>Przed rozwałkowaniem stolnicę należy podsypać obficie mąką.</h4>
+              Ciasto rozwałkowujemy na 2-3 mm placek i sporą szklanką wycinamy koła, na które nakładamy porcje farszu. Zlepiamy wedle domowego sposobu, lub prosimy mamę o pomoc ;-)<br></br>
+              Gotowe pierożki układamy na ściereczce lub posypanej mąką stolnicy. Gotujemy około 5 minut w osolonej wodzie (wrzucone na wrzątek).
+            </StyledDescription>
 
-            </StyledContainer> 
           </Container>
           </>
         )}
