@@ -25,9 +25,13 @@ const InnerWrapper = styled(Container)`
   }
 
   .brand {
-    padding-right: 25px;
+    padding-right: 20px;
     font-family: 'Pacifico', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  .subscribe {
+    border-radius: 5px;
   }
 `;
 
@@ -44,12 +48,13 @@ const StyledListItem = styled.li`
 
 const Tag = styled(Badge)`
   margin: 0 10px 10px 0;
-  padding: 5px 10px;
+  padding: 6px 10px;
   font-weight: 400;
   cursor: pointer;
+  border-radius: 5px;
 
   :hover {
-    background-color: hsl(44, 47%, 33%);
+    background-color: hsl(44, 60%, 42%);
   }
 `;
 
@@ -59,7 +64,7 @@ const StyledButton = styled(Button)`
   border: none;
 
   :hover {
-    background-color: hsl(44, 47%, 33%);
+    background-color: hsl(44, 60%, 42%);
   }
 `;
 
@@ -128,7 +133,11 @@ const Footer = () => (
             </h5>
             <Form>
               <Form.Group controlId="formBasicEmail">
-                <Form.Control type="email" placeholder="Podaj adres email" />
+                <Form.Control
+                  className="subscribe"
+                  type="email"
+                  placeholder="Podaj adres email"
+                />
                 <Form.Text className="text-muted">
                   Zapoznaj się z zasadami subskrypcji
                 </Form.Text>

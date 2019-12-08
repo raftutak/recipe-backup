@@ -2,7 +2,7 @@ import React from 'react';
 import AppContext from '../context';
 
 // COMPONENTS
-import RecipeList from '../components/RecipeList';
+import SearchResult from '../components/SearchResult';
 import SearchForm from '../components/SearchForm';
 import LoadingDots from '../components/LoadingDots';
 import Recommendations from '../components/Recommendations';
@@ -14,7 +14,7 @@ const HomeView = () => (
       <>
         <SearchForm />
         {context.search_isLoading && !context.search_result && <LoadingDots />}
-        {context.search_result && <RecipeList id="recipeList" />}
+        {context.search_result && <SearchResult id="recipe-list" />}
         <Recommendations />
         <Footer />
       </>

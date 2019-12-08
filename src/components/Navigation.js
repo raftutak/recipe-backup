@@ -8,7 +8,15 @@ import { routes } from '../routes';
 import { useAuth0 } from '../react-auth0-spa';
 
 // BOOTSTRAP
-import { Container, Navbar, Nav, Button, Col } from 'react-bootstrap';
+import {
+  Container,
+  Navbar,
+  Nav,
+  Button,
+  Col,
+  Popover,
+  OverlayTrigger
+} from 'react-bootstrap';
 
 // STYLES
 import styled from 'styled-components';
@@ -50,23 +58,39 @@ const StyledNavbar = styled(Navbar)`
 
 const UserButton = styled(Button)`
   margin: 3px 0 4px 10px;
+  padding: 6px 12px;
   font-size: 0.9rem;
   border: none;
+  border-radius: 5px;
 
   :hover {
-    background-color: hsl(44, 47%, 33%);
+    background-color: hsl(44, 60%, 42%);
   }
 `;
 
 const Navigation = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { loading, user } = useAuth0();
+
+  const popover = (
+    <Popover>
+      <Popover.Content>
+        <strong>Pseudonim</strong>: {loading || !user ? null : user.nickname}
+        <br />
+        <strong>Email</strong>: {loading || !user ? null : user.name}
+        <br />
+        <strong>Rejestracja</strong>:{' '}
+        {loading || !user ? null : user.updated_at}
+      </Popover.Content>
+    </Popover>
+  );
 
   return (
     <AppContext.Consumer>
       {context => (
         <>
           <StyledNavbar fixed="top" variant="dark">
-            <Container>
+            <Container style={{ paddingBottom: '10px' }}>
               <Col
                 md="auto"
                 style={{ display: 'flex', alignItems: 'flex-end' }}
@@ -115,9 +139,45 @@ const Navigation = () => {
                   )}
 
                   {isAuthenticated && (
-                    <UserButton onClick={() => logout()} variant="secondary">
-                      Wyloguj
-                    </UserButton>
+                    <>
+                      {loading || !user ? null : (
+                        <>
+                          <OverlayTrigger
+                            trigger="hover"
+                            placement="bottom"
+                            overlay={popover}
+                          >
+                            <UserButton
+                              style={{ backgroundColor: 'hsl(44, 60%, 42%)' }}
+                              variant="secondary"
+                            >
+                              {loading || !user ? (
+                                <div>Loading...</div>
+                              ) : (
+                                <div>Zalogowany jako {user.name}</div>
+                              )}
+                            </UserButton>
+                          </OverlayTrigger>
+                        </>
+                      )}
+
+                      {/* <OverlayTrigger
+                        trigger="hover"
+                        placement="bottom"
+                        overlay={popover}
+                      >
+                        <UserButton variant="secondary">
+                          {loading || !user ? (
+                            <div>Loading...</div>
+                          ) : (
+                            <div>Zalogowany jako {user.name}</div>
+                          )}
+                        </UserButton>
+                      </OverlayTrigger> */}
+                      <UserButton onClick={() => logout()} variant="secondary">
+                        Wyloguj
+                      </UserButton>
+                    </>
                   )}
                 </Nav>
               </Col>

@@ -32,11 +32,10 @@ const CategoriesView = () => (
           <StyledContainer>
             <Sidebar />
             <StyledRecipeList>
-              {context.search_isLoading &&
-                context.search_result === undefined && <LoadingDots />}
-              {context.search_result !== undefined && (
-                <RecipeList id="recipeList" />
+              {context.categories_isLoading && !context.categories_result && (
+                <LoadingDots />
               )}
+              {context.categories_result && <RecipeList id="recipeList" />}
             </StyledRecipeList>
           </StyledContainer>
         </Container>

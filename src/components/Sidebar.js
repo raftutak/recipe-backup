@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { categories } from '../data/categories';
 import AppContext from '../context';
+import { Button } from 'react-bootstrap';
 
 const StyledWrapper = styled.div`
   width: 250px;
@@ -42,7 +43,8 @@ const Sidebar = () => (
               return (
                 <StyledListItem
                   key={id}
-                  value={id + 1}
+                  value={id}
+                  onChange={context.handleInputChange}
                   onClick={context.handleShowCategory}
                 >
                   {item.name}

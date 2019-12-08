@@ -49,7 +49,7 @@ const StyledCard = styled(Card)`
 `;
 
 const StyledStar = styled(FontAwesomeIcon)`
-  color: hsl(44, 47%, 47%);
+  color: hsl(44, 60%, 42%);
 `;
 
 const RecipeCard = ({ recipe }) => (

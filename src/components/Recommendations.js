@@ -112,11 +112,17 @@ const Recommendations = () => (
                     return (
                       <Carousel.Item key={id}>
                         <>
-                          <img
-                            style={{ width: '350px' }}
-                            src={item.src}
-                            alt={id}
-                          />
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              style={{ width: '350px' }}
+                              src={item.src}
+                              alt={id}
+                            />
+                          </a>
                         </>
                       </Carousel.Item>
                     );

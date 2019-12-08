@@ -26,7 +26,8 @@ class Root extends React.Component {
   state = {
     search_input: '',
     showLoginModal: false,
-    showRegistrationModal: false
+    showRegistrationModal: false,
+    category_id: 0
   };
 
   handleInputChange = event => {
@@ -85,9 +86,13 @@ class Root extends React.Component {
   handleShowCategory = async event => {
     event.preventDefault();
 
-    this.setState({ categories_isLoading: true, categories_result: undefined });
+    this.setState({
+      categories_isLoading: true,
+      categories_result: undefined,
+      category_id: event.target.value
+    });
 
-    const id = event.target.value;
+    const id = this.state.category_id;
     let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=20&dishMainCategoryIds=${id}`;
 
     const response = await axios(url);
@@ -106,6 +111,7 @@ class Root extends React.Component {
 
   componentDidMount() {
     // this.handleInitialSearch();
+    // this.handleShowCategory();
   }
 
   render() {
