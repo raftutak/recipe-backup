@@ -79,8 +79,7 @@ const Navigation = () => {
         <br />
         <strong>Email</strong>: {loading || !user ? null : user.name}
         <br />
-        <strong>Rejestracja</strong>:{' '}
-        {loading || !user ? null : user.updated_at}
+        <strong>Aktywność</strong>: {loading || !user ? null : user.updated_at}
       </Popover.Content>
     </Popover>
   );

@@ -8,7 +8,7 @@ import AppContext from '../context';
 import { Button } from 'react-bootstrap';
 
 const StyledWrapper = styled.div`
-  width: 250px;
+  width: 180px;
 `;
 
 const StyledList = styled.ul`
@@ -43,7 +43,7 @@ const Sidebar = () => (
               return (
                 <StyledListItem
                   key={id}
-                  value={id}
+                  value={id + 1}
                   onChange={context.handleInputChange}
                   onClick={context.handleShowCategory}
                 >

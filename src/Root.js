@@ -27,7 +27,7 @@ class Root extends React.Component {
     search_input: '',
     showLoginModal: false,
     showRegistrationModal: false,
-    category_id: 0
+    category_id: 1
   };
 
   handleInputChange = event => {
@@ -84,16 +84,20 @@ class Root extends React.Component {
   };
 
   handleShowCategory = async event => {
-    event.preventDefault();
+    // event.preventDefault();
+
+    let cat_id = event ? event.target.value : 1;
 
     this.setState({
       categories_isLoading: true,
       categories_result: undefined,
-      category_id: event.target.value
+      category_id: cat_id
     });
 
-    const id = this.state.category_id;
-    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=20&dishMainCategoryIds=${id}`;
+    // console.log(event.target.value);
+
+    let id = this.state.category_id;
+    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=8&dishMainCategoryIds=${id}`;
 
     const response = await axios(url);
     const categories_result = await response.data.recipes;

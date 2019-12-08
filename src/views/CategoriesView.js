@@ -35,7 +35,7 @@ const CategoriesView = () => (
               {context.categories_isLoading && !context.categories_result && (
                 <LoadingDots />
               )}
-              {context.categories_result && <RecipeList id="recipeList" />}
+              {context.categories_result && <RecipeList />}
             </StyledRecipeList>
           </StyledContainer>
         </Container>
