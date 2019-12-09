@@ -2,34 +2,40 @@ import React from 'react';
 import axios from 'axios';
 import AppContext from '../context';
 
-class RecipeView extends React.Component {
-  componentDidMount = async event => {
-    this.setState({
-      recipe_isLoading: true,
-      recipe: undefined
-    });
+import styled from 'styled-components';
 
-    let { id } = this.props.match.params;
+import { Container, ListGroup, Card, Nav } from 'react-bootstrap';
 
-    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?id=${id}`;
-    const response = await axios(url);
-    const recipe_result = await response.data.recipe;
+import LoadingDots from '../components/LoadingDots';
+import Footer from '../components/Footer';
+import Recommendations from '../components/Recommendations';
 
-    this.setState({ recipe: recipe_result, recipe_isLoading: false });
+// ROUTER
+import { NavLink } from 'react-router-dom';
+import { routes } from '../routes';
+import SingleRecipe from '../components/SingleRecipe';
 
-    console.log(this.state.recipe);
-  };
+const RecipeView = ({ id }) => {
+  console.log(id);
 
-  render() {
-    return (
-      <AppContext.Consumer>
-        {context => (
-          <>
-            <h3>test</h3>
-          </>
+  return (
+    <AppContext.Consumer>
+      {context => (
+        <>
+          {/* {context.singleRecipe_isLoading && !context.singleRecipe_result && (
+          <LoadingDots />
         )}
-      </AppContext.Consumer>
-    );
-  }
-}
+        {context.singleRecipe_result && <SingleRecipe />} */}
+          {context.singleRecipe_isLoading && !context.singleRecipe_result && (
+            <LoadingDots />
+          )}
+          {!context.singleRecipe_isLoading && <SingleRecipe />}
+          <Recommendations />
+          <Footer />
+        </>
+      )}
+    </AppContext.Consumer>
+  );
+};
+
 export default RecipeView;

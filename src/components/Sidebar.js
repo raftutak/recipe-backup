@@ -8,7 +8,7 @@ import AppContext from '../context';
 import { Button } from 'react-bootstrap';
 
 const StyledWrapper = styled.div`
-  width: 180px;
+  width: 200px;
 `;
 
 const StyledList = styled.ul`

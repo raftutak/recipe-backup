@@ -105,6 +105,27 @@ class Root extends React.Component {
     this.setState({ categories_result, categories_isLoading: false });
   };
 
+  handleReadRecipe = async event => {
+    // let { id } = this.props.match.params.id;
+
+    this.setState({
+      singleRecipe_isLoading: true,
+      singleRecipe_result: undefined
+    });
+
+    // let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?id=${id}`;
+    // const response = await axios(url);
+    // const recipe_result = await response.data.recipe;
+
+    // this.setState({ recipe: recipe_result, recipe_isLoading: false });
+
+    // console.log(this.state.recipe);
+
+    this.setState({
+      singleRecipe_isLoading: false
+    });
+  };
+
   handleShowLoginModal = event => {
     this.setState({ showLoginModal: !this.state.showLoginModal });
   };
@@ -124,6 +145,7 @@ class Root extends React.Component {
       handleInputChange: this.handleInputChange,
       handleSubmitSearch: this.handleSubmitSearch,
       handleShowCategory: this.handleShowCategory,
+      handleReadRecipe: this.handleReadRecipe,
       handleShowLoginModal: this.handleShowLoginModal,
       handleShowRegistrationModal: this.handleShowRegistrationModal
     };
@@ -136,6 +158,10 @@ class Root extends React.Component {
               <MainTemplate>
                 <Route exact path={routes.home} component={HomeView} />
                 <Route path={routes.categories} component={CategoriesView} />
+                <Route
+                  path={routes.recipe}
+                  render={props => <RecipeView id={props.match.params.id} />}
+                />
                 <Route path={routes.calculatorBMI} component={CalculatorView} />
                 <Route path={routes.contact} component={ContactView} />
               </MainTemplate>
