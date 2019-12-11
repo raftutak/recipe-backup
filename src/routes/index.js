@@ -4,5 +4,6 @@ export const routes = {
   recipe: '/recipe/:id',
   converter: '/converter',
   calculatorBMI: '/calculatorBMI',
-  contact: '/contact'
+  contact: '/contact',
+  profile: '/profile'
 };

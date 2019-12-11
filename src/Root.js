@@ -18,6 +18,7 @@ import CategoriesView from './views/CategoriesView';
 import RecipeView from './views/RecipeView';
 import CalculatorView from './views/CalculatorView';
 import ContactView from './views/ContactView';
+import ProfileView from './views/ProfileView';
 
 // TEMPLATES
 import MainTemplate from './templates/MainTemplate';
@@ -164,6 +165,7 @@ class Root extends React.Component {
                 />
                 <Route path={routes.calculatorBMI} component={CalculatorView} />
                 <Route path={routes.contact} component={ContactView} />
+                <Route path={routes.profile} component={ProfileView} />
               </MainTemplate>
             </Switch>
           </AppContext.Provider>

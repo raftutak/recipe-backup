@@ -69,7 +69,12 @@ const UserButton = styled(Button)`
 `;
 
 const Navigation = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+    loginWithPopup,
+    logout
+  } = useAuth0();
   const { loading, user } = useAuth0();
 
   const popover = (
@@ -113,6 +118,9 @@ const Navigation = () => {
                   <Nav.Link as={NavLink} to={routes.contact}>
                     Kontakt
                   </Nav.Link>
+                  <Nav.Link as={NavLink} to={routes.profile}>
+                    Profile
+                  </Nav.Link>
                 </Nav>
               </Col>
               <Col
@@ -123,13 +131,13 @@ const Navigation = () => {
                   {!isAuthenticated && (
                     <>
                       <UserButton
-                        onClick={() => loginWithRedirect({})}
+                        onClick={() => loginWithPopup({})}
                         variant="secondary"
                       >
                         Logowanie
                       </UserButton>
                       <UserButton
-                        onClick={() => loginWithRedirect({})}
+                        onClick={() => loginWithPopup({})}
                         variant="secondary"
                       >
                         Rejestracja
