@@ -5,6 +5,7 @@ import axios from 'axios';
 // REACT-ROUTER
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { routes } from './routes';
+import history from './utils/history';
 
 // AUTH0
 import { useAuth0 } from './react-auth0-spa';
@@ -153,7 +154,7 @@ class Root extends React.Component {
 
     return (
       <>
-        <BrowserRouter>
+        <BrowserRouter history={history}>
           <AppContext.Provider value={contextElements}>
             <Switch>
               <MainTemplate>

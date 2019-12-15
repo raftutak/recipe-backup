@@ -128,6 +128,19 @@ const Navigation = () => {
                 style={{ display: 'flex', alignItems: 'flex-end' }}
               >
                 <Nav>
+                  {/* <UserButton
+                    onClick={context.handleShowLoginModal}
+                    variant="secondary"
+                  >
+                    Logowanie
+                  </UserButton>
+                  <UserButton
+                    onClick={context.handleShowRegistrationModal}
+                    variant="secondary"
+                  >
+                    Rejestracja
+                  </UserButton> */}
+
                   {!isAuthenticated && (
                     <>
                       <UserButton
@@ -167,20 +180,6 @@ const Navigation = () => {
                           </OverlayTrigger>
                         </>
                       )}
-
-                      {/* <OverlayTrigger
-                        trigger="hover"
-                        placement="bottom"
-                        overlay={popover}
-                      >
-                        <UserButton variant="secondary">
-                          {loading || !user ? (
-                            <div>Loading...</div>
-                          ) : (
-                            <div>Zalogowany jako {user.name}</div>
-                          )}
-                        </UserButton>
-                      </OverlayTrigger> */}
                       <UserButton onClick={() => logout()} variant="secondary">
                         Wyloguj
                       </UserButton>
