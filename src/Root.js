@@ -47,7 +47,7 @@ class Root extends React.Component {
   handleInitialSearch = async () => {
     this.setState({ search_isLoading: true, search_result: undefined });
 
-    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=makaron&count=8`;
+    const url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=makaron&count=12`;
 
     const response = await axios(url);
     const search_result = await response.data.recipes;
@@ -87,20 +87,16 @@ class Root extends React.Component {
   };
 
   handleShowCategory = async event => {
-    // event.preventDefault();
+    const cat_id = event ? event.target.value : 1;
 
-    let cat_id = event ? event.target.value : 1;
-
-    this.setState({
+    await this.setState({
       categories_isLoading: true,
       categories_result: undefined,
       category_id: cat_id
     });
 
-    // console.log(event.target.value);
-
-    let id = this.state.category_id;
-    let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=8&dishMainCategoryIds=${id}`;
+    const id = this.state.category_id;
+    const url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=12&dishMainCategoryIds=${id}`;
 
     const response = await axios(url);
     const categories_result = await response.data.recipes;
@@ -108,26 +104,7 @@ class Root extends React.Component {
     this.setState({ categories_result, categories_isLoading: false });
   };
 
-  handleReadRecipe = async event => {
-    // let { id } = this.props.match.params.id;
-
-    this.setState({
-      singleRecipe_isLoading: true,
-      singleRecipe_result: undefined
-    });
-
-    // let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?id=${id}`;
-    // const response = await axios(url);
-    // const recipe_result = await response.data.recipe;
-
-    // this.setState({ recipe: recipe_result, recipe_isLoading: false });
-
-    // console.log(this.state.recipe);
-
-    this.setState({
-      singleRecipe_isLoading: false
-    });
-  };
+  handleReadRecipe = () => {};
 
   handleShowLoginModal = event => {
     this.setState({ showLoginModal: !this.state.showLoginModal });
@@ -138,8 +115,8 @@ class Root extends React.Component {
   };
 
   componentDidMount() {
-    // this.handleInitialSearch();
-    // this.handleShowCategory();
+    this.handleInitialSearch();
+    this.handleShowCategory();
   }
 
   render() {
