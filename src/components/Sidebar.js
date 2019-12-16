@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import { categories } from '../data/categories';
 import AppContext from '../context';
-import { Button } from 'react-bootstrap';
 
 const StyledWrapper = styled.div`
   width: 200px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import AppContext from '../context';
+import ReactJson from 'react-json-view';
 
 import { useAuth0 } from '../react-auth0-spa';
 
@@ -19,6 +20,9 @@ const ProfileView = () => {
           <p>{user.nickname}</p>
           <p>{user.email}</p>
           <code>{JSON.stringify(user, null, 2)}</code>
+          <ReactJson src={user} />
+          <ReactJson src={user.user_metadata} />
+          <p>{user.user_metadata} test</p>
         </>
       )}
     </AppContext.Consumer>

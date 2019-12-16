@@ -5,13 +5,12 @@ import AppContext from '../context';
 import styled from 'styled-components';
 
 // BOOTSTRAP
-import { Container, Col, Form, InputGroup, Button } from 'react-bootstrap';
+import { Container, Col, Form } from 'react-bootstrap';
 
 // ASSETS
 import search_bg1 from '../assets/img/search_bg.png';
 
 // DATA
-import { categories } from '../data/categories';
 
 const StyledContainer = styled(Container)`
   position: relative;

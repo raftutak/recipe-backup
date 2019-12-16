@@ -69,12 +69,7 @@ const UserButton = styled(Button)`
 `;
 
 const Navigation = () => {
-  const {
-    isAuthenticated,
-    loginWithRedirect,
-    loginWithPopup,
-    logout
-  } = useAuth0();
+  const { isAuthenticated, loginWithPopup, logout } = useAuth0();
   const { loading, user } = useAuth0();
 
   const popover = (

@@ -3,12 +3,9 @@ import AppContext from './context';
 import axios from 'axios';
 
 // REACT-ROUTER
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import { routes } from './routes';
 import history from './utils/history';
-
-// AUTH0
-import { useAuth0 } from './react-auth0-spa';
 
 // BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -83,6 +80,10 @@ class Root extends React.Component {
     // console.log(search_result);
 
     this.setState({ search_isLoading: false, search_result });
+
+    document
+      .getElementById('search-form')
+      .scrollIntoView({ behavior: 'smooth' });
   };
 
   handleShowCategory = async event => {
@@ -154,7 +155,7 @@ class Root extends React.Component {
 
     return (
       <>
-        <BrowserRouter history={history}>
+        <Router history={history}>
           <AppContext.Provider value={contextElements}>
             <Switch>
               <MainTemplate>
@@ -170,7 +171,7 @@ class Root extends React.Component {
               </MainTemplate>
             </Switch>
           </AppContext.Provider>
-        </BrowserRouter>
+        </Router>
       </>
     );
   }

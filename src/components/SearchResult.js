@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import RecipeCard from './RecipeCard';
 import LoadingDots from './LoadingDots';
 
-import { Container, CardDeck, CardColumns } from 'react-bootstrap';
+import { Container, CardColumns } from 'react-bootstrap';
 
 // const StyledWrapper = styled.div`
 //   padding: 40px;
@@ -25,11 +25,11 @@ const StyledCardColumns = styled(CardColumns)`
 `;
 
 class SearchResult extends React.Component {
-  componentDidMount() {
-    document
-      .getElementById('search-form')
-      .scrollIntoView({ behavior: 'smooth' });
-  }
+  // componentDidMount() {
+  //   document
+  //     .getElementById('search-form')
+  //     .scrollIntoView({ behavior: 'smooth' });
+  // }
 
   render() {
     return (

@@ -5,7 +5,7 @@ import AppContext from '../context';
 import { Link } from 'react-router-dom';
 
 // STYLES
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 // BOOTSTRAP
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
