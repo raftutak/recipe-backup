@@ -10,7 +10,7 @@ import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import slider_bg2 from '../assets/img/slider_bg2.jpg';
 
 // DATA
-import { recommendationsContent } from '../data/recommendationsContent';
+import { sources } from '../data/sources';
 
 const containerContent = (
   <>
@@ -108,7 +108,7 @@ const Recommendations = () => (
                   <strong>Sprawdź nasze źródła</strong>
                 </h5>
                 <StyledCarousel indicators={false} variant="dark">
-                  {recommendationsContent.map((item, id) => {
+                  {sources.map((item, id) => {
                     return (
                       <Carousel.Item key={id}>
                         <>

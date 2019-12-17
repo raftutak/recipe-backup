@@ -13,7 +13,7 @@ import { Jumbotron, Container, Carousel, Button } from 'react-bootstrap';
 import slider_bg1 from '../assets/img/slider_bg1.jpg';
 
 // DATA
-import { sliderContent } from '../data/sliderContent';
+import { slider } from '../data/slider';
 
 const StyledJumbotron = styled(Jumbotron)`
   margin: 0;
@@ -78,7 +78,7 @@ const Header = () => (
       <StyledContainer>
         <InnerWrapper>
           <StyledCarousel indicators={false} interval={15000}>
-            {sliderContent.map((item, id) => {
+            {slider.map((item, id) => {
               return (
                 <StyledCarouselItem key={id}>
                   <>

@@ -1,3 +1,4 @@
+// REACT AND PACKAGES
 import React from 'react';
 import AppContext from './context';
 import axios from 'axios';
@@ -10,6 +11,9 @@ import history from './utils/history';
 // BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// TEMPLATES
+import MainTemplate from './templates/MainTemplate';
+
 // VIEWS
 import HomeView from './views/HomeView';
 import CategoriesView from './views/CategoriesView';
@@ -18,14 +22,9 @@ import CalculatorView from './views/CalculatorView';
 import ContactView from './views/ContactView';
 import ProfileView from './views/ProfileView';
 
-// TEMPLATES
-import MainTemplate from './templates/MainTemplate';
-
 class Root extends React.Component {
   state = {
     search_input: '',
-    showLoginModal: false,
-    showRegistrationModal: false,
     category_id: 1
   };
 
@@ -45,10 +44,12 @@ class Root extends React.Component {
   };
 
   handleInitialSearch = async () => {
-    this.setState({ search_isLoading: true, search_result: undefined });
+    this.setState({
+      search_isLoading: true,
+      search_result: undefined
+    });
 
     const url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=makaron&count=12`;
-
     const response = await axios(url);
     const search_result = await response.data.recipes;
 
@@ -65,7 +66,6 @@ class Root extends React.Component {
 
     const query = this.state.search_input;
     let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${query}&count=8`;
-
     if (this.state.search_mainCategory) {
       url = url.concat(
         `&dishMainCategoryIds=${this.state.search_mainCategory}`
@@ -74,10 +74,8 @@ class Root extends React.Component {
     if (this.state.search_subCategory) {
       url = url.concat(`&dishSubCategoryIds=${this.state.search_subCategory}`);
     }
-
     const response = await axios(url);
     const search_result = await response.data.recipes;
-    // console.log(search_result);
 
     this.setState({ search_isLoading: false, search_result });
 
@@ -104,15 +102,13 @@ class Root extends React.Component {
     this.setState({ categories_result, categories_isLoading: false });
   };
 
-  handleReadRecipe = () => {};
+  // handleShowLoginModal = event => {
+  //   this.setState({ showLoginModal: !this.state.showLoginModal });
+  // };
 
-  handleShowLoginModal = event => {
-    this.setState({ showLoginModal: !this.state.showLoginModal });
-  };
-
-  handleShowRegistrationModal = event => {
-    this.setState({ showRegistrationModal: !this.state.showRegistrationModal });
-  };
+  // handleShowRegistrationModal = event => {
+  //   this.setState({ showRegistrationModal: !this.state.showRegistrationModal });
+  // };
 
   componentDidMount() {
     this.handleInitialSearch();
@@ -124,10 +120,9 @@ class Root extends React.Component {
       ...this.state,
       handleInputChange: this.handleInputChange,
       handleSubmitSearch: this.handleSubmitSearch,
-      handleShowCategory: this.handleShowCategory,
-      handleReadRecipe: this.handleReadRecipe,
-      handleShowLoginModal: this.handleShowLoginModal,
-      handleShowRegistrationModal: this.handleShowRegistrationModal
+      handleShowCategory: this.handleShowCategory
+      // handleShowLoginModal: this.handleShowLoginModal,
+      // handleShowRegistrationModal: this.handleShowRegistrationModal
     };
 
     return (

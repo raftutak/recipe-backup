@@ -1,4 +1,4 @@
-export const sliderContent = [
+export const slider = [
   {
     id: 1,
     heading: 'Łatwe przepisy na każdą okazję!',

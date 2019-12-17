@@ -27,10 +27,8 @@ const CategoriesView = () => (
   <AppContext.Consumer>
     {context => (
       <>
-        <SearchForm />
         <Container fluid>
           <StyledContainer>
-            <Sidebar />
             <StyledRecipeList>
               {context.categories_isLoading && !context.categories_result && (
                 <LoadingDots />

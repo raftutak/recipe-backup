@@ -1,12 +1,13 @@
+// REACT AND PACKAGES
 import React from 'react';
 
 // STYLES
 import GlobalStyle from '../theme/GlobalStyle';
 
 // COMPONENTS
-import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import LoginModal from '../components/LoginModal';
+import Navigation from '../components/Navigation';
 import RegistrationModal from '../components/RegistrationModal';
 
 const MainTemplate = ({ children, location }) => (
