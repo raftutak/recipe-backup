@@ -15,8 +15,6 @@ const HomeView = () => (
         <SearchForm />
         {context.search_isLoading && !context.search_result && <LoadingDots />}
         {context.search_result && <SearchResult id="recipe-list" />}
-        <Recommendations />
-        <Footer />
       </>
     )}
   </AppContext.Consumer>

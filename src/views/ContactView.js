@@ -11,8 +11,6 @@ const ContactView = () => (
     <ContactForm />
     <LoadingDots />
     <LoadingDots />
-    <Recommendations />
-    <Footer />
   </>
 );
 

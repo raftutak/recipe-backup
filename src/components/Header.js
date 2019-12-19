@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Jumbotron, Container, Carousel, Button } from 'react-bootstrap';
 
 // ASSETS
-import slider_bg1 from '../assets/img/slider_bg1.jpg';
+import header from '../assets/img/header.jpg';
 
 // DATA
 import { slider } from '../data/slider';
@@ -18,7 +18,7 @@ import { slider } from '../data/slider';
 const StyledJumbotron = styled(Jumbotron)`
   margin: 0;
   padding: 32px 0;
-  background-image: url(${slider_bg1});
+  background-image: url(${header});
   background-position: center;
   background-repeat: no-repeat;
 `;

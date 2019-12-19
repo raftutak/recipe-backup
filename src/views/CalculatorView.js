@@ -13,8 +13,6 @@ class CalculatorView extends React.Component {
         <Calculator />
         <LoadingDots />
         <LoadingDots />
-        <Recommendations />
-        <Footer />
       </>
     );
   }

@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { Container, Col, Form, InputGroup, Button } from 'react-bootstrap';
 
 // ASSETS
-import search_bg1 from '../assets/img/search_bg.png';
+import search from '../assets/img/search.png';
 
 // DATA
 import { categories } from '../data/categories';
@@ -30,7 +30,7 @@ const StyledContainer = styled(Container)`
     left: 0;
     bottom: 0;
     right: 0;
-    background-image: url(${search_bg1});
+    background-image: url(${search});
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -45,7 +45,7 @@ const StyledBackground = styled(Container)`
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url(${search_bg1});
+  background-image: url(${search});
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: -80px;

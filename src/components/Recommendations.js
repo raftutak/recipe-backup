@@ -7,7 +7,7 @@ import styled, { css } from 'styled-components';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 
 // ASSETS
-import slider_bg2 from '../assets/img/slider_bg2.jpg';
+import block_bg_1 from '../assets/img/block_bg_1.jpg';
 
 // DATA
 import { sources } from '../data/sources';
@@ -40,7 +40,7 @@ const StyledContainerBackground = styled(Container)`
   ${({ backgroundimage }) =>
     backgroundimage &&
     css`
-      background-image: url(${slider_bg2});
+      background-image: url(${block_bg_1});
       background-position: right top;
       background-repeat: no-repeat;
       background-size: auto;
@@ -90,9 +90,7 @@ const StyledCarousel = styled(Carousel)`
 const Recommendations = () => (
   <>
     <Container fluid>
-      <Container
-      // style={{ boxShadow: '0 0 15px 0 hsla(0, 0%, 0%, 0.3)' }}
-      >
+      <Container>
         <Row>
           <StyledCol>
             <StyledContainerBackground backgroundimage={1}>

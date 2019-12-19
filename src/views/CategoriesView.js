@@ -29,6 +29,7 @@ const CategoriesView = () => (
       <>
         <Container fluid>
           <StyledContainer>
+            <Sidebar />
             <StyledRecipeList>
               {context.categories_isLoading && !context.categories_result && (
                 <LoadingDots />
@@ -37,8 +38,6 @@ const CategoriesView = () => (
             </StyledRecipeList>
           </StyledContainer>
         </Container>
-        <Recommendations />
-        <Footer />
       </>
     )}
   </AppContext.Consumer>

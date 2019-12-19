@@ -23,8 +23,6 @@ const RecipeView = ({ id }) => {
             <LoadingDots />
           )}
           {!context.singleRecipe_isLoading && <SingleRecipe id={id} />}
-          <Recommendations />
-          <Footer />
         </>
       )}
     </AppContext.Consumer>
