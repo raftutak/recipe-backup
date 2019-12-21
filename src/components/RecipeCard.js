@@ -13,6 +13,10 @@ import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 // DATA
 import { categories } from '../data/categories';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as starChecked } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
+
 const StyledCard = styled(Card)`
   width: 15rem;
   border-radius: 15px;
@@ -44,21 +48,61 @@ const StyledCard = styled(Card)`
   }
 `;
 
+const StyledStar = styled(FontAwesomeIcon)`
+  color: hsl(44, 60%, 42%);
+`;
+
 const RecipeCard = ({ recipe }) => (
   <AppContext.Consumer>
     {context => (
       <>
         <StyledCard>
-          <Card.Img src={recipe.image_Url} />
+          <Card.Img
+            src={recipe.image_Url}
+            onError={e => {
+              e.target.onerror = null;
+              e.target.src =
+                'http://www.nexuscctv.pl/media/catalog/product/cache/14/image/378x380/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_placeholder_6.png';
+            }}
+          />
           <Card.Header>
             <strong>{recipe.title}</strong>
           </Card.Header>
           <ListGroup variant="flush">
             <ListGroupItem>
-              <strong>id:</strong> {recipe.id}
+              <strong>Ocena: </strong>
+              <StyledStar icon={starChecked} />
+              <StyledStar icon={starChecked} />
+              <StyledStar icon={starChecked} />
+              <StyledStar icon={starChecked} />
+              <StyledStar icon={faStar} />
             </ListGroupItem>
             <ListGroupItem>
-              <strong>blog:</strong> {recipe.blog}
+              <strong>Źródło:</strong> {recipe.blog}
+            </ListGroupItem>
+            <ListGroupItem>
+              <strong>Kategoria:</strong>{' '}
+              {recipe.dishMainCategoryId !== 0 ? (
+                categories[recipe.dishMainCategoryId - 1].name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak kategorii</strong>
+              )}
+              <br />
+              <strong>Podkategoria:</strong>{' '}
+              {recipe.dishMainCategoryId !== 0 ? (
+                categories[recipe.dishMainCategoryId - 1].subcategories[
+                  categories[
+                    recipe.dishMainCategoryId - 1
+                  ].subcategories.findIndex(
+                    index => index.id === recipe.dishSubCategoryId
+                  )
+                ].name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak podkategorii</strong>
+              )}
+            </ListGroupItem>
+            {/* <ListGroupItem>
+              <strong>id:</strong> {recipe.id}
             </ListGroupItem>
             <ListGroupItem>
               <strong>dishId</strong>: {recipe.dishId}
@@ -92,9 +136,11 @@ const RecipeCard = ({ recipe }) => (
               {recipe.ingredientIds.map(ingredientID => (
                 <span key={ingredientID}>{ingredientID}, </span>
               ))}
-            </ListGroupItem>
+            </ListGroupItem> */}
             <ListGroupItem>
               <Link
+                style={{ textDecoration: 'none', color: 'hsl(215, 37%, 19%)' }}
+                onClick={context.handleReadRecipe}
                 to={{
                   pathname: `/recipe/${recipe.id}`
                 }}

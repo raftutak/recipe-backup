@@ -7,7 +7,7 @@ import { categories } from '../data/categories';
 import AppContext from '../context';
 
 const StyledWrapper = styled.div`
-  width: 250px;
+  width: 200px;
 `;
 
 const StyledList = styled.ul`
@@ -43,6 +43,7 @@ const Sidebar = () => (
                 <StyledListItem
                   key={id}
                   value={id + 1}
+                  onChange={context.handleInputChange}
                   onClick={context.handleShowCategory}
                 >
                   {item.name}

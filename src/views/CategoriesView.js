@@ -7,6 +7,8 @@ import styled from 'styled-components';
 // COMPONENTS
 import SearchForm from '../components/SearchForm';
 import Sidebar from '../components/Sidebar';
+import Recommendations from '../components/Recommendations';
+import Footer from '../components/Footer';
 import RecipeList from '../components/RecipeList';
 import LoadingDots from '../components/LoadingDots';
 import { Container } from 'react-bootstrap';
@@ -25,16 +27,14 @@ const CategoriesView = () => (
   <AppContext.Consumer>
     {context => (
       <>
-        <SearchForm />
         <Container fluid>
           <StyledContainer>
             <Sidebar />
             <StyledRecipeList>
-              {context.search_isLoading &&
-                context.search_result === undefined && <LoadingDots />}
-              {context.search_result !== undefined && (
-                <RecipeList id="recipeList" />
+              {context.categories_isLoading && !context.categories_result && (
+                <LoadingDots />
               )}
+              {context.categories_result && <RecipeList />}
             </StyledRecipeList>
           </StyledContainer>
         </Container>

@@ -2,7 +2,7 @@ import React from 'react';
 import AppContext from '../context';
 
 // COMPONENTS
-import RecipeList from '../components/RecipeList';
+import SearchResult from '../components/SearchResult';
 import SearchForm from '../components/SearchForm';
 import LoadingDots from '../components/LoadingDots';
 import Recommendations from '../components/Recommendations';
@@ -13,12 +13,8 @@ const HomeView = () => (
     {context => (
       <>
         <SearchForm />
-        {context.search_isLoading && context.search_result === undefined && (
-          <LoadingDots />
-        )}
-        {context.search_result !== undefined && <RecipeList id="recipeList" />}
-        <Recommendations />
-        <Footer />
+        {context.search_isLoading && !context.search_result && <LoadingDots />}
+        {context.search_result && <SearchResult id="recipe-list" />}
       </>
     )}
   </AppContext.Consumer>

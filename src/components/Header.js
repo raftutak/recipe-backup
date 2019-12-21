@@ -10,20 +10,22 @@ import styled from 'styled-components';
 import { Jumbotron, Container, Carousel, Button } from 'react-bootstrap';
 
 // ASSETS
-import slider_bg1 from '../assets/img/slider_bg1.jpg';
+import header from '../assets/img/header.jpg';
 
 // DATA
-import { sliderContent } from '../data/sliderContent';
+import { slider } from '../data/slider';
 
 const StyledJumbotron = styled(Jumbotron)`
   margin: 0;
   padding: 32px 0;
-  background-image: url(${slider_bg1});
+  background-image: url(${header});
   background-position: center;
   background-repeat: no-repeat;
 `;
 
-const StyledContainer = styled(Container)``;
+const StyledContainer = styled(Container)`
+  padding: 0;
+`;
 
 const InnerWrapper = styled(Container)`
   margin: 0;
@@ -75,17 +77,19 @@ const Header = () => (
     <StyledJumbotron fluid>
       <StyledContainer>
         <InnerWrapper>
-          <StyledCarousel indicators={false} variant="dark">
-            {sliderContent.map((item, id) => {
+          <StyledCarousel indicators={false} interval={15000}>
+            {slider.map((item, id) => {
               return (
                 <StyledCarouselItem key={id}>
                   <>
                     <h1 className="mb-4">
                       <strong>{item.heading}</strong>
                     </h1>
-                    <p className="mb-4">{item.paragraph}</p>
+                    <p style={{ fontSize: '1.1rem' }} className="mb-4">
+                      {item.paragraph}
+                    </p>
                     <NavLink to={routes.categories}>
-                      <StyledButton>Przejdź do przepisów</StyledButton>
+                      <StyledButton>{item.button}</StyledButton>
                     </NavLink>
                   </>
                 </StyledCarouselItem>
