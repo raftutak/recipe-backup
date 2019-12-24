@@ -70,7 +70,7 @@ const StyledForm = styled(Form)`
     border-radius: 0 15px 15px 0;
 
     :hover {
-      background-color: hsl(44, 60%, 42%);
+      background-color: hsl(138, 61%, 49%);
     }
   }
 `;
