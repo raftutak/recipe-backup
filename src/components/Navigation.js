@@ -67,7 +67,7 @@ const UserButton = styled(Button)`
   border-radius: 5px;
 
   :hover {
-    background-color: hsl(44, 60%, 42%);
+    background-color: hsl(138, 61%, 49%);
   }
 `;
 
@@ -166,7 +166,7 @@ const Navigation = () => {
                             overlay={popover}
                           >
                             <UserButton
-                              style={{ backgroundColor: 'hsl(44, 60%, 42%)' }}
+                              style={{ backgroundColor: 'hsl(138, 61%, 49%)' }}
                               variant="secondary"
                             >
                               {loading || !user ? (

@@ -54,7 +54,7 @@ const Tag = styled(Badge)`
   border-radius: 5px;
 
   :hover {
-    background-color: hsl(44, 60%, 42%);
+    background-color: hsl(138, 61%, 49%);
   }
 `;
 
@@ -64,7 +64,7 @@ const StyledButton = styled(Button)`
   border: none;
 
   :hover {
-    background-color: hsl(44, 60%, 42%);
+    background-color: hsl(138, 61%, 49%);
   }
 `;
 

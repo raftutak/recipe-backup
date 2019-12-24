@@ -25,7 +25,7 @@ const StyledListItem = styled.li`
   cursor: pointer;
 
   :hover {
-    border-left: 10px solid #ddd;
+    border-left: 10px solid hsl(138, 61%, 49%);
     padding-left: 30px;
     z-index: 999;
   }
