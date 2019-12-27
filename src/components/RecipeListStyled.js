@@ -3,7 +3,7 @@ import AppContext from '../context';
 
 // STYLES
 import styled from 'styled-components';
-import { Container, CardColumns } from 'react-bootstrap';
+import { Container, CardColumns, CardDeck, CardGroup } from 'react-bootstrap';
 
 // COMPONENTS
 import RecipeCardStyled from './RecipeCardStyled';
@@ -14,12 +14,7 @@ const InnerWrapper = styled(Container)`
   padding: 30px 0;
 `;
 
-const StyledCardColumns = styled(CardColumns)`
-  column-count: 4;
-`;
-
-
-class RecipeList extends React.Component {
+class RecipeListStyled extends React.Component {
   render() {
     return (
       <AppContext.Consumer>
@@ -29,13 +24,13 @@ class RecipeList extends React.Component {
               <>
                 <Container fluid>
                   <InnerWrapper>
-                    <StyledCardColumns id="recipeList">
+                    <CardGroup id="recipeList">
                       {context.categories_result.map(recipe => {
                         return (
                           <RecipeCardStyled key={recipe.title} recipe={recipe} />
                         );
                       })}
-                    </StyledCardColumns>
+                    </CardGroup>
                   </InnerWrapper>
                 </Container>
               </>
@@ -49,4 +44,4 @@ class RecipeList extends React.Component {
   }
 }
 
-export default RecipeList;
+export default RecipeListStyled;

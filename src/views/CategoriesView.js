@@ -9,7 +9,7 @@ import SearchForm from '../components/SearchForm';
 import Sidebar from '../components/Sidebar';
 import Recommendations from '../components/Recommendations';
 import Footer from '../components/Footer';
-import RecipeList from '../components/RecipeList';
+import RecipeListStyled from '../components/RecipeListStyled';
 import LoadingDots from '../components/LoadingDots';
 import { Container } from 'react-bootstrap';
 
@@ -34,7 +34,7 @@ const CategoriesView = () => (
               {context.categories_isLoading && !context.categories_result && (
                 <LoadingDots />
               )}
-              {context.categories_result && <RecipeList />}
+              {context.categories_result && <RecipeListStyled />}
             </StyledRecipeList>
           </StyledContainer>
         </Container>

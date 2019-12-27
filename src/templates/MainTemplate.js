@@ -10,6 +10,7 @@ import LoginModal from '../components/LoginModal';
 import Navigation from '../components/Navigation';
 import RegistrationModal from '../components/RegistrationModal';
 import Recommendations from '../components/Recommendations';
+import DailyQuote from '../components/DailyQuote';
 import Footer from '../components/Footer';
 import BlockSection from '../components/organisms/BlockSection';
 
@@ -23,6 +24,7 @@ const MainTemplate = ({ children, location }) => (
     {children}
     {/* <BlockSection /> */}
     <Recommendations />
+    <DailyQuote />
     <Footer />
   </>
 );

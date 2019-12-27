@@ -26,7 +26,7 @@ const StyledCard = styled(Card)`
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 15px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -44,7 +44,9 @@ const StyledCard = styled(Card)`
 
     :hover {
       background-color: hsl(138, 61%, 49%);
-      color: #fff;
+      color: white;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 `;
@@ -140,7 +142,6 @@ const RecipeCard = ({ recipe }) => (
             </ListGroupItem> */}
             <ListGroupItem className="goto">
               <Link
-                style={{ textDecoration: 'none', color: 'hsl(215, 37%, 19%)' }}
                 onClick={context.handleReadRecipe}
                 to={{
                   pathname: `/recipe/${recipe.id}`
@@ -151,6 +152,7 @@ const RecipeCard = ({ recipe }) => (
             </ListGroupItem>
           </ListGroup>
         </StyledCard>
+        
       </>
     )}
   </AppContext.Consumer>
