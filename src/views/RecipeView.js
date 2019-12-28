@@ -2,8 +2,6 @@ import React from 'react';
 import AppContext from '../context';
 
 import LoadingDots from '../components/LoadingDots';
-import Footer from '../components/Footer';
-import Recommendations from '../components/Recommendations';
 
 // ROUTER
 import SingleRecipe from '../components/SingleRecipe';
