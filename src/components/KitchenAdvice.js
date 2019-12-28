@@ -5,6 +5,8 @@ import { Jumbotron, Container, Carousel, Col, Row }  from 'react-bootstrap';
 
 import ico_png from '../assets/img/ico.png';
 
+import { tips } from '../data/tips';
+
 const StyledJumbotron = styled(Jumbotron)`
     postion: relative;
     height: auto;
@@ -12,16 +14,17 @@ const StyledJumbotron = styled(Jumbotron)`
     margin: 0 auto;
     
     p {
-        padding: 5px;
+        padding: 0.25em;
         margin: 0 auto;
         color: #31c95f;
         font-weight: 500;
     }
 
     h4 {
-        padding-bottom: 20px;
+        padding-bottom: 2em;
         margin: 0 auto;
         text-align: center;
+        font-size: 1.2rem;
     }
 
     img {
@@ -45,6 +48,29 @@ const StyledRow = styled(Row)`
     padding: 0;
 `;
 
+const StyledCarousel = styled(Carousel)`
+  margin: 0 auto;
+  padding: 0 6%;
+
+  .carousel-control-prev {
+    justify-content: left;
+    width: auto;
+  }
+
+  .carousel-control-prev-icon {
+    filter: brightness(70%);
+  }
+
+  .carousel-control-next {
+    justify-content: right;
+    width: auto;
+  }
+
+  .carousel-control-next-icon {
+    filter: brightness(70%);
+  }
+`;
+
 const KitchenAdvice = () => (
     <AppContext.Consumer>
         {context => (
@@ -57,16 +83,28 @@ const KitchenAdvice = () => (
                         </StyledCol>
                     </StyledRow>
                     <StyledRow>
-                        <StyledCol md="auto">
-                            <p>
-                                Porada kuchenna #1
-                            </p>
+                        <StyledCol>
+                            <StyledCarousel indicators={false} variant="dark">
+                                {tips.map((item, id) => {
+                                    return (
+                                        <Carousel.Item key={id}>
+                                            <>
+                                                <StyledRow md="auto">
+                                                    <p>
+                                                        {item.heading}
+                                                    </p>
+                                                </StyledRow>
+                                                <StyledRow>
+                                                    <h4>
+                                                        {item.paragraph}
+                                                    </h4>
+                                                </StyledRow>
+                                            </>
+                                        </Carousel.Item>
+                                    );
+                                })}
+                            </StyledCarousel>
                         </StyledCol>
-                    </StyledRow>
-                    <StyledRow>
-                        <h4>
-                            Przy pieczeniu ciast, zamiast jajek możesz użyć banana!
-                        </h4>
                     </StyledRow>
                 </StyledJumbotron>
             </StyledContainer>
