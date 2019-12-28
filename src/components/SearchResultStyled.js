@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import RecipeCardStyled from './RecipeCardStyled';
 import LoadingDots from './LoadingDots';
 
-import { Container, CardColumns, CardGroup } from 'react-bootstrap';
+import { Container, CardDeck } from 'react-bootstrap';
 
 // const StyledWrapper = styled.div`
 //   padding: 40px;
@@ -20,7 +20,7 @@ const InnerWrapper = styled(Container)`
   padding: 30px 0;
 `;
 
-const StyledCardGroup = styled(CardGroup)`
+const StyledCardDeck = styled(CardDeck)`
   column-count: 4;
 `;
 
@@ -40,13 +40,13 @@ class SearchResultStyled extends React.Component {
               <>
                 <Container fluid>
                   <InnerWrapper>
-                    <StyledCardGroup>
+                    <StyledCardDeck>
                       {context.search_result.map(recipe => {
                         return (
                           <RecipeCardStyled key={recipe.title} recipe={recipe} />
                         );
                       })}
-                    </StyledCardGroup>
+                    </StyledCardDeck>
                   </InnerWrapper>
                 </Container>
               </>

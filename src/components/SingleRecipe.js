@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import styled from 'styled-components';
 
-import { Container, ListGroup, Card, Nav } from 'react-bootstrap';
+import { Container, ListGroup, Card, Nav, Breadcrumb } from 'react-bootstrap';
 
 import LoadingDots from '../components/LoadingDots';
 
@@ -83,6 +83,9 @@ const StyledDescription = styled.div`
   clear: both;
 `;
 
+const { home } = routes.home;
+const { categories } = routes.categories;
+
 class SingleRecipe extends React.Component {
   state = {
     singleRecipe_result: undefined
@@ -116,7 +119,13 @@ class SingleRecipe extends React.Component {
       <>
         <Container className="mb-4">
           <StyledContainer>
-            <StyledPath>Jesteś w: recipe-search/przepisy/{id}</StyledPath>
+            <StyledPath>
+              <Breadcrumb>
+                <Breadcrumb.Item href={home}>recipe-search</Breadcrumb.Item>
+                <Breadcrumb.Item href={categories}>przepisy</Breadcrumb.Item>
+                <Breadcrumb.Item>{id}</Breadcrumb.Item>
+              </Breadcrumb>
+            </StyledPath>
             <StyledRecipeName>
               <p>{this.state.singleRecipe_result.title}</p>
               <br></br>
