@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // BOOTSTRAP
-import { Card, ListGroup, ListGroupItem, CardDeck, CardGroup } from 'react-bootstrap';
+import { Card, ListGroup, ListGroupItem, CardDeck, CardGroup } from 'react-bootstrap';  
 
 // DATA
 import { categories } from '../data/categories';
@@ -29,6 +29,10 @@ const StyledCard = styled(Card)`
     border-radius: 15px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  .card-group {
+      display: flex;
   }
 
   .goto {

@@ -15,7 +15,7 @@ const ProfileView = () => {
     <AppContext.Consumer>
       {context => (
         <>
-          <img src={user.picture} alt="Propile" />
+          <img src={user.picture} alt="Profile" />
           <h5>ProfileView</h5>
           <p>{user.nickname}</p>
           <p>{user.email}</p>
