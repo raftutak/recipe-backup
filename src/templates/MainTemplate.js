@@ -9,7 +9,7 @@ import Header from '../components/Header';
 import LoginModal from '../components/LoginModal';
 import Navigation from '../components/Navigation';
 import RegistrationModal from '../components/RegistrationModal';
-import Recommendations from '../components/Recommendations';
+import RecommendationsStyled from '../components/RecommendationsStyled';
 import KitchenAdvice from '../components/KitchenAdvice';
 import Footer from '../components/Footer';
 import BlockSection from '../components/organisms/BlockSection';
@@ -23,7 +23,7 @@ const MainTemplate = ({ children, location }) => (
     {location.pathname === '/' ? <Header /> : null}
     {children}
     {/* <BlockSection /> */}
-    <Recommendations />
+    <RecommendationsStyled />
     <KitchenAdvice />
     <Footer />
   </>
