@@ -14,17 +14,19 @@ const StyledJumbotron = styled(Jumbotron)`
     margin: 0 auto;
     
     p {
-        padding: 0.25em;
         margin: 0 auto;
-        color: #31c95f;
-        font-weight: 500;
+        font-size: 1rem;
+        text-align: center;
+        padding-bottom: 2em;
+        padding-left: 2em;
+        padding-right: 2em;
     }
 
     h4 {
-        padding-bottom: 2em;
         margin: 0 auto;
         text-align: center;
-        font-size: 1.2rem;
+        color: #31c95f;
+        font-weight: 500;
     }
 
     img {
@@ -55,6 +57,8 @@ const StyledCarousel = styled(Carousel)`
   .carousel-control-prev {
     justify-content: left;
     width: auto;
+    left: 5%;
+    bottom: 100%;
   }
 
   .carousel-control-prev-icon {
@@ -64,6 +68,8 @@ const StyledCarousel = styled(Carousel)`
   .carousel-control-next {
     justify-content: right;
     width: auto;
+    bottom: 100%;
+    right: 5%;
   }
 
   .carousel-control-next-icon {
@@ -90,14 +96,12 @@ const KitchenAdvice = () => (
                                         <Carousel.Item key={id}>
                                             <>
                                                 <StyledRow md="auto">
-                                                    <p>
-                                                        {item.heading}
-                                                    </p>
-                                                </StyledRow>
-                                                <StyledRow>
                                                     <h4>
-                                                        {item.paragraph}
+                                                        {item.heading}
                                                     </h4>
+                                                    <p>
+                                                        {item.paragraph}
+                                                    </p>
                                                 </StyledRow>
                                             </>
                                         </Carousel.Item>

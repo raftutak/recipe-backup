@@ -1,10 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { routes } from '../routes';
 
 // STYLED COMPONENTS
 import styled, { css } from 'styled-components';
 
 // BOOTSTRAP
-import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Carousel, Button } from 'react-bootstrap';
 
 // ASSETS
 import block_bg_1 from '../assets/img/block_bg_1.jpg';
@@ -72,6 +74,20 @@ const StyledCarousel = styled(Carousel)`
 
 `;
 
+const StyledButton = styled(Button)`
+  padding: 10px;
+  margin-top: 5px;
+  background-color: hsla(0, 100%, 100%, 0.3);
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+  color: hsl(0, 100%, 100%);
+
+  :hover {
+    background-color: hsl(138, 61%, 49%);
+  }
+`;
+
 const RecommendationsStyled = () => (
   <>
     <Container fluid>
@@ -91,6 +107,11 @@ const RecommendationsStyled = () => (
                             <p style={{ color: 'hsl(0, 100%, 100%)', textShadow: '0 0 5px hsla(0, 0%, 0%, 1)' }}>
                               {item.paragraph}
                             </p>
+                        <NavLink to={routes.categories}>
+                            <StyledButton>
+                                {item.button}
+                            </StyledButton>
+                        </NavLink>
                         </>
                       </Carousel.Item>
                     );
@@ -101,7 +122,7 @@ const RecommendationsStyled = () => (
           </StyledCol>
           <StyledCol>
             <StyledContainerBackground>
-              <StyledContainer>
+              <StyledContainer style={{ marginTop: '2em' }}>
                 <h5 className="mb-4">
                   <strong>Sprawdź nasze źródła</strong>
                 </h5>
