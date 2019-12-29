@@ -3,7 +3,7 @@ import AppContext from '../context';
 
 // COMPONENTS
 import SearchResult from '../components/SearchResult';
-import SearchForm from '../components/SearchForm';
+import SearchForm from '../components/organisms/SearchForm';
 import LoadingDots from '../components/LoadingDots';
 import Recommendations from '../components/Recommendations';
 import Footer from '../components/Footer';
