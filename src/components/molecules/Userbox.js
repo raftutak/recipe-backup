@@ -16,10 +16,19 @@ const Userbox = () => {
         </>
       ) : (
         <>
-          <StyledButton authenticated variant="secondary">
+          <StyledButton
+            authenticated
+            variant="secondary"
+            title="Sprawdź swój profil"
+          >
             {loading || !user ? <div>Loading...</div> : <div>{user.name}</div>}
           </StyledButton>
-          <StyledButton logout onClick={() => logout()} variant="secondary">
+          <StyledButton
+            logout
+            onClick={() => logout()}
+            variant="secondary"
+            title="Wyloguj się z serwisu"
+          >
             Wyloguj
           </StyledButton>
         </>

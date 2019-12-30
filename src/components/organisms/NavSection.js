@@ -1,14 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 
-// ROUTER
+// REACT-ROUTER
 import { NavLink } from 'react-router-dom';
 import { routes } from '../../routes';
 
+// BOOTSTRAP
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import styled from 'styled-components';
+
+// COMPONENTS
 import Userbox from '../molecules/Userbox';
 
-const Navigation = () => (
+const NavSection = () => (
   <>
     <StyledNavbar collapseOnSelect expand="lg" sticky="top" variant="dark">
       <Container>
@@ -64,14 +67,37 @@ const Navigation = () => (
   </>
 );
 
+// STYLED-COMPONENTS
+
 const StyledNavbar = styled(Navbar)`
+  padding-bottom: 15px;
   background-color: hsl(215, 37%, 19%);
   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
+
+  .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 15px;
+    transition: 0.2s ease-in;
+
+    :hover {
+      color: hsla(0, 100%, 100%, 1);
+    }
+
+    &.active {
+      color: hsla(0, 100%, 100%, 1);
+    }
+  }
+
+  .container {
+    align-items: flex-end;
+  }
 `;
 
 const StyledNavbarBrand = styled(Navbar.Brand)`
+  padding-right: 25px;
   font-family: 'Pacifico', sans-serif;
   font-size: 1.8rem;
 `;
 
-export default Navigation;
+export default NavSection;

@@ -5,7 +5,7 @@ import AppContext from '../context';
 import styled from 'styled-components';
 
 // COMPONENTS
-import SearchForm from '../components/organisms/SearchForm';
+import SearchSection from '../components/organisms/SearchSection';
 import Sidebar from '../components/Sidebar';
 import Recommendations from '../components/Recommendations';
 import Footer from '../components/Footer';
