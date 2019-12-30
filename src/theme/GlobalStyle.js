@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        padding-top: 80px;
         font-family: 'Poppins', sans-serif;
     }
 

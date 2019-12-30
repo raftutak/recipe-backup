@@ -25,7 +25,8 @@ import ProfileView from './views/ProfileView';
 class Root extends React.Component {
   state = {
     search_input: '',
-    category_id: 1
+    category_id: 1,
+    collapseNavbar: false
   };
 
   handleInputChange = event => {
@@ -110,6 +111,10 @@ class Root extends React.Component {
   //   this.setState({ showRegistrationModal: !this.state.showRegistrationModal });
   // };
 
+  handleCollapseNavbar = event => {
+    this.setState({ collapseNavbar: !this.state.collapseNavbar });
+  };
+
   componentDidMount() {
     this.handleInitialSearch();
     this.handleShowCategory();
@@ -120,7 +125,8 @@ class Root extends React.Component {
       ...this.state,
       handleInputChange: this.handleInputChange,
       handleSubmitSearch: this.handleSubmitSearch,
-      handleShowCategory: this.handleShowCategory
+      handleShowCategory: this.handleShowCategory,
+      handleCollapseNavbar: this.handleCollapseNavbar
       // handleShowLoginModal: this.handleShowLoginModal,
       // handleShowRegistrationModal: this.handleShowRegistrationModal
     };

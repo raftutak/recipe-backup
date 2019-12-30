@@ -4,26 +4,21 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { routes } from '../../routes';
 
-import { useAuth0 } from '../../react-auth0-spa';
-import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
-import styled, { css } from 'styled-components';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import styled from 'styled-components';
+import Userbox from '../molecules/Userbox';
 
-const Navigation = () => {
-  const { isAuthenticated, loginWithPopup, logout, loading, user } = useAuth0();
-
-  return (
-    <StyledNavbar collapseOnSelect expand="lg" fixed="top" variant="dark">
+const Navigation = () => (
+  <>
+    <StyledNavbar collapseOnSelect expand="lg" sticky="top" variant="dark">
       <Container>
         <StyledNavbarBrand>recipe-search</StyledNavbarBrand>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            <Nav.Link exact as={NavLink} to={routes.home}>
+            <Nav.Link exact as={NavLink} to={routes.home} eventKey={1}>
               Strona główna
             </Nav.Link>
-            {/* <Nav.Link as={NavLink} to={routes.categories}>
-              Przepisy
-            </Nav.Link> */}
             <NavDropdown title="Kategorie">
               <NavDropdown.Item as={NavLink} to={routes.categories}>
                 Napoje
@@ -50,50 +45,24 @@ const Navigation = () => {
                 Pieczywo
               </NavDropdown.Item>
             </NavDropdown>
-            {/* <Nav.Link as={NavLink} to={routes.converter}>
-                    Przelicznik kuchenny
-                  </Nav.Link> */}
-            <Nav.Link as={NavLink} to={routes.calculatorBMI}>
+            <Nav.Link as={NavLink} to={routes.converter}>
+              Przelicznik kuchenny
+            </Nav.Link>
+            <Nav.Link as={NavLink} to={routes.calculatorBMI} eventKey={2}>
               Kalkulator BMI
             </Nav.Link>
-            <Nav.Link as={NavLink} to={routes.contact}>
+            <Nav.Link as={NavLink} to={routes.contact} eventKey={3}>
               Kontakt
             </Nav.Link>
           </Nav>
           <Nav>
-            {!isAuthenticated ? (
-              <>
-                <StyledButton
-                  onClick={() => loginWithPopup({})}
-                  variant="secondary"
-                >
-                  Logowanie / Rejestracja
-                </StyledButton>
-              </>
-            ) : (
-              <>
-                <StyledButton authenticated variant="secondary">
-                  {loading || !user ? (
-                    <div>Loading...</div>
-                  ) : (
-                    <div>Zalogowany jako {user.name}</div>
-                  )}
-                </StyledButton>
-                <StyledButton
-                  logout
-                  onClick={() => logout()}
-                  variant="secondary"
-                >
-                  Wyloguj
-                </StyledButton>
-              </>
-            )}
+            <Userbox />
           </Nav>
         </Navbar.Collapse>
       </Container>
     </StyledNavbar>
-  );
-};
+  </>
+);
 
 const StyledNavbar = styled(Navbar)`
   background-color: hsl(215, 37%, 19%);
@@ -103,32 +72,6 @@ const StyledNavbar = styled(Navbar)`
 const StyledNavbarBrand = styled(Navbar.Brand)`
   font-family: 'Pacifico', sans-serif;
   font-size: 1.8rem;
-`;
-
-const StyledButton = styled(Button)`
-  margin: 3px 0 4px 10px;
-  padding: 6px 12px;
-  font-size: 0.9rem;
-  border: none;
-  border-radius: 5px;
-
-  :hover {
-    background-color: hsl(44, 60%, 42%);
-  }
-
-  ${({ authenticated }) =>
-    authenticated &&
-    css`
-      background-color: hsl(44, 60%, 42%);
-    `}
-
-  ${({ logout }) =>
-    logout &&
-    css`
-      :hover {
-        background-color: hsl(348, 45%, 40%);
-      }
-    `}
 `;
 
 export default Navigation;
