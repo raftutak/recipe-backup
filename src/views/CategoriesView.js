@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import SearchSection from '../components/organisms/SearchSection';
 import Sidebar from '../components/Sidebar';
 import Recommendations from '../components/Recommendations';
-import Footer from '../components/Footer';
+import FooterSection from '../components/organisms/FooterSection';
 import RecipeList from '../components/RecipeList';
 import LoadingDots from '../components/LoadingDots';
 import { Container } from 'react-bootstrap';

@@ -29,8 +29,7 @@ const SearchSection = () => (
 
 const StyledSearchContainer = styled(Container)`
   position: relative;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding: 32px 0;
   text-align: center;
   background-color: hsl(0, 0%, 95%);
   z-index: 1;

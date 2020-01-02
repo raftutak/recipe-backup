@@ -3,6 +3,9 @@ import { useAuth0 } from '../../react-auth0-spa';
 import styled, { css } from 'styled-components';
 import { Button } from 'react-bootstrap';
 
+import { NavLink } from 'react-router-dom';
+import { routes } from '../../routes';
+
 const Userbox = () => {
   const { isAuthenticated, loginWithPopup, logout, loading, user } = useAuth0();
 
@@ -16,13 +19,19 @@ const Userbox = () => {
         </>
       ) : (
         <>
-          <StyledButton
-            authenticated
-            variant="secondary"
-            title="Sprawdź swój profil"
-          >
-            {loading || !user ? <div>Loading...</div> : <div>{user.name}</div>}
-          </StyledButton>
+          <NavLink to={routes.profile}>
+            <StyledButton
+              authenticated
+              variant="secondary"
+              title="Sprawdź swój profil"
+            >
+              {loading || !user ? (
+                <div>Loading...</div>
+              ) : (
+                <div>{user.name}</div>
+              )}
+            </StyledButton>
+          </NavLink>
           <StyledButton
             logout
             onClick={() => logout()}

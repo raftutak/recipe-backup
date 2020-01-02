@@ -10,7 +10,7 @@ import LoginModal from '../components/LoginModal';
 import NavSection from '../components/organisms/NavSection';
 import RegistrationModal from '../components/RegistrationModal';
 import Recommendations from '../components/Recommendations';
-import Footer from '../components/Footer';
+import FooterSection from '../components/organisms/FooterSection';
 import BlockSection from '../components/organisms/BlockSection';
 
 const MainTemplate = ({ children, location }) => (
@@ -23,7 +23,7 @@ const MainTemplate = ({ children, location }) => (
     {children}
     {/* <BlockSection /> */}
     <Recommendations />
-    <Footer />
+    <FooterSection />
   </>
 );
 
