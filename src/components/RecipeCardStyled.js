@@ -21,6 +21,7 @@ const StyledCard = styled(Card)`
   width: 15rem;
   border-radius: 15px;
   transition: 0.2s;
+  margin-left: 0.5em;
 
   .card-img {
     width: 100%;
@@ -63,7 +64,7 @@ const RecipeCardStyled = ({ recipe }) => (
   <AppContext.Consumer>
     {context => (
       <>
-        <CardGroup>
+        <CardDeck>
             <StyledCard>
                 <Card.Img
                     src={recipe.image_Url}
@@ -145,19 +146,20 @@ const RecipeCardStyled = ({ recipe }) => (
                         <span key={ingredientID}>{ingredientID}, </span>
                     ))}
                     </ListGroupItem> */}
-                    <ListGroupItem className="goto">
+                    <ListGroupItem>
                     <Link
+                        style={{ textDecoration: 'none', color: 'hsl(215, 37%, 19%)' }}
                         onClick={context.handleReadRecipe}
                         to={{
-                        pathname: `/recipe/${recipe.id}`
+                          pathname: `/recipe/${recipe.id}`
                         }}
-                    >
+                      >
                         <strong>Przejdź do przepisu</strong>
-                    </Link>
+                   </Link>
                     </ListGroupItem>
                 </ListGroup>
             </StyledCard>
-        </CardGroup>
+        </CardDeck>
       </>
     )}
   </AppContext.Consumer>

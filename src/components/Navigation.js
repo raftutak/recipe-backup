@@ -25,7 +25,7 @@ import AppContext from '../context';
 const StyledNavbar = styled(Navbar)`
   height: 80px;
   background-color: hsl(215, 37%, 19%);
-  box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
+  box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.5);
 
   .navbar-brand {
     padding-right: 25px;
@@ -45,7 +45,7 @@ const StyledNavbar = styled(Navbar)`
     :hover,
     :after {
       color: hsla(0, 100%, 100%, 1);
-      border-bottom: 6px solid hsla(138, 61%, 49%, 1);
+      border-bottom: 5px solid hsla(138, 61%, 49%, 1);
       padding: 0;
     }
 

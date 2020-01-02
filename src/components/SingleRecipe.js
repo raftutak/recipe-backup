@@ -120,7 +120,7 @@ class SingleRecipe extends React.Component {
         <Container className="mb-4">
           <StyledContainer>
             <StyledPath>
-              <Breadcrumb>
+              <Breadcrumb style={{ backgroundColor: 'hsla(0, 100%, 100%, 0)' }}>
                 <Breadcrumb.Item href={home}>recipe-search</Breadcrumb.Item>
                 <Breadcrumb.Item href={categories}>przepisy</Breadcrumb.Item>
                 <Breadcrumb.Item>{id}</Breadcrumb.Item>
