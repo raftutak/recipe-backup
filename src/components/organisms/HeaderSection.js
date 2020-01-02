@@ -6,7 +6,7 @@ import { slider } from '../../data/slider';
 import { NavLink } from 'react-router-dom';
 import { routes } from '../../routes';
 
-const Header = () => (
+const HeaderSection = () => (
   <>
     <StyledHeader fluid>
       <StyledContainer>
@@ -103,4 +103,4 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export default Header;
+export default HeaderSection;

@@ -15,12 +15,12 @@ const SearchSection = () => (
       <>
         <StyledSearchContainer fluid>
           <StyledBackground fluid />
-          <Container>
+          <StyledInnerContainer>
             <h5 className="mb-4">
               <strong>Wyszukaj przepis na dziś</strong>
             </h5>
             <SearchForm />
-          </Container>
+          </StyledInnerContainer>
         </StyledSearchContainer>
       </>
     )}
@@ -29,7 +29,8 @@ const SearchSection = () => (
 
 const StyledSearchContainer = styled(Container)`
   position: relative;
-  padding: 30px 0;
+  padding-top: 32px;
+  padding-bottom: 32px;
   text-align: center;
   background-color: hsl(0, 0%, 95%);
   z-index: 1;
@@ -38,6 +39,7 @@ const StyledSearchContainer = styled(Container)`
 const StyledBackground = styled(Container)`
   position: absolute;
   top: 0;
+  padding: 0;
   height: 100%;
   background-image: url(${search});
   background-repeat: no-repeat;
@@ -48,6 +50,10 @@ const StyledBackground = styled(Container)`
   @media (min-width: 992px) {
     background-position-y: -80px;
   }
+`;
+
+const StyledInnerContainer = styled(Container)`
+  padding: 0 10px;
 `;
 
 export default SearchSection;

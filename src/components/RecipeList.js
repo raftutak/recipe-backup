@@ -14,9 +14,7 @@ const InnerWrapper = styled(Container)`
   padding: 30px 0;
 `;
 
-const StyledCardColumns = styled(CardColumns)`
-  column-count: 4;
-`;
+const StyledCardColumns = styled(CardColumns)``;
 
 class RecipeList extends React.Component {
   render() {

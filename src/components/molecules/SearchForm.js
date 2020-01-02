@@ -33,7 +33,7 @@ const SearchForm = () => (
           </Col>
         </Form.Row>
         <Form.Row>
-          <Col>
+          <Col xs={12} md={6} lg={6}>
             <Form.Group>
               <Form.Control
                 name="search_mainCategory"
@@ -52,8 +52,8 @@ const SearchForm = () => (
               </Form.Control>
             </Form.Group>
           </Col>
-          <Col>
-            <Form.Group>
+          <Col xs={12} md={6} lg={6}>
+            <Form.Group className="mb-0">
               <Form.Control
                 id="search-form"
                 name="search_subCategory"
@@ -85,6 +85,7 @@ const SearchForm = () => (
 
 const StyledForm = styled(Form)`
   margin: 0 auto;
+  padding: 0;
   width: 80%;
 
   .form-control {

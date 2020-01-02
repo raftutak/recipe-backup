@@ -18,7 +18,6 @@ import { faStar as starChecked } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 
 const StyledCard = styled(Card)`
-  width: 15rem;
   border-radius: 15px;
   transition: 0.2s;
 

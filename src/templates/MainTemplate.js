@@ -5,7 +5,7 @@ import React from 'react';
 import GlobalStyle from '../theme/GlobalStyle';
 
 // COMPONENTS
-import Header from '../components/organisms/Header';
+import HeaderSection from '../components/organisms/HeaderSection';
 import LoginModal from '../components/LoginModal';
 import NavSection from '../components/organisms/NavSection';
 import RegistrationModal from '../components/RegistrationModal';
@@ -19,7 +19,7 @@ const MainTemplate = ({ children, location }) => (
     <NavSection />
     <LoginModal />
     <RegistrationModal />
-    {location.pathname === '/' ? <Header /> : null}
+    {location.pathname === '/' ? <HeaderSection /> : null}
     {children}
     {/* <BlockSection /> */}
     <Recommendations />

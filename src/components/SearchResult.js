@@ -17,7 +17,7 @@ import { Container, CardColumns } from 'react-bootstrap';
 
 const InnerWrapper = styled(Container)`
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 30px 10px;
 `;
 
 const StyledCardColumns = styled(CardColumns)`
