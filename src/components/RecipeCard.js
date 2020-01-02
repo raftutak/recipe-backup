@@ -12,6 +12,7 @@ import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 // DATA
 import { categories } from '../data/categories';
+import noimage from '../assets/img/noimage.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as starChecked } from '@fortawesome/free-solid-svg-icons';
@@ -60,8 +61,7 @@ const RecipeCard = ({ recipe }) => (
             src={recipe.image_Url}
             onError={e => {
               e.target.onerror = null;
-              e.target.src =
-                'http://www.nexuscctv.pl/media/catalog/product/cache/14/image/378x380/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/no_image_placeholder_6.png';
+              e.target.src = `${noimage}`;
             }}
           />
           <Card.Header>
