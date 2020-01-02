@@ -23,7 +23,7 @@ const StyledPath = styled.div`
 
 const StyledContainer = styled(Container)`
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 30px;
 `;
 
 // LIST OF INGREDIENTS
@@ -31,8 +31,8 @@ const StyledIngridients = styled(ListGroup)`
   margin: 0 auto;
   padding: 0;
   width: auto;
-  min-width: 450px;
   float: left;
+  clear: both;
 `;
 
 // INGREDIENTS LISTGROUP.ITEM
@@ -44,7 +44,7 @@ const StyledIngredientsListGroupItem = styled(ListGroup.Item)`
   padding: 8px;
 
   :hover {
-    background-color: hsla(215, 37%, 19%, 0.08);
+    background-color: hsla(215, 37%, 19%, 0.04);
     border-left: 6px solid #31c95f;
     transition: 0.2s;
   }
@@ -59,10 +59,11 @@ const StyledRecipeName = styled.h4`
 
 // RECIPE IMAGE
 const StyledImage = styled(Card)`
-  clear: both;
   float: right;
   width: auto;
-  transition: 0.2s;
+  min-width: 5rem;
+  max-width: 40%;
+  height: auto;
 
   .border-bottom {
     padding: 10px;
@@ -83,8 +84,15 @@ const StyledDescription = styled.div`
   clear: both;
 `;
 
-const { home } = routes.home;
-const { categories } = routes.categories;
+const StyledBreadcrumb = styled(Breadcrumb)`
+    ol {
+      background-color: #fff;
+    }
+    
+    li {
+      text-decoration: none;
+    }
+`;
 
 class SingleRecipe extends React.Component {
   state = {
@@ -120,16 +128,17 @@ class SingleRecipe extends React.Component {
         <Container className="mb-4">
           <StyledContainer>
             <StyledPath>
-              <Breadcrumb style={{ backgroundColor: 'hsla(0, 100%, 100%, 0)' }}>
-                <Breadcrumb.Item href={home}>recipe-search</Breadcrumb.Item>
-                <Breadcrumb.Item href={categories}>przepisy</Breadcrumb.Item>
-                <Breadcrumb.Item>{id}</Breadcrumb.Item>
-              </Breadcrumb>
+              <StyledBreadcrumb>
+                <Breadcrumb.Item aria-label="Breadcrumb"><NavLink as={NavLink} to={routes.home} style={{color: "hsla(215, 37%, 19%, 0.9)"}}>recipe-search</NavLink></Breadcrumb.Item>
+                <Breadcrumb.Item aria-label="Breadcrumb"><NavLink as={NavLink} to={routes.categories} style={{color: "hsla(215, 37%, 19%, 0.9)"}}>przepisy</NavLink></Breadcrumb.Item>
+                <Breadcrumb.Item aria-current="page" style={{textDecoration: "none", color: "hsla(215, 37%, 19%, 0.9)", fontWeight: "500"}}>{this.state.singleRecipe_result.title}</Breadcrumb.Item>
+              </StyledBreadcrumb>
             </StyledPath>
             <StyledRecipeName>
               <p>{this.state.singleRecipe_result.title}</p>
               <br></br>
             </StyledRecipeName>
+            <StyledContainer>
             <StyledImage>
               <img
                 src={this.state.singleRecipe_result.image_Url}
@@ -140,6 +149,8 @@ class SingleRecipe extends React.Component {
                 Poziom trudności: średni
               </div>
             </StyledImage>
+            </StyledContainer>
+            <StyledContainer>
             <StyledIngridients>
               <h4>Lista składników</h4>
               {this.state.singleRecipe_result.ingredients.map(item => {
@@ -153,6 +164,7 @@ class SingleRecipe extends React.Component {
                 Skorzystaj z przelicznika miar kuchennych!
               </Nav.Link>
             </StyledIngridients>
+            </StyledContainer>
           </StyledContainer>
           <StyledDescription>
             <p>{this.state.singleRecipe_result.description}</p>
