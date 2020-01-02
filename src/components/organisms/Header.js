@@ -41,6 +41,10 @@ const StyledHeader = styled(Container)`
   background-image: url(${header});
   background-position: center;
   background-repeat: no-repeat;
+
+  /* @media (max-width: 500px) {
+    min-height: 540px;
+  } */
 `;
 
 const StyledContainer = styled(Container)``;

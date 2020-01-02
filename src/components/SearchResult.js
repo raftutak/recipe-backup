@@ -21,7 +21,14 @@ const InnerWrapper = styled(Container)`
 `;
 
 const StyledCardColumns = styled(CardColumns)`
-  column-count: 4;
+  .card-columns {
+    @include media-breakpoint-only(lg) {
+      column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 5;
+    }
+  }
 `;
 
 class SearchResult extends React.Component {

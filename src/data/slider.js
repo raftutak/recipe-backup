@@ -9,9 +9,9 @@ export const slider = [
   },
   {
     id: 2,
-    heading: 'Oblicz swój wskaźnik masy ciała',
+    heading: 'Oblicz wskaźnik masy ciała',
     paragraph:
-      'Kalkulator BMI (Body Mass Index) daje każdemu możliwość szybkiego i wygodego obliczenia własnego wskaźnika masy ciała. BMI obliczamy dzieląc masę ciała (w kilogramach) przez wzrost do kwadratu (w metrach). Wskaźnik ten wykorzystywany jest przede wszystkim do oceny ryzyka pojawienia się groźnych chorób.',
+      'Kalkulator BMI (Body Mass Index) daje każdemu możliwość szybkiego i wygodego obliczenia własnego wskaźnika masy ciała. BMI obliczamy dzieląc masę ciała (w kilogramach) przez wzrost do kwadratu (w metrach). Wskaźnik ten wykorzystywany jest przede wszystkim do oceny ryzyka pojawienia się groźnych chorób oraz oceny stanu zdrowia.',
     button: 'Przejdź do Kalkulatora BMI',
     url: 'routes.calculatorBMI'
   }
