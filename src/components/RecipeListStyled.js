@@ -14,7 +14,7 @@ const InnerWrapper = styled(Container)`
   padding: 30px 0;
 `;
 
-const StyledCardDeck = styled(CardDeck)`
+const StyledCardColumns = styled(CardColumns)`
   column-count: 4;
 `;
 
@@ -28,13 +28,13 @@ class RecipeListStyled extends React.Component {
               <>
                  <Container fluid>
                    <InnerWrapper>
-                     <StyledCardDeck id="recipeList">
+                     <StyledCardColumns id="recipeList">
                        {context.categories_result.map(recipe => {
                         return (
                           <RecipeCardStyled key={recipe.title} recipe={recipe} />
                         );
                       })}
-                    </StyledCardDeck>
+                    </StyledCardColumns>
                   </InnerWrapper>
                 </Container>
               </>

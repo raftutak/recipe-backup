@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // BOOTSTRAP
-import { Card, ListGroup, ListGroupItem, CardDeck, CardGroup } from 'react-bootstrap';  
+import { Card, ListGroup, ListGroupItem, CardDeck } from 'react-bootstrap';  
 
 // DATA
 import { categories } from '../data/categories';
@@ -32,10 +32,6 @@ const StyledCard = styled(Card)`
     border-bottom-right-radius: 0;
   }
 
-  .card-group {
-      display: flex;
-  }
-
   .goto {
     a {
       color: hsl(215, 37%, 19%);
@@ -56,6 +52,7 @@ const StyledCard = styled(Card)`
   }
 `;
 
+
 const StyledStar = styled(FontAwesomeIcon)`
   color: hsl(56, 100%, 46%);
 `;
@@ -64,7 +61,6 @@ const RecipeCardStyled = ({ recipe }) => (
   <AppContext.Consumer>
     {context => (
       <>
-        <CardDeck>
             <StyledCard>
                 <Card.Img
                     src={recipe.image_Url}
@@ -159,7 +155,6 @@ const RecipeCardStyled = ({ recipe }) => (
                     </ListGroupItem>
                 </ListGroup>
             </StyledCard>
-        </CardDeck>
       </>
     )}
   </AppContext.Consumer>
