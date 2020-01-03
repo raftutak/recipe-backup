@@ -7,13 +7,23 @@ import { NavLink } from 'react-router-dom';
 import { routes } from '../../routes';
 
 const Userbox = () => {
-  const { isAuthenticated, loginWithPopup, logout, loading, user } = useAuth0();
+  const {
+    isAuthenticated,
+    loginWithPopup,
+    loginWithRedirect,
+    logout,
+    loading,
+    user
+  } = useAuth0();
 
   return (
     <>
       {!isAuthenticated ? (
         <>
-          <StyledButton onClick={() => loginWithPopup({})} variant="secondary">
+          <StyledButton
+            onClick={() => loginWithRedirect({})}
+            variant="secondary"
+          >
             Logowanie / Rejestracja
           </StyledButton>
         </>
