@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import styled from 'styled-components';
 
-import { Container, ListGroup, Card, Nav, Breadcrumb } from 'react-bootstrap';
+import { Container, ListGroup, Nav, Breadcrumb } from 'react-bootstrap';
 
 import LoadingDots from '../components/LoadingDots';
 
@@ -67,8 +67,8 @@ const StyledImage = styled.div`
     width: auto;
     min-width: 25%;
     max-width: 50%;
-    border-radius: 10px;
-    box-shadow: 0 3px 1rem 0 hsla(0, 0%, 0%, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 3px 1rem 0 hsla(0, 0%, 0%, 0.1);
   }
 
   .border-bottom {
@@ -82,7 +82,7 @@ const StyledImage = styled.div`
 
 // RECIPE DESCRIPTION
 const StyledDescription = styled.div`
-  padding-top: 2rem;
+  padding-top: 4rem;
   text-align: left;
   font-size: 12pt;
   min-width: 5rem;
