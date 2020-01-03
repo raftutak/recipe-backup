@@ -17,7 +17,7 @@ import MainTemplate from './templates/MainTemplate';
 // VIEWS
 import HomeView from './views/HomeView';
 import CategoriesView from './views/CategoriesView';
-import RecipeView from './views/RecipeView';
+import SingleRecipeView from './views/SingleRecipeView';
 import CalculatorView from './views/CalculatorView';
 import ContactView from './views/ContactView';
 import ProfileView from './views/ProfileView';
@@ -141,7 +141,9 @@ class Root extends React.Component {
                 <Route path={routes.categories} component={CategoriesView} />
                 <Route
                   path={routes.recipe}
-                  render={props => <RecipeView id={props.match.params.id} />}
+                  render={props => (
+                    <SingleRecipeView id={props.match.params.id} />
+                  )}
                 />
                 <Route path={routes.calculatorBMI} component={CalculatorView} />
                 <Route path={routes.contact} component={ContactView} />

@@ -12,6 +12,12 @@ import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 // DATA
 import { categories } from '../data/categories';
+import { dishes } from '../data/dishes';
+import { ingredients } from '../data/ingredients';
+import { ingredientsCategories } from '../data/ingredientsCategories';
+import { recipesFeatures } from '../data/recipesFeatures';
+import { features } from '../data/features';
+import { featuresCategories } from '../data/featuresCategories';
 import noimage from '../assets/img/noimage.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -100,14 +106,21 @@ const RecipeCard = ({ recipe }) => (
                 <strong style={{ color: 'red' }}>Brak podkategorii</strong>
               )}
             </ListGroupItem>
-            {/* <ListGroupItem>
+            <ListGroupItem>
               <strong>id:</strong> {recipe.id}
             </ListGroupItem>
             <ListGroupItem>
-              <strong>dishId</strong>: {recipe.dishId}
+              <strong>Typ dania</strong>: {recipe.dishId}
+              <br />
+              {recipe.dishId ? (
+                dishes[dishes.findIndex(index => index.id === recipe.dishId)]
+                  .name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak dishId</strong>
+              )}
             </ListGroupItem>
             <ListGroupItem>
-              <strong>dishMainCategoryId</strong>: {recipe.dishMainCategoryId}
+              <strong>Kategoria</strong>: {recipe.dishMainCategoryId}
               <br />
               {recipe.dishMainCategoryId !== 0 ? (
                 categories[recipe.dishMainCategoryId - 1].name
@@ -116,7 +129,7 @@ const RecipeCard = ({ recipe }) => (
               )}
             </ListGroupItem>
             <ListGroupItem>
-              <strong>dishSubCategoryId</strong>: {recipe.dishSubCategoryId}
+              <strong>Podkategoria</strong>: {recipe.dishSubCategoryId}
               <br />
               {recipe.dishMainCategoryId !== 0 ? (
                 categories[recipe.dishMainCategoryId - 1].subcategories[
@@ -131,11 +144,270 @@ const RecipeCard = ({ recipe }) => (
               )}
             </ListGroupItem>
             <ListGroupItem>
-              <strong>ingredientIds:</strong>{' '}
+              <strong>ingredientCategoryIds:</strong>{' '}
+              {recipe.ingredientCategoryIds.map(
+                (ingredientCategoryID, index) => (
+                  <span key={ingredientCategoryID}>
+                    {ingredientCategoryID}
+                    {index < recipe.ingredientCategoryIds.length - 1
+                      ? ',\u00A0'
+                      : ''}
+                  </span>
+                )
+              )}
+              <br />
+              {recipe.ingredientCategoryIds.map(ingredientCategoryID => (
+                <span key={ingredientCategoryID}>
+                  {
+                    ingredientsCategories[
+                      ingredientsCategories.findIndex(
+                        index => index.id === ingredientCategoryID
+                      )
+                    ].name
+                  }
+                  ,{' '}
+                </span>
+              ))}
+            </ListGroupItem>
+            <ListGroupItem>
+              <strong>Składniki:</strong>{' '}
               {recipe.ingredientIds.map(ingredientID => (
                 <span key={ingredientID}>{ingredientID}, </span>
               ))}
-            </ListGroupItem> */}
+              <br />
+              {recipe.ingredientIds.map(ingredientID => (
+                <span key={ingredientID}>
+                  {
+                    ingredients[
+                      ingredients.findIndex(index => index.id === ingredientID)
+                    ].name
+                  }
+                  ,{' '}
+                </span>
+              ))}
+            </ListGroupItem>
+            <ListGroupItem>
+              <strong>
+                Kolor:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 1
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 1
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Okazja:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 2
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 2
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Kuchnia:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 3
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 3
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Koszt:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 4
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 4
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Trudność:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 5
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 5
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Czas przygotowania:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 6
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 6
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Wykluczenia:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 7
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 7
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Sposób przyrządzenia:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 8
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 8
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Posiłek:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 9
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID && index.categoryId === 9
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+              <br />
+              <strong>
+                Inne:{' '}
+                {recipe.featureIds
+                  ? recipe.featureIds.map((featureID, index) => (
+                      <>
+                        {features[
+                          features.findIndex(
+                            index =>
+                              index.id === featureID && index.categoryId === 10
+                          )
+                        ] &&
+                          features[
+                            features.findIndex(
+                              index =>
+                                index.id === featureID &&
+                                index.categoryId === 10
+                            )
+                          ].name + ', '}
+                      </>
+                    ))
+                  : null}
+              </strong>
+            </ListGroupItem>
             <ListGroupItem>
               <Link
                 style={{ textDecoration: 'none', color: 'hsl(215, 37%, 19%)' }}

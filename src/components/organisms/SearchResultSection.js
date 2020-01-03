@@ -64,7 +64,7 @@ const StyledCardColumns = styled(CardColumns)`
   }
 
   @media (min-width: 1200px) {
-    column-count: 4;
+    column-count: 3;
   }
 `;
 

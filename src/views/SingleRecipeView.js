@@ -4,9 +4,9 @@ import AppContext from '../context';
 import LoadingDots from '../components/LoadingDots';
 
 // ROUTER
-import SingleRecipe from '../components/SingleRecipe';
+import SingleRecipeSection from '../components/organisms/SingleRecipeSection';
 
-const RecipeView = ({ id }) => {
+const SingleRecipeView = ({ id }) => {
   console.log(id);
 
   return (
@@ -20,11 +20,11 @@ const RecipeView = ({ id }) => {
           {context.singleRecipe_isLoading && !context.singleRecipe_result && (
             <LoadingDots />
           )}
-          {!context.singleRecipe_isLoading && <SingleRecipe id={id} />}
+          {!context.singleRecipe_isLoading && <SingleRecipeSection id={id} />}
         </>
       )}
     </AppContext.Consumer>
   );
 };
 
-export default RecipeView;
+export default SingleRecipeView;
