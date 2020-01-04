@@ -21,10 +21,10 @@ const containerContent = (
       <strong>Kulinarna porada</strong>
     </h5>
     <p style={{ color: 'white', textShadow: '0 0 5px hsla(0, 0%, 0%, 1)' }}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim
-      lorem vel dignissim imperdiet. Quisque et lacus venenatis, mollis lorem
-      sed, scelerisque tortor. Quisque rutrum urna vitae leo sagittis, id
-      dapibus nibh lobortis. Nulla facilisi.
+      Makaron przygotowywany z sosem warto jest gotować ok. minutę krócej, niż
+      wskazane jest to w instrukcji. Ostatnią minutę powinien być gotowany w
+      podgrzewającym się sosie. Przeniknie wówczas smakiem i zapachem ziół i
+      dodatków.
     </p>
   </>
 );
@@ -90,16 +90,16 @@ const StyledCarousel = styled(Carousel)`
 const Recommendations = () => (
   <>
     <Container fluid>
-      <Container>
+      <Container style={{ padding: '0' }}>
         <Row>
-          <StyledCol>
+          <StyledCol xs={12} md={6} lg={6}>
             <StyledContainerBackground backgroundimage={1}>
               <StyledContainer grayoverlay={1}>
                 {containerContent}
               </StyledContainer>
             </StyledContainerBackground>
           </StyledCol>
-          <StyledCol>
+          <StyledCol xs={12} md={6} lg={6}>
             <StyledContainerBackground>
               <StyledContainer>
                 <h5 className="mb-4">
@@ -116,7 +116,7 @@ const Recommendations = () => (
                             rel="noopener noreferrer"
                           >
                             <img
-                              style={{ width: '350px' }}
+                              style={{ width: '80%' }}
                               src={item.src}
                               alt={id}
                             />

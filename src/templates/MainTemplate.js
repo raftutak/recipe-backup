@@ -12,6 +12,7 @@ import RegistrationModal from '../components/RegistrationModal';
 import Recommendations from '../components/Recommendations';
 import FooterSection from '../components/organisms/FooterSection';
 import BlockSection from '../components/organisms/BlockSection';
+import DailyRecipeSection from '../components/organisms/DailyRecipeSection';
 
 const MainTemplate = ({ children, location }) => (
   <>
@@ -22,6 +23,7 @@ const MainTemplate = ({ children, location }) => (
     {location.pathname === '/' ? <HeaderSection /> : null}
     {children}
     {/* <BlockSection /> */}
+    <DailyRecipeSection />
     <Recommendations />
     <FooterSection />
   </>

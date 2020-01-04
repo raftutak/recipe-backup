@@ -4,7 +4,7 @@ export const slider = [
     heading: 'Łatwe przepisy na każdą okazję!',
     paragraph:
       'Witaj na recipe-search! Jest to ogromna baza przepisów zawierająca treści z najlepszych polskich blogów kulinarnych. Od dziś nie musisz przeglądać wielu stron w poszukiwaniu najlepszego lub najprostszego przepisu - wszystko znajdziesz w jednym miejscu, właśnie tutaj. Przekonaj się sam korzystając z poniższej wyszukiwarki!',
-    button: 'Przejdź do katalogu przepisów',
+    button: 'Skorzystaj z wyszukiwarki',
     url: 'routes.calculatorBMI'
   },
   {

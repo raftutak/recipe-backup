@@ -3,22 +3,10 @@ import axios from 'axios';
 
 import styled from 'styled-components';
 
-import {
-  Container,
-  ListGroup,
-  Card,
-  Nav,
-  Row,
-  Col,
-  CardColumns
-} from 'react-bootstrap';
+import { Container, CardColumns } from 'react-bootstrap';
 
 import LoadingDots from '../../components/LoadingDots';
 import RecipeCard from '../RecipeCard';
-
-// ROUTER
-import { NavLink } from 'react-router-dom';
-import { routes } from '../../routes';
 
 class CategorySection extends React.Component {
   state = {
@@ -49,17 +37,26 @@ class CategorySection extends React.Component {
 
     return this.state.category_result ? (
       <>
-        <StyledCardColumns>
-          {this.state.category_result.map(recipe => {
-            return <RecipeCard key={recipe.title} recipe={recipe} />;
-          })}
-        </StyledCardColumns>
+        <Container fluid>
+          <InnerWrapper>
+            <StyledCardColumns>
+              {this.state.category_result.map(recipe => {
+                return <RecipeCard key={recipe.title} recipe={recipe} />;
+              })}
+            </StyledCardColumns>
+          </InnerWrapper>
+        </Container>
       </>
     ) : (
       <LoadingDots />
     );
   }
 }
+
+const InnerWrapper = styled(Container)`
+  margin: 0 auto;
+  padding: 30px 10px;
+`;
 
 const StyledCardColumns = styled(CardColumns)`
   @media (min-width: 576px) {

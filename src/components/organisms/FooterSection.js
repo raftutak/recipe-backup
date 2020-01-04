@@ -4,6 +4,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col, Badge, Form, Button } from 'react-bootstrap';
 
+import { categories } from '../../data/categories';
+
+import { NavLink } from 'react-router-dom';
+
 import Tags from '../molecules/Tags';
 
 const StyledContainer = styled(Container)`
@@ -92,14 +96,17 @@ const FooterSection = () => (
               <strong>Kategorie</strong>
             </h5>
             <ul style={{ listStyle: 'none' }}>
-              <StyledListItem>Napoje</StyledListItem>
-              <StyledListItem>Desery</StyledListItem>
-              <StyledListItem>Zupy</StyledListItem>
-              <StyledListItem>Dania</StyledListItem>
-              <StyledListItem>Dodatki</StyledListItem>
-              <StyledListItem>Przekąski</StyledListItem>
-              <StyledListItem>Przetwory</StyledListItem>
-              <StyledListItem>Pieczywo</StyledListItem>
+              {categories.map(category => (
+                <>
+                  <StyledListItem
+                    as={NavLink}
+                    to={{ pathname: `/category/${category.id}` }}
+                  >
+                    {category.name}
+                  </StyledListItem>
+                  <br />
+                </>
+              ))}
             </ul>
           </Col>
           <Col>
@@ -110,21 +117,13 @@ const FooterSection = () => (
           </Col>
           <Col>
             <h5 className="mb-3">
-              <strong>Newsletter</strong>
+              <strong>Masz pytania?</strong>
             </h5>
-            <Form>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control
-                  className="subscribe"
-                  type="email"
-                  placeholder="Podaj adres email"
-                />
-                <Form.Text className="text-muted">
-                  Zapoznaj się z zasadami subskrypcji
-                </Form.Text>
-                <StyledButton variant="secondary">Zapisz się</StyledButton>
-              </Form.Group>
-            </Form>
+            <p>
+              Skorzystaj z naszego formularza kontaktowego klikając na poniższy
+              przycisk.
+            </p>
+            <StyledButton variant="secondary">Kontakt</StyledButton>
           </Col>
         </Row>
         <hr style={{ border: '0.5px solid hsla(0, 100%, 100%, 0.05)' }} />

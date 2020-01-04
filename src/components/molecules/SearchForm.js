@@ -15,6 +15,13 @@ import makeAnimated from 'react-select/animated';
 
 const animatedComponents = makeAnimated();
 
+const customStyles = {
+  control: (base, state) => ({
+    ...base,
+    borderRadius: '15px'
+  })
+};
+
 const SearchForm = () => (
   <AppContext.Consumer>
     {context => (
@@ -43,6 +50,7 @@ const SearchForm = () => (
           <Col xs={12} md={4} lg={4}>
             <Form.Group>
               <Select
+                styles={customStyles}
                 options={categories}
                 getOptionLabel={category => category.name}
                 getOptionValue={category => category.id}
@@ -55,6 +63,7 @@ const SearchForm = () => (
           <Col xs={12} md={4} lg={4}>
             <Form.Group>
               <Select
+                styles={customStyles}
                 options={
                   context.search_mainCategory &&
                   context.search_mainCategory.subcategories
@@ -71,6 +80,7 @@ const SearchForm = () => (
           <Col xs={12} md={4} lg={4}>
             <Form.Group>
               <Select
+                styles={customStyles}
                 options={
                   context.search_subCategory &&
                   dishes.filter(
@@ -89,8 +99,9 @@ const SearchForm = () => (
         </Form.Row>
         <Form.Row>
           <Col xs={12} md={4} lg={4}>
-            <Form.Group className="mb-0">
+            <Form.Group>
               <Select
+                styles={customStyles}
                 options={features.filter(feature => feature.categoryId === 9)}
                 getOptionLabel={feature => feature.name}
                 getOptionValue={feature => feature.id}
@@ -102,6 +113,7 @@ const SearchForm = () => (
           <Col xs={12} md={8} lg={8}>
             <Form.Group className="mb-0">
               <Select
+                styles={customStyles}
                 options={features.filter(feature => feature.categoryId === 7)}
                 getOptionLabel={feature => feature.name}
                 getOptionValue={feature => feature.id}
@@ -124,7 +136,7 @@ const StyledForm = styled(Form)`
   width: 80%;
 
   .form-control {
-    border: none;
+    border: 1px solid hsl(0, 0%, 80%);
     border-radius: 15px;
   }
 

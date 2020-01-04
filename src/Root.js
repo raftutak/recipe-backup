@@ -22,6 +22,7 @@ import CalculatorView from './views/CalculatorView';
 import ContactView from './views/ContactView';
 import ProfileView from './views/ProfileView';
 import FeatureView from './views/FeatureView';
+import ScrollToTop from './utils/ScrollToTop';
 
 class Root extends React.Component {
   state = {
@@ -109,6 +110,38 @@ class Root extends React.Component {
     //   .scrollIntoView({ behavior: 'smooth' });
   };
 
+  handleDailyRecipe = async () => {
+    this.setState({
+      dailyRecipe_isLoading: true,
+      dailyRecipe_result: undefined
+    });
+
+    const url =
+      'https://recipe-search.projektstudencki.pl/recipe/searchDayRecipe';
+    const response = await axios(url);
+    const dailyRecipe_result = await response.data.recipe;
+
+    this.setState({ dailyRecipe_isLoading: false, dailyRecipe_result });
+
+    console.log(this.state.dailyRecipe_result);
+  };
+
+  handleRandomRecipe = async () => {
+    this.setState({
+      randomRecipe_isLoading: true,
+      randomRecipe_result: undefined
+    });
+
+    const url =
+      'https://recipe-search.projektstudencki.pl/recipe/searchRandomRecipe';
+    const response = await axios(url);
+    const randomRecipe_result = await response.data.recipe;
+
+    this.setState({ randomRecipe_isLoading: false, randomRecipe_result });
+
+    console.log(this.state.randomRecipe_result);
+  };
+
   // handleShowCategory = async event => {
   //   const cat_id = event ? event.target.value : 1;
 
@@ -141,6 +174,8 @@ class Root extends React.Component {
 
   componentDidMount() {
     this.handleInitialSearch();
+    this.handleDailyRecipe();
+    this.handleRandomRecipe();
     // this.handleShowCategory();
   }
 
@@ -152,7 +187,6 @@ class Root extends React.Component {
       handleSubCategoryChange: this.handleSubCategoryChange,
       handleDishTypeChange: this.handleDishTypeChange,
       handleSubmitSearch: this.handleSubmitSearch,
-      // handleShowCategory: this.handleShowCategory,
       handleCollapseNavbar: this.handleCollapseNavbar
       // handleShowLoginModal: this.handleShowLoginModal,
       // handleShowRegistrationModal: this.handleShowRegistrationModal
@@ -161,6 +195,7 @@ class Root extends React.Component {
     return (
       <>
         <Router history={history}>
+          <ScrollToTop />
           <AppContext.Provider value={contextElements}>
             <Switch>
               <MainTemplate>
