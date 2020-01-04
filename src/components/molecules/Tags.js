@@ -3,20 +3,71 @@ import styled from 'styled-components';
 
 import { Badge } from 'react-bootstrap';
 
+import AppContext from '../../context';
+
 const Tags = () => (
-  <>
-    <div>
-      <Tag variant="secondary">pierogi</Tag>
-      <Tag variant="secondary">pizza</Tag>
-      <Tag variant="secondary">zupa</Tag>
-      <Tag variant="secondary">kotlet</Tag>
-      <Tag variant="secondary">ciasto</Tag>
-      <Tag variant="secondary">koktajl</Tag>
-      <Tag variant="secondary">kompot</Tag>
-      <Tag variant="secondary">tort</Tag>
-      <Tag variant="secondary">bułka</Tag>
-    </div>
-  </>
+  <AppContext.Consumer>
+    {context => (
+      <>
+        <div>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('pierogi')}
+          >
+            pierogi
+          </Tag>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('pierogi')}
+          >
+            pizza
+          </Tag>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('zupa')}
+          >
+            zupa
+          </Tag>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('kotlet')}
+          >
+            kotlet
+          </Tag>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('ciasto')}
+          >
+            ciasto
+          </Tag>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('koktajl')}
+          >
+            koktajl
+          </Tag>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('kompot')}
+          >
+            kompot
+          </Tag>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('tort')}
+          >
+            tort
+          </Tag>
+          <Tag
+            variant="secondary"
+            onClick={() => context.handleTagClick('bułka')}
+          >
+            bułka
+          </Tag>
+        </div>
+      </>
+    )}
+  </AppContext.Consumer>
 );
 
 const Tag = styled(Badge)`

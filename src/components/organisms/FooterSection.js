@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Container, Row, Col, Badge, Form, Button } from 'react-bootstrap';
 
 import { categories } from '../../data/categories';
+import { features } from '../../data/features';
 
 import { NavLink } from 'react-router-dom';
 
@@ -79,8 +80,8 @@ const FooterSection = () => (
     <StyledContainer fluid>
       <InnerWrapper>
         <Row>
-          <Col>
-            <h5 className="mb-3">
+          <Col className="mb-3">
+            <h5 className="mb-2">
               <strong>O nas</strong>
             </h5>
             <p>
@@ -91,8 +92,8 @@ const FooterSection = () => (
               właśnie tutaj.
             </p>
           </Col>
-          <Col md="auto" className="mr-5">
-            <h5 className="mb-3">
+          <Col md="auto">
+            <h5 className="mb-2">
               <strong>Kategorie</strong>
             </h5>
             <ul style={{ listStyle: 'none' }}>
@@ -109,13 +110,73 @@ const FooterSection = () => (
               ))}
             </ul>
           </Col>
+          <Col md="auto">
+            <h5 className="mb-2">
+              <strong>Posiłki</strong>
+            </h5>
+            <ul style={{ listStyle: 'none' }}>
+              {features
+                .filter(feature => feature.categoryId === 9)
+                .map(feature => (
+                  <>
+                    <StyledListItem
+                      as={NavLink}
+                      to={{ pathname: `/feature/${feature.id}` }}
+                    >
+                      {feature.name}
+                    </StyledListItem>
+                    <br />
+                  </>
+                ))}
+            </ul>
+          </Col>
+          <Col md="auto">
+            <h5 className="mb-2">
+              <strong>Kuchnia</strong>
+            </h5>
+            <ul style={{ listStyle: 'none' }}>
+              {features
+                .filter(feature => feature.categoryId === 3)
+                .map(feature => (
+                  <>
+                    <StyledListItem
+                      as={NavLink}
+                      to={{ pathname: `/feature/${feature.id}` }}
+                    >
+                      {feature.name}
+                    </StyledListItem>
+                    <br />
+                  </>
+                ))}
+            </ul>
+          </Col>
+          <Col md="auto">
+            <h5 className="mb-2">
+              <strong>Okazja</strong>
+            </h5>
+            <ul style={{ listStyle: 'none' }}>
+              {features
+                .filter(feature => feature.categoryId === 2)
+                .map(feature => (
+                  <>
+                    <StyledListItem
+                      as={NavLink}
+                      to={{ pathname: `/feature/${feature.id}` }}
+                    >
+                      {feature.name}
+                    </StyledListItem>
+                    <br />
+                  </>
+                ))}
+            </ul>
+          </Col>
           <Col>
             <h5 className="mb-3">
               <strong>Popularne tagi</strong>
             </h5>
             <Tags />
           </Col>
-          <Col>
+          {/* <Col>
             <h5 className="mb-3">
               <strong>Masz pytania?</strong>
             </h5>
@@ -124,7 +185,7 @@ const FooterSection = () => (
               przycisk.
             </p>
             <StyledButton variant="secondary">Kontakt</StyledButton>
-          </Col>
+          </Col> */}
         </Row>
         <hr style={{ border: '0.5px solid hsla(0, 100%, 100%, 0.05)' }} />
         <Row>

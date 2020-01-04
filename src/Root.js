@@ -142,6 +142,19 @@ class Root extends React.Component {
     console.log(this.state.randomRecipe_result);
   };
 
+  handleTagClick = async tag => {
+    this.setState({
+      search_isLoading: true,
+      search_result: undefined
+    });
+
+    const url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${tag}&count=8`;
+    const response = await axios(url);
+    const search_result = await response.data.recipes;
+
+    this.setState({ search_isLoading: false, search_result });
+  };
+
   // handleShowCategory = async event => {
   //   const cat_id = event ? event.target.value : 1;
 
@@ -187,6 +200,7 @@ class Root extends React.Component {
       handleSubCategoryChange: this.handleSubCategoryChange,
       handleDishTypeChange: this.handleDishTypeChange,
       handleSubmitSearch: this.handleSubmitSearch,
+      handleTagClick: this.handleTagClick,
       handleCollapseNavbar: this.handleCollapseNavbar
       // handleShowLoginModal: this.handleShowLoginModal,
       // handleShowRegistrationModal: this.handleShowRegistrationModal
