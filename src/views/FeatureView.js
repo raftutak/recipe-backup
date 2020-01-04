@@ -3,23 +3,23 @@ import AppContext from '../context';
 
 // COMPONENTS
 import LoadingDots from '../components/LoadingDots';
-import SingleRecipeSection from '../components/organisms/SingleRecipeSection';
+import FeatureSection from '../components/organisms/FeatureSection';
 
-const SingleRecipeView = ({ id }) => {
+const FeatureView = ({ id }) => {
   console.log(id);
 
   return (
     <AppContext.Consumer>
       {context => (
         <>
-          {context.singleRecipe_isLoading && !context.singleRecipe_result && (
+          {context.feature_isLoading && !context.feature_result && (
             <LoadingDots />
           )}
-          {!context.singleRecipe_isLoading && <SingleRecipeSection id={id} />}
+          {!context.feature_isLoading && <FeatureSection id={id} />}
         </>
       )}
     </AppContext.Consumer>
   );
 };
 
-export default SingleRecipeView;
+export default FeatureView;

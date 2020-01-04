@@ -1,6 +1,7 @@
 export const routes = {
   home: '/',
-  categories: '/categories',
+  category: '/category/:id',
+  feature: '/feature/:id',
   recipe: '/recipe/:id',
   converter: '/converter',
   calculatorBMI: '/calculatorBMI',

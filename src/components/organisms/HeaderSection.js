@@ -22,7 +22,7 @@ const HeaderSection = () => (
                     <p style={{ fontSize: '1.1rem' }} className="mb-4">
                       {item.paragraph}
                     </p>
-                    <NavLink to={routes.categories}>
+                    <NavLink to={routes.calculatorBMI}>
                       <StyledButton>{item.button}</StyledButton>
                     </NavLink>
                   </>

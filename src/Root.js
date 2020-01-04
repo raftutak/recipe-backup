@@ -16,11 +16,12 @@ import MainTemplate from './templates/MainTemplate';
 
 // VIEWS
 import HomeView from './views/HomeView';
-import CategoriesView from './views/CategoriesView';
+import CategoryView from './views/CategoryView';
 import SingleRecipeView from './views/SingleRecipeView';
 import CalculatorView from './views/CalculatorView';
 import ContactView from './views/ContactView';
 import ProfileView from './views/ProfileView';
+import FeatureView from './views/FeatureView';
 
 class Root extends React.Component {
   state = {
@@ -108,23 +109,23 @@ class Root extends React.Component {
     //   .scrollIntoView({ behavior: 'smooth' });
   };
 
-  handleShowCategory = async event => {
-    const cat_id = event ? event.target.value : 1;
+  // handleShowCategory = async event => {
+  //   const cat_id = event ? event.target.value : 1;
 
-    await this.setState({
-      categories_isLoading: true,
-      categories_result: undefined,
-      category_id: cat_id
-    });
+  //   await this.setState({
+  //     categories_isLoading: true,
+  //     categories_result: undefined,
+  //     category_id: cat_id
+  //   });
 
-    const id = this.state.category_id;
-    const url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=12&dishMainCategoryIds=${id}`;
+  //   const id = this.state.category_id;
+  //   const url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=&count=12&dishMainCategoryIds=${id}`;
 
-    const response = await axios(url);
-    const categories_result = await response.data.recipes;
+  //   const response = await axios(url);
+  //   const categories_result = await response.data.recipes;
 
-    this.setState({ categories_result, categories_isLoading: false });
-  };
+  //   this.setState({ categories_result, categories_isLoading: false });
+  // };
 
   // handleShowLoginModal = event => {
   //   this.setState({ showLoginModal: !this.state.showLoginModal });
@@ -140,7 +141,7 @@ class Root extends React.Component {
 
   componentDidMount() {
     this.handleInitialSearch();
-    this.handleShowCategory();
+    // this.handleShowCategory();
   }
 
   render() {
@@ -151,7 +152,7 @@ class Root extends React.Component {
       handleSubCategoryChange: this.handleSubCategoryChange,
       handleDishTypeChange: this.handleDishTypeChange,
       handleSubmitSearch: this.handleSubmitSearch,
-      handleShowCategory: this.handleShowCategory,
+      // handleShowCategory: this.handleShowCategory,
       handleCollapseNavbar: this.handleCollapseNavbar
       // handleShowLoginModal: this.handleShowLoginModal,
       // handleShowRegistrationModal: this.handleShowRegistrationModal
@@ -164,7 +165,14 @@ class Root extends React.Component {
             <Switch>
               <MainTemplate>
                 <Route exact path={routes.home} component={HomeView} />
-                <Route path={routes.categories} component={CategoriesView} />
+                <Route
+                  path={routes.category}
+                  render={props => <CategoryView id={props.match.params.id} />}
+                />
+                <Route
+                  path={routes.feature}
+                  render={props => <FeatureView id={props.match.params.id} />}
+                />
                 <Route
                   path={routes.recipe}
                   render={props => (

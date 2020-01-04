@@ -13,84 +13,82 @@ import { features } from '../../data/features';
 
 // COMPONENTS
 import Userbox from '../molecules/Userbox';
+import AppContext from '../../context';
 
 const NavSection = () => (
-  <>
-    <StyledNavbar collapseOnSelect expand="lg" sticky="top" variant="dark">
-      <Container>
-        <Navbar.Brand exact as={NavLink} to={routes.home} eventKey={1}>
-          recipe-search
-        </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse>
-          <Nav className="mr-auto">
-            <Nav.Link exact as={NavLink} to={routes.home} eventKey={1}>
-              Strona główna
-            </Nav.Link>
-            <NavDropdown title="Kategorie">
-              <NavDropdown.Item as={NavLink} to={routes.categories}>
-                Napoje
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to={routes.categories}>
-                Desery
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to={routes.categories}>
-                Zupy
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to={routes.categories}>
-                Dania
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to={routes.categories}>
-                Dodatki
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to={routes.categories}>
-                Przekąski
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to={routes.categories}>
-                Przetwory
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to={routes.categories}>
-                Pieczywo
-              </NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Posiłki">
-              {features
-                .filter(feature => feature.categoryId === 9)
-                .map(feature => (
-                  <NavDropdown.Item as={NavLink} to={routes.categories}>
-                    {feature.name}
-                  </NavDropdown.Item>
-                ))}
-            </NavDropdown>
-            <NavDropdown title="Kuchnia">
-              {features
-                .filter(feature => feature.categoryId === 3)
-                .map(feature => (
-                  <NavDropdown.Item as={NavLink} to={routes.categories}>
-                    {feature.name}
-                  </NavDropdown.Item>
-                ))}
-            </NavDropdown>
-            <NavDropdown title="Okazje">
-              {features
-                .filter(feature => feature.categoryId === 2)
-                .map(feature => (
-                  <NavDropdown.Item as={NavLink} to={routes.categories}>
-                    {feature.name}
-                  </NavDropdown.Item>
-                ))}
-            </NavDropdown>
-            <Nav.Link as={NavLink} to={routes.calculatorBMI} eventKey={2}>
-              Kalkulator BMI
-            </Nav.Link>
-          </Nav>
-          <Nav>
-            <Userbox />
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </StyledNavbar>
-  </>
+  <AppContext.Consumer>
+    {context => (
+      <>
+        <StyledNavbar collapseOnSelect expand="lg" sticky="top" variant="dark">
+          <Container>
+            <Navbar.Brand exact as={NavLink} to={routes.home} eventKey={1}>
+              recipe-search
+            </Navbar.Brand>
+            <Navbar.Toggle />
+            <Navbar.Collapse>
+              <Nav className="mr-auto">
+                <Nav.Link exact as={NavLink} to={routes.home} eventKey={1}>
+                  Strona główna
+                </Nav.Link>
+                <NavDropdown title="Kategorie">
+                  {categories.map(category => (
+                    <NavDropdown.Item
+                      as={NavLink}
+                      to={{ pathname: `/category/${category.id}` }}
+                    >
+                      {category.name}
+                    </NavDropdown.Item>
+                  ))}
+                </NavDropdown>
+                <NavDropdown title="Posiłki">
+                  {features
+                    .filter(feature => feature.categoryId === 9)
+                    .map(feature => (
+                      <NavDropdown.Item
+                        as={NavLink}
+                        to={{ pathname: `/feature/${feature.id}` }}
+                      >
+                        {feature.name}
+                      </NavDropdown.Item>
+                    ))}
+                </NavDropdown>
+                <NavDropdown title="Kuchnia">
+                  {features
+                    .filter(feature => feature.categoryId === 3)
+                    .map(feature => (
+                      <NavDropdown.Item
+                        as={NavLink}
+                        to={{ pathname: `/feature/${feature.id}` }}
+                      >
+                        {feature.name}
+                      </NavDropdown.Item>
+                    ))}
+                </NavDropdown>
+                <NavDropdown title="Okazja">
+                  {features
+                    .filter(feature => feature.categoryId === 2)
+                    .map(feature => (
+                      <NavDropdown.Item
+                        as={NavLink}
+                        to={{ pathname: `/feature/${feature.id}` }}
+                      >
+                        {feature.name}
+                      </NavDropdown.Item>
+                    ))}
+                </NavDropdown>
+                <Nav.Link as={NavLink} to={routes.calculatorBMI} eventKey={2}>
+                  Kalkulator BMI
+                </Nav.Link>
+              </Nav>
+              <Nav>
+                <Userbox />
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </StyledNavbar>
+      </>
+    )}
+  </AppContext.Consumer>
 );
 
 // STYLED-COMPONENTS

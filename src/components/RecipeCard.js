@@ -284,7 +284,6 @@ const RecipeCard = ({ recipe }) => (
             <ListGroupItem>
               <Link
                 style={{ textDecoration: 'none', color: 'hsl(215, 37%, 19%)' }}
-                onClick={context.handleReadRecipe}
                 to={{
                   pathname: `/recipe/${recipe.id}`
                 }}
