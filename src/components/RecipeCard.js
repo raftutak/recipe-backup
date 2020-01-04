@@ -63,15 +63,31 @@ const RecipeCard = ({ recipe }) => (
     {context => (
       <>
         <StyledCard>
-          <Card.Img
-            src={recipe.image_Url}
-            onError={e => {
-              e.target.onerror = null;
-              e.target.src = `${noimage}`;
+          <Link
+            style={{ textDecoration: 'none', color: 'hsl(215, 37%, 19%)' }}
+            onClick={context.handleReadRecipe}
+            to={{
+              pathname: `/recipe/${recipe.id}`
             }}
-          />
+          >
+            <Card.Img
+              src={recipe.image_Url}
+              onError={e => {
+                e.target.onerror = null;
+                e.target.src = `${noimage}`;
+              }}
+            />
+          </Link>
           <Card.Header>
-            <strong>{recipe.title}</strong>
+            <Link
+              style={{ textDecoration: 'none', color: 'hsl(215, 37%, 19%)' }}
+              onClick={context.handleReadRecipe}
+              to={{
+                pathname: `/recipe/${recipe.id}`
+              }}
+            >
+              <strong>{recipe.title}</strong>
+            </Link>
           </Card.Header>
           <ListGroup variant="flush">
             <ListGroupItem>
@@ -83,8 +99,38 @@ const RecipeCard = ({ recipe }) => (
               <StyledStar icon={faStar} />
             </ListGroupItem>
             <ListGroupItem>
-              <strong>Źródło:</strong> {recipe.blog}
+              <strong>Źródło:</strong>{' '}
+              <a href={recipe.url} target="_blank" rel="noopener noreferrer">
+                {recipe.blog}
+              </a>
             </ListGroupItem>
+            {/* <ListGroupItem>
+              <strong>Kategoria:</strong>{' '}
+              {recipe.dishMainCategoryId !== 0 ? (
+                categories[recipe.dishMainCategoryId - 1].name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak kategorii</strong>
+              )}
+              {' / '}
+              {recipe.dishMainCategoryId !== 0 ? (
+                categories[recipe.dishMainCategoryId - 1].subcategories[
+                  categories[
+                    recipe.dishMainCategoryId - 1
+                  ].subcategories.findIndex(
+                    index => index.id === recipe.dishSubCategoryId
+                  )
+                ].name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak podkategorii</strong>
+              )}
+              {' / '}
+              {recipe.dishId ? (
+                dishes[dishes.findIndex(index => index.id === recipe.dishId)]
+                  .name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak dishId</strong>
+              )}
+            </ListGroupItem> */}
             <ListGroupItem>
               <strong>Kategoria:</strong>{' '}
               {recipe.dishMainCategoryId !== 0 ? (
@@ -105,18 +151,26 @@ const RecipeCard = ({ recipe }) => (
               ) : (
                 <strong style={{ color: 'red' }}>Brak podkategorii</strong>
               )}
+              <br />
+              <strong>Typ dania</strong>:{' '}
+              {recipe.dishId ? (
+                dishes[dishes.findIndex(index => index.id === recipe.dishId)]
+                  .name
+              ) : (
+                <strong style={{ color: 'red' }}>Brak typu dania</strong>
+              )}
             </ListGroupItem>
-            <ListGroupItem>
+            {/* <ListGroupItem>
               <strong>id:</strong> {recipe.id}
-            </ListGroupItem>
-            <ListGroupItem>
+            </ListGroupItem> */}
+            {/* <ListGroupItem>
               <strong>Typ dania</strong>: {recipe.dishId}
               <br />
               {recipe.dishId ? (
                 dishes[dishes.findIndex(index => index.id === recipe.dishId)]
                   .name
               ) : (
-                <strong style={{ color: 'red' }}>Brak dishId</strong>
+                <strong style={{ color: 'red' }}>Brak typu dania</strong>
               )}
             </ListGroupItem>
             <ListGroupItem>
@@ -142,8 +196,8 @@ const RecipeCard = ({ recipe }) => (
               ) : (
                 <strong style={{ color: 'red' }}>Brak podkategorii</strong>
               )}
-            </ListGroupItem>
-            <ListGroupItem>
+            </ListGroupItem> */}
+            {/* <ListGroupItem>
               <strong>ingredientCategoryIds:</strong>{' '}
               {recipe.ingredientCategoryIds.map(
                 (ingredientCategoryID, index) => (
@@ -168,13 +222,26 @@ const RecipeCard = ({ recipe }) => (
                   ,{' '}
                 </span>
               ))}
-            </ListGroupItem>
-            <ListGroupItem>
+            </ListGroupItem> */}
+            {/* <ListGroupItem>
               <strong>Składniki:</strong>{' '}
               {recipe.ingredientIds.map(ingredientID => (
                 <span key={ingredientID}>{ingredientID}, </span>
               ))}
               <br />
+              {recipe.ingredientIds.map(ingredientID => (
+                <span key={ingredientID}>
+                  {
+                    ingredients[
+                      ingredients.findIndex(index => index.id === ingredientID)
+                    ].name
+                  }
+                  ,{' '}
+                </span>
+              ))}
+            </ListGroupItem> */}
+            <ListGroupItem>
+              <strong>Składniki:</strong>{' '}
               {recipe.ingredientIds.map(ingredientID => (
                 <span key={ingredientID}>
                   {
@@ -210,6 +277,7 @@ const RecipeCard = ({ recipe }) => (
                         </>
                       ))
                     : null}
+                  <br />
                 </>
               ))}
             </ListGroupItem>

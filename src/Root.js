@@ -90,20 +90,22 @@ class Root extends React.Component {
     let url = `https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=${query}&count=8`;
     if (this.state.search_mainCategory) {
       url = url.concat(
-        `&dishMainCategoryIds=${this.state.search_mainCategory}`
+        `&dishMainCategoryIds=${this.state.search_mainCategory.id}`
       );
     }
     if (this.state.search_subCategory) {
-      url = url.concat(`&dishSubCategoryIds=${this.state.search_subCategory}`);
+      url = url.concat(
+        `&dishSubCategoryIds=${this.state.search_subCategory.id}`
+      );
     }
     const response = await axios(url);
     const search_result = await response.data.recipes;
 
     this.setState({ search_isLoading: false, search_result });
 
-    document
-      .getElementById('search-form')
-      .scrollIntoView({ behavior: 'smooth' });
+    // document
+    //   .getElementById('search-form')
+    //   .scrollIntoView({ behavior: 'smooth' });
   };
 
   handleShowCategory = async event => {

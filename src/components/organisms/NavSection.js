@@ -8,6 +8,9 @@ import { routes } from '../../routes';
 // BOOTSTRAP
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 
+import { categories } from '../../data/categories';
+import { features } from '../../data/features';
+
 // COMPONENTS
 import Userbox from '../molecules/Userbox';
 
@@ -15,7 +18,9 @@ const NavSection = () => (
   <>
     <StyledNavbar collapseOnSelect expand="lg" sticky="top" variant="dark">
       <Container>
-        <StyledNavbarBrand>recipe-search</StyledNavbarBrand>
+        <Navbar.Brand exact as={NavLink} to={routes.home} eventKey={1}>
+          recipe-search
+        </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mr-auto">
@@ -48,14 +53,35 @@ const NavSection = () => (
                 Pieczywo
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={NavLink} to={routes.converter}>
-              Przelicznik kuchenny
-            </Nav.Link>
+            <NavDropdown title="Posiłki">
+              {features
+                .filter(feature => feature.categoryId === 9)
+                .map(feature => (
+                  <NavDropdown.Item as={NavLink} to={routes.categories}>
+                    {feature.name}
+                  </NavDropdown.Item>
+                ))}
+            </NavDropdown>
+            <NavDropdown title="Kuchnia">
+              {features
+                .filter(feature => feature.categoryId === 3)
+                .map(feature => (
+                  <NavDropdown.Item as={NavLink} to={routes.categories}>
+                    {feature.name}
+                  </NavDropdown.Item>
+                ))}
+            </NavDropdown>
+            <NavDropdown title="Okazje">
+              {features
+                .filter(feature => feature.categoryId === 2)
+                .map(feature => (
+                  <NavDropdown.Item as={NavLink} to={routes.categories}>
+                    {feature.name}
+                  </NavDropdown.Item>
+                ))}
+            </NavDropdown>
             <Nav.Link as={NavLink} to={routes.calculatorBMI} eventKey={2}>
               Kalkulator BMI
-            </Nav.Link>
-            <Nav.Link as={NavLink} to={routes.contact} eventKey={3}>
-              Kontakt
             </Nav.Link>
           </Nav>
           <Nav>
@@ -74,10 +100,16 @@ const StyledNavbar = styled(Navbar)`
   background-color: hsl(215, 37%, 19%);
   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
 
+  .navbar-brand {
+    padding-right: 15px;
+    font-family: 'Pacifico', sans-serif;
+    font-size: 1.8rem;
+  }
+
   .navbar-nav .nav-link {
     padding-right: 0;
     padding-left: 0;
-    margin-right: 15px;
+    margin-right: 20px;
     transition: 0.2s ease-in;
 
     :hover {
@@ -92,12 +124,6 @@ const StyledNavbar = styled(Navbar)`
   .container {
     align-items: flex-end;
   }
-`;
-
-const StyledNavbarBrand = styled(Navbar.Brand)`
-  padding-right: 25px;
-  font-family: 'Pacifico', sans-serif;
-  font-size: 1.8rem;
 `;
 
 export default NavSection;

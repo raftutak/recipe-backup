@@ -81,9 +81,9 @@ const FooterSection = () => (
             </h5>
             <p>
               Witaj na recipe-search! Jest to ogromna baza przepisów zawierająca
-              treści z najlepszych polskich blogów kuStyledListItemnarnych. Od
-              dziś nie musisz przeglądać wielu stron w poszukiwaniu najlepszego
-              lub najprostszego przepisu - wszystko znajdziesz w jednym miejscu,
+              treści z najlepszych polskich blogów kulinarnych. Od dziś nie
+              musisz przeglądać wielu stron w poszukiwaniu najlepszego lub
+              najprostszego przepisu - wszystko znajdziesz w jednym miejscu,
               właśnie tutaj.
             </p>
           </Col>

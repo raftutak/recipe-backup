@@ -111,32 +111,32 @@ export const features = [
   },
   {
     id: 23,
-    name: 'na każdą okazję',
+    name: 'Na każdą okazję',
     categoryId: 2
   },
   {
     id: 24,
-    name: 'kuchnia amerykańska',
+    name: 'Kuchnia amerykańska',
     categoryId: 3
   },
   {
     id: 25,
-    name: 'kuchnia grecka',
+    name: 'Kuchnia grecka',
     categoryId: 3
   },
   {
     id: 26,
-    name: 'kuchnia francuska',
+    name: 'Kuchnia francuska',
     categoryId: 3
   },
   {
     id: 27,
-    name: 'kuchnia indyjska',
+    name: 'Kuchnia indyjska',
     categoryId: 3
   },
   {
     id: 28,
-    name: 'kuchnia japońska',
+    name: 'Kuchnia japońska',
     categoryId: 3
   },
   {
@@ -146,27 +146,27 @@ export const features = [
   },
   {
     id: 30,
-    name: 'kuchnia polska',
+    name: 'Kuchnia polska',
     categoryId: 3
   },
   {
     id: 31,
-    name: 'kuchnia włoska',
+    name: 'Kuchnia włoska',
     categoryId: 3
   },
   {
     id: 32,
-    name: 'kuchnia hiszpańska',
+    name: 'Kuchnia hiszpańska',
     categoryId: 3
   },
   {
     id: 33,
-    name: 'kuchnia meksykańska',
+    name: 'Kuchnia meksykańska',
     categoryId: 3
   },
   {
     id: 34,
-    name: 'inna kuchnia',
+    name: 'Inna kuchnia',
     categoryId: 3
   },
   {
@@ -316,22 +316,22 @@ export const features = [
   },
   {
     id: 64,
-    name: 'śniadanie',
+    name: 'Śniadanie',
     categoryId: 9
   },
   {
     id: 65,
-    name: 'obiad',
+    name: 'Obiad',
     categoryId: 9
   },
   {
     id: 66,
-    name: 'kolacja',
+    name: 'Kolacja',
     categoryId: 9
   },
   {
     id: 67,
-    name: 'przekąska',
+    name: 'Przekąska',
     categoryId: 9
   },
   {

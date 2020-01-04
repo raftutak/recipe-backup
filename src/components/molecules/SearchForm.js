@@ -53,7 +53,7 @@ const SearchForm = () => (
             </Form.Group>
           </Col>
           <Col xs={12} md={4} lg={4}>
-            <Form.Group className="mb-0">
+            <Form.Group>
               <Select
                 options={
                   context.search_mainCategory &&
@@ -69,7 +69,7 @@ const SearchForm = () => (
             </Form.Group>
           </Col>
           <Col xs={12} md={4} lg={4}>
-            <Form.Group className="mb-0">
+            <Form.Group>
               <Select
                 options={
                   context.search_subCategory &&
@@ -89,6 +89,17 @@ const SearchForm = () => (
         </Form.Row>
         <Form.Row>
           <Col xs={12} md={4} lg={4}>
+            <Form.Group className="mb-0">
+              <Select
+                options={features.filter(feature => feature.categoryId === 9)}
+                getOptionLabel={feature => feature.name}
+                getOptionValue={feature => feature.id}
+                placeholder="Rodzaj posiłku"
+                isClearable
+              />
+            </Form.Group>
+          </Col>
+          <Col xs={12} md={8} lg={8}>
             <Form.Group className="mb-0">
               <Select
                 options={features.filter(feature => feature.categoryId === 7)}
