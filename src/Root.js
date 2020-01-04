@@ -35,6 +35,27 @@ class Root extends React.Component {
     });
   };
 
+  handleMainCategoryChange = search_mainCategory => {
+    this.setState({
+      search_mainCategory,
+      search_subCategory: undefined,
+      search_dishType: undefined
+    });
+  };
+
+  handleSubCategoryChange = search_subCategory => {
+    this.setState({
+      search_subCategory,
+      search_dishType: undefined
+    });
+  };
+
+  handleDishTypeChange = search_dishType => {
+    this.setState({
+      search_dishType
+    });
+  };
+
   handleCheckboxChange = event => {
     const checkboxValue =
       event.target.type === 'checkbox' ? event.target.checked : null;
@@ -124,6 +145,9 @@ class Root extends React.Component {
     const contextElements = {
       ...this.state,
       handleInputChange: this.handleInputChange,
+      handleMainCategoryChange: this.handleMainCategoryChange,
+      handleSubCategoryChange: this.handleSubCategoryChange,
+      handleDishTypeChange: this.handleDishTypeChange,
       handleSubmitSearch: this.handleSubmitSearch,
       handleShowCategory: this.handleShowCategory,
       handleCollapseNavbar: this.handleCollapseNavbar

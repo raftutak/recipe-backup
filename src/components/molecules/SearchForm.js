@@ -7,6 +7,13 @@ import { Form, Col, InputGroup, Button } from 'react-bootstrap';
 
 // DATA - ASSETS
 import { categories } from '../../data/categories';
+import { dishes } from '../../data/dishes';
+import { features } from '../../data/features';
+
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+
+const animatedComponents = makeAnimated();
 
 const SearchForm = () => (
   <AppContext.Consumer>
@@ -33,48 +40,65 @@ const SearchForm = () => (
           </Col>
         </Form.Row>
         <Form.Row>
-          <Col xs={12} md={6} lg={6}>
+          <Col xs={12} md={4} lg={4}>
             <Form.Group>
-              <Form.Control
-                name="search_mainCategory"
-                value={context.search_mainCategory}
-                onChange={context.handleInputChange}
-                as="select"
-              >
-                <option value="">Wybierz kategorię główną</option>
-                {categories.map(item => {
-                  return (
-                    <option key={item.id} value={item.id}>
-                      {item.name}
-                    </option>
-                  );
-                })}
-              </Form.Control>
+              <Select
+                options={categories}
+                getOptionLabel={category => category.name}
+                getOptionValue={category => category.id}
+                placeholder="Wybierz kategorię główną"
+                onChange={context.handleMainCategoryChange}
+                isClearable
+              />
             </Form.Group>
           </Col>
-          <Col xs={12} md={6} lg={6}>
+          <Col xs={12} md={4} lg={4}>
             <Form.Group className="mb-0">
-              <Form.Control
-                id="search-form"
-                name="search_subCategory"
-                value={context.search_subCategory}
-                onChange={context.handleInputChange}
-                as="select"
-                disabled={context.search_mainCategory ? false : true}
-              >
-                <option value="">Wybierz podkategorię</option>
-                {context.search_mainCategory
-                  ? categories[
-                      parseInt(context.search_mainCategory) - 1
-                    ].subcategories.map(item => {
-                      return (
-                        <option key={item.id} value={item.id}>
-                          {item.name}
-                        </option>
-                      );
-                    })
-                  : null}
-              </Form.Control>
+              <Select
+                options={
+                  context.search_mainCategory &&
+                  context.search_mainCategory.subcategories
+                }
+                getOptionLabel={subcategory => subcategory.name}
+                getOptionValue={subcategory => subcategory.id}
+                placeholder="Wybierz podkategorię"
+                onChange={context.handleSubCategoryChange}
+                isDisabled={context.search_mainCategory ? false : true}
+                isClearable
+              />
+            </Form.Group>
+          </Col>
+          <Col xs={12} md={4} lg={4}>
+            <Form.Group className="mb-0">
+              <Select
+                options={
+                  context.search_subCategory &&
+                  dishes.filter(
+                    dish => dish.subCategoryId === context.search_subCategory.id
+                  )
+                }
+                getOptionLabel={dish => dish.name}
+                getOptionValue={dish => dish.id}
+                placeholder="Wybierz typ dania"
+                onChange={context.handleDishTypeChange}
+                isDisabled={context.search_subCategory ? false : true}
+                isClearable
+              />
+            </Form.Group>
+          </Col>
+        </Form.Row>
+        <Form.Row>
+          <Col xs={12} md={4} lg={4}>
+            <Form.Group className="mb-0">
+              <Select
+                options={features.filter(feature => feature.categoryId === 7)}
+                getOptionLabel={feature => feature.name}
+                getOptionValue={feature => feature.id}
+                placeholder="Wybierz wykluczenia"
+                components={animatedComponents}
+                isMulti
+                isClearable
+              />
             </Form.Group>
           </Col>
         </Form.Row>
