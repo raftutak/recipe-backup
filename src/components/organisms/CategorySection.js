@@ -14,7 +14,7 @@ class CategorySection extends React.Component {
   };
 
   handleShowCategory = async () => {
-    await this.setState({
+    this.setState({
       category_isLoading: true,
       category_result: undefined
     });
@@ -30,6 +30,13 @@ class CategorySection extends React.Component {
 
   componentDidMount() {
     this.handleShowCategory();
+  }
+
+  componentDidUpdate(prevProps) {
+    debugger;
+    if (this.props.id !== prevProps.id) {
+      this.handleShowCategory();
+    }
   }
 
   render() {

@@ -36,7 +36,7 @@ const SearchForm = () => (
                 onChange={context.handleInputChange}
                 as="input"
                 placeholder="Wpisz szukaną frazę ..."
-                required
+                // required
               />
               <InputGroup.Append>
                 <Button type="submit" variant="secondary">
@@ -106,6 +106,7 @@ const SearchForm = () => (
                 getOptionLabel={feature => feature.name}
                 getOptionValue={feature => feature.id}
                 placeholder="Rodzaj posiłku"
+                onChange={context.handleMealTypeChange}
                 isClearable
               />
             </Form.Group>
@@ -119,6 +120,7 @@ const SearchForm = () => (
                 getOptionValue={feature => feature.id}
                 placeholder="Wybierz wykluczenia"
                 components={animatedComponents}
+                onChange={context.handleExclusionChange}
                 isMulti
                 isClearable
               />

@@ -76,9 +76,9 @@ const NavSection = () => (
                       </NavDropdown.Item>
                     ))}
                 </NavDropdown>
-                <Nav.Link as={NavLink} to={routes.calculatorBMI} eventKey={2}>
+                {/* <Nav.Link as={NavLink} to={routes.calculatorBMI} eventKey={2}>
                   Kalkulator BMI
-                </Nav.Link>
+                </Nav.Link> */}
               </Nav>
               <Nav>
                 <Userbox />
@@ -97,6 +97,11 @@ const StyledNavbar = styled(Navbar)`
   padding-bottom: 15px;
   background-color: hsl(215, 37%, 19%);
   box-shadow: 0 0 10px 0 hsla(0, 0%, 0%, 0.3);
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: hsl(208, 6%, 65%);
+  }
 
   .navbar-brand {
     padding-right: 15px;

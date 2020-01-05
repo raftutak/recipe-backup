@@ -13,10 +13,12 @@ import Recommendations from '../components/Recommendations';
 import FooterSection from '../components/organisms/FooterSection';
 import BlockSection from '../components/organisms/BlockSection';
 import DailyRecipeSection from '../components/organisms/DailyRecipeSection';
+import ScrollToTopButton from '../components/atoms/ScrollToTopButton';
 
 const MainTemplate = ({ children, location }) => (
   <>
     <GlobalStyle />
+    <ScrollToTopButton />
     <NavSection />
     <LoginModal />
     <RegistrationModal />

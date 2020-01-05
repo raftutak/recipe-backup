@@ -32,6 +32,13 @@ class FeatureSection extends React.Component {
     this.handleShowFeature();
   }
 
+  componentDidUpdate(prevProps) {
+    debugger;
+    if (this.props.id !== prevProps.id) {
+      this.handleShowFeature();
+    }
+  }
+
   render() {
     const { id } = this.props;
 

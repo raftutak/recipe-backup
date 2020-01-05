@@ -58,6 +58,18 @@ class Root extends React.Component {
     });
   };
 
+  handleMealTypeChange = search_mealType => {
+    this.setState({
+      search_mealType
+    });
+  };
+
+  handleExclusionChange = search_exclusion => {
+    this.setState({
+      search_exclusion
+    });
+  };
+
   handleCheckboxChange = event => {
     const checkboxValue =
       event.target.type === 'checkbox' ? event.target.checked : null;
@@ -100,6 +112,20 @@ class Root extends React.Component {
         `&dishSubCategoryIds=${this.state.search_subCategory.id}`
       );
     }
+    if (this.state.search_dishType) {
+      url = url.concat(`&dishIds=${this.state.search_dishType.id}`);
+    }
+    if (this.state.search_mealType) {
+      url = url.concat(`&featureIds=${this.state.search_mealType.id}`);
+    }
+    if (this.state.search_exclusion) {
+      this.state.search_exclusion.map(
+        exclusion => (url = url.concat(`&featureIds=${exclusion.id}`))
+      );
+    }
+
+    console.log(url);
+
     const response = await axios(url);
     const search_result = await response.data.recipes;
 
@@ -199,6 +225,8 @@ class Root extends React.Component {
       handleMainCategoryChange: this.handleMainCategoryChange,
       handleSubCategoryChange: this.handleSubCategoryChange,
       handleDishTypeChange: this.handleDishTypeChange,
+      handleMealTypeChange: this.handleMealTypeChange,
+      handleExclusionChange: this.handleExclusionChange,
       handleSubmitSearch: this.handleSubmitSearch,
       handleTagClick: this.handleTagClick,
       handleCollapseNavbar: this.handleCollapseNavbar

@@ -17,7 +17,7 @@ const DailyRecipeSection = () => {
   return (
     <AppContext.Consumer>
       {context =>
-        context.dailyRecipe_result ? (
+        context.dailyRecipe_result && context.randomRecipe_result ? (
           !context.search_isLoading ? (
             <>
               <StyledSearchContainer fluid>
@@ -68,49 +68,51 @@ const DailyRecipeSection = () => {
                           </Col>
                         </Row>
                       </Col>
-                      <Col xs={12} md={6} lg={6}>
-                        <h5 className="mb-4">
-                          <strong>Szczęśliwy traf</strong>
-                        </h5>
-                        <Row>
-                          <Col xs={12} md={6} lg={6}>
-                            <StyledImageBackground
-                              background={
-                                context.randomRecipe_result.image_Url !==
-                                undefined
-                                  ? context.randomRecipe_result.image_Url
-                                  : noimage
-                              }
-                            />
-                          </Col>
-                          <Col xs={12} md={6} lg={6}>
-                            <ListGroup style={{ minHeight: '196px' }}>
-                              <ListGroup.Item>
-                                <strong>
-                                  {context.randomRecipe_result.title}
-                                </strong>
-                              </ListGroup.Item>
-                              <ListGroup.Item>
-                                <strong>Źródło: </strong>
-                                {context.randomRecipe_result.blog}
-                              </ListGroup.Item>
-                              <ListGroup.Item>
-                                <Link
-                                  style={{
-                                    textDecoration: 'none',
-                                    color: 'hsl(215, 37%, 19%)'
-                                  }}
-                                  to={{
-                                    pathname: `/recipe/${context.randomRecipe_result.id}`
-                                  }}
-                                >
-                                  <strong>Przejdź do przepisu</strong>
-                                </Link>
-                              </ListGroup.Item>
-                            </ListGroup>
-                          </Col>
-                        </Row>
-                      </Col>
+                      {context.dailyRecipe_result && (
+                        <Col xs={12} md={6} lg={6}>
+                          <h5 className="mb-4">
+                            <strong>Szczęśliwy traf</strong>
+                          </h5>
+                          <Row>
+                            <Col xs={12} md={6} lg={6}>
+                              <StyledImageBackground
+                                background={
+                                  context.randomRecipe_result.image_Url !==
+                                  undefined
+                                    ? context.randomRecipe_result.image_Url
+                                    : noimage
+                                }
+                              />
+                            </Col>
+                            <Col xs={12} md={6} lg={6}>
+                              <ListGroup style={{ minHeight: '196px' }}>
+                                <ListGroup.Item>
+                                  <strong>
+                                    {context.randomRecipe_result.title}
+                                  </strong>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                  <strong>Źródło: </strong>
+                                  {context.randomRecipe_result.blog}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                  <Link
+                                    style={{
+                                      textDecoration: 'none',
+                                      color: 'hsl(215, 37%, 19%)'
+                                    }}
+                                    to={{
+                                      pathname: `/recipe/${context.randomRecipe_result.id}`
+                                    }}
+                                  >
+                                    <strong>Przejdź do przepisu</strong>
+                                  </Link>
+                                </ListGroup.Item>
+                              </ListGroup>
+                            </Col>
+                          </Row>
+                        </Col>
+                      )}
                     </Row>
                   </Container>
                 </StyledInnerContainer>

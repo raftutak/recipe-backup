@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Calculator from '../components/molecules/Calculator';
+import CalculatorSection from '../components/organisms/CalculatorSection';
 
 class CalculatorView extends React.Component {
   render() {
     return (
       <>
-        <Calculator />
+        <CalculatorSection />
       </>
     );
   }
