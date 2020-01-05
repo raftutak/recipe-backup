@@ -12,10 +12,15 @@ const ScrollToTopButton = () => (
 );
 
 const StyledButton = styled(Button)`
-  cursor: pointer;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  display: none;
+
+  @media (min-width: 992px) {
+    display: inline-block;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
 `;
 
 export default ScrollToTopButton;
